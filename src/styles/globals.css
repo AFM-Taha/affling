@@ -32,3 +32,6 @@ body {
 .privacy-bg{
   background-image: url('/privacy.png');
 }
+.condition-bg{
+  background-image: url('/condition.png');
+}
