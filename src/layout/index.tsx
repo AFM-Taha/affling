@@ -1,4 +1,5 @@
 import Footer from '@/components/common/Footer';
+import Navbar from '@/components/common/Navbar';
 import { ReactNode } from 'react';
 
 interface Props {
@@ -8,7 +9,7 @@ interface Props {
 export default function Layout({ children }: Props) {
   return (
     <div className="bg-[#ffffff]">
-      <div className="">Navbar</div>
+      <Navbar />
       {children}
       <Footer />
     </div>
