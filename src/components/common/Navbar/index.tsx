@@ -5,7 +5,7 @@ import MenuBar from './MenuBar';
 export default function NavBar() {
   return (
     <nav className="h-[186px]">
-      <div className="my-3 flex items-center justify-between">
+      <div className="my-3 flex items-center justify-between pl-[87px]">
         <Image
           width={156}
           height={131}
@@ -15,7 +15,7 @@ export default function NavBar() {
         <div className="w-full max-w-4xl">
           <SearchBar />
         </div>
-        <button className="h-[63.27px] rounded-[20px] bg-gradient-to-r from-[#217CD9] via-[#218fd9e8] to-[#21C1D9] px-[35px] py-[10px] text-center text-[26px] font-bold text-white">
+        <button className="h-[63.27px] mr-[50px] rounded-[20px] bg-gradient-to-r from-[#217CD9] via-[#218fd9e8] to-[#21C1D9] px-[35px] py-[10px] text-center text-[26px] font-bold text-white">
           Sign Up
         </button>
       </div>
