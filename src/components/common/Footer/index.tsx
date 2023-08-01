@@ -1,14 +1,18 @@
+import Link from 'next/link';
 import { FooterLink } from '../typography/Links';
+import Image from 'next/image';
 
 const Footer = () => {
   return (
-    <footer className="bg-[#091627]  text-white">
-      <div className="items-end justify-around gap-5  md:flex ">
-        <div>
+    <footer className="  bg-[#091627] text-white">
+      <div
+        className="h-[332px] items-end justify-around px-[50px]
+ py-[55px] leading-8  md:flex ">
+        <div className="w-[353px]">
           The TOP IT LTD has the same motives to make a skilled generation of
           information and technology in Bangladesh and worldwide.
         </div>
-        <div>
+        <div className="leading-10">
           <FooterLink link={'/'}>Quick Links</FooterLink>
           <FooterLink link={'/'}>Home</FooterLink>
           <FooterLink link={'/'}>Offer</FooterLink>
@@ -31,9 +35,9 @@ const Footer = () => {
           <FooterLink link={'/'}>Marketing Tools</FooterLink>
           <FooterLink link={'/'}>Terms & Condition</FooterLink>
         </div>
-        <div>
+        <div className="gap-15 flex flex-col">
           <FooterLink link={'/'}>Contact Us</FooterLink>
-          <div className="flex">
+          <div className="flex mt-[20px] mb-[20px]">
             <input
               className="w-[189px] rounded-l-3xl pl-5 text-base text-gray-600"
               placeholder="Enter Your Email..."
@@ -45,8 +49,27 @@ via-blue-400 to-cyan-500 text-lg leading-7">
               Subscribed
             </button>
           </div>
-          <FooterLink link={'/'}>FAQ</FooterLink>
-          <div>icons</div>
+          <FooterLink link={'/'}>GET CONNECTED</FooterLink>
+          <div className="mt-4  flex  items-center gap-4">
+            <Link href={'/'}>
+              <Image height={32} width={32} src={'/f-f.svg'} alt=""></Image>
+            </Link>
+            <Link href={'/'}>
+              <Image height={32} width={32} src={'/f-t.svg'} alt=""></Image>
+            </Link>
+            <Link href={'/'}>
+              <Image height={32} width={32} src={'/f-l.svg'} alt=""></Image>
+            </Link>
+            <Link href={'/'}>
+              <Image height={32} width={32} src={'/f-ta.svg'} alt=""></Image>
+            </Link>
+            <Link href={'/'}>
+              <Image height={32} width={32} src={'/f-y.svg'} alt=""></Image>
+            </Link>
+            <Link href={'/'}>
+              <Image height={32} width={32} src={'/f-s.svg'} alt=""></Image>
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

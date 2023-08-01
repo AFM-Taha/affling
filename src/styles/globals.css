@@ -2,10 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+html{
+  background-color: aliceblue;
+}
+
+
 body {
   max-width: 1600px;
   margin: auto;
   font-family: Inter;
+  background-color: #ffffff;
 }
 
 .para {
@@ -21,4 +27,8 @@ body {
   font-weight: 700;
   line-height: 42.068px;
   color: #4e93d3;
+}
+
+.privacy-bg{
+  background-image: url('/privacy.png');
 }
