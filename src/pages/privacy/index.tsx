@@ -1,14 +1,18 @@
 import privacy from '@/assets/static-data/privacy';
+import SimpleBanner from '@/components/common/SimpleBanner';
 import BlueTitle from '@/components/common/typography/BlueTitle';
 import { Para20, Para50 } from '@/components/common/typography/Para';
 
 export default function Privacy() {
   return (
     <div className="">
+      {/*________________________________________________________________________________________
+                                           Simple Banner
+      ________________________________________________________________________________________ */}
+      <SimpleBanner img="privacy-bg">Privacy Policy</SimpleBanner>
+
       {/*____________________________________________________________________________________________
-                                              Simple Banner
-      ____________________________________________________________________________________________ */}
-      <div>simple Banner</div>
+                                    Information Collection and Use      ____________________________________________________________________________________________ */}
       <div className="ml-36 max-w-[1240px]">
         <article>
           <Para20 className={'mb-5'}>{privacy.section1st[1]}</Para20>

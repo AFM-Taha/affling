@@ -4,7 +4,7 @@ import MenuBar from './MenuBar';
 
 export default function NavBar() {
   return (
-    <nav className="h-[186px]">
+    <nav className="h-[183px]">
       <div className="my-3 flex items-center justify-between pl-[87px]">
         <Image
           width={156}

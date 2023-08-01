@@ -28,3 +28,7 @@ body {
   line-height: 42.068px;
   color: #4e93d3;
 }
+
+.privacy-bg{
+  background-image: url('/privacy.png');
+}
