@@ -5,7 +5,7 @@ import MenuBar from './MenuBar';
 export default function NavBar() {
   return (
     <nav className="h-[186px]">
-      <div className="flex items-center justify-between">
+      <div className="my-3 flex items-center justify-between">
         <Image
           width={156}
           height={131}
@@ -19,7 +19,7 @@ export default function NavBar() {
           Sign Up
         </button>
       </div>
-      <div>
+      <div className="w-full bg-gradient-to-r from-[#217CD9] via-[#218fd9e8] to-[#21C1D9] py-2 font-bold text-white">
         <MenuBar />
       </div>
     </nav>
