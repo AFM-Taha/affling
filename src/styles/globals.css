@@ -7,6 +7,7 @@
   src: url(/Axiforma-SemiBold.woff2);
   font-weight: 600;
 }
+
 @font-face {
   font-family: Axiforma;
   src: url(/Axiforma-Bold.woff2);
@@ -21,6 +22,7 @@ body {
   max-width: 1600px;
   margin: auto;
   font-family: Inter;
+  background-color: #ffffff;
 }
 
 .para {
@@ -36,4 +38,8 @@ body {
   font-weight: 700;
   line-height: 42.068px;
   color: #4e93d3;
+}
+
+.privacy-bg{
+  background-image: url('/privacy.png');
 }
