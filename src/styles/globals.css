@@ -40,6 +40,10 @@ body {
   color: #4e93d3;
 }
 
-.privacy-bg{
+.privacy-bg {
   background-image: url('/privacy.png');
+}
+
+.faq-bg {
+  background-image: url('/faq.png');
 }
