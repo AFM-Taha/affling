@@ -81,6 +81,74 @@ export default function Condition() {
 
           <Para50 className="ml-16">{condition.section6[1]}</Para50>
         </article>
+
+        {/* ______________________________Section 7___________________________ */}
+        <article>
+          <BlueTitleNum num={7}>
+            Compliance With Governing Law And Dispute Resolution
+          </BlueTitleNum>
+
+          <Para20 className="ml-16">{condition.section7[1]}</Para20>
+          <Para20 className="ml-16">{condition.section7[2]}</Para20>
+          <Para50 className="ml-16">{condition.section7[3]}</Para50>
+        </article>
+
+        {/* ______________________________Section 8___________________________ */}
+        <article>
+          <BlueTitleNum num={8}>External Links Policy </BlueTitleNum>
+
+          <Para20 className="ml-16">{condition.section8[1]}</Para20>
+          <Para20 className="ml-16">{condition.section8[2]}</Para20>
+          <Para20 className="ml-16">{condition.section8[3]}</Para20>
+          <Para50 className="ml-16">{condition.section8[4]}</Para50>
+        </article>
+
+        {/* ______________________________Section 9___________________________ */}
+        <article>
+          <BlueTitleNum num={9}>
+            Testimonials, Case Studies, and Examples{' '}
+          </BlueTitleNum>
+
+          <Para20 className="ml-16">{condition.section9[1]}</Para20>
+          <Para20 className="ml-16">{condition.section9[2]}</Para20>
+          <Para20 className="ml-16">{condition.section9[3]}</Para20>
+          <Para50 className="ml-16">{condition.section9[4]}</Para50>
+        </article>
+
+        {/* ______________________________Section 10___________________________ */}
+        <article>
+          <BlueTitleNum num={10}>Protecting Your Account</BlueTitleNum>
+
+          <Para20 className="ml-16">{condition.section10[1]}</Para20>
+        </article>
+
+        {/* ______________________________Section 11___________________________ */}
+        <article>
+          <BlueTitleNum num={11}>How To Contact Us</BlueTitleNum>
+
+          <Para20 className="ml-16">{condition.section11[1]}</Para20>
+          <Para20 className="ml-16">{condition.section11[2]}</Para20>
+          <div className="mb-5 ml-16">
+            Zulma Corporation Limited <br />
+            Kleios, 40 <br />
+            Kolossi <br />
+            4632, Limassol <br />
+            Cypru
+          </div>
+          <Para50 className="ml-16">{condition.section11[4]}</Para50>
+        </article>
+
+        {/* ______________________________Section 12___________________________ */}
+        <article>
+          <BlueTitleNum num={12}>
+            Digital Millennium Copyright Act (&quot;DMCA&quot;) Notice
+          </BlueTitleNum>
+
+          <Para20 className="ml-16">{condition.section12[1]}</Para20>
+          <Para20 className="ml-16">{condition.section12[2]}</Para20>
+          <Para20 className="ml-16">{condition.section12[3]}</Para20>
+          <Para50 className="ml-16">{condition.section12[4]}</Para50>
+        </article>
       </div>
     </div>
   );
