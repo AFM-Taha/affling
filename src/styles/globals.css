@@ -2,10 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-html{
-  background-color: aliceblue;
+@font-face {
+  font-family: Axiforma;
+  src: url(/Axiforma-SemiBold.woff2);
+  font-weight: 600;
 }
 
+@font-face {
+  font-family: Axiforma;
+  src: url(/Axiforma-Bold.woff2);
+  font-weight: 700;
+}
+
+html {
+  background-color: aliceblue;
+}
 
 body {
   max-width: 1600px;
@@ -29,9 +40,13 @@ body {
   color: #4e93d3;
 }
 
-.privacy-bg{
+.privacy-bg {
   background-image: url('/privacy.png');
 }
 .condition-bg{
   background-image: url('/condition.png');
+}
+
+.faq-bg {
+  background-image: url('/faq.png');
 }

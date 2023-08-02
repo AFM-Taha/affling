@@ -29,7 +29,7 @@ const Footer = () => {
         </div>
         <div>
           <FooterLink link={'/'}>News Feed</FooterLink>
-          <FooterLink link={'/'}>FAQ</FooterLink>
+          <FooterLink link={'/faq'}>FAQ</FooterLink>
           <FooterLink link={'/'}>Tag</FooterLink>
           <FooterLink link={'/'}>Tracking Software</FooterLink>
           <FooterLink link={'/'}>Marketing Tools</FooterLink>
