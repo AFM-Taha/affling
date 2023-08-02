@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { FooterLink } from '../typography/Links';
+import { FooterLink } from '../typography/links';
 import Image from 'next/image';
 
 const Footer = () => {
