@@ -1,7 +1,7 @@
 import privacy from '@/assets/static-data/privacy';
 import SimpleBanner from '@/components/common/SimpleBanner';
-import BlueTitle from '@/components/common/typography/BlueTitle';
-import { Para20, Para50 } from '@/components/common/typography/Para';
+import { Para20, Para50 } from '@/components/common/typography/para';
+import { BlueTitle } from '@/components/common/typography/titles';
 
 export default function Privacy() {
   return (

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { FooterLink } from '../typography/Links';
+import { FooterLink } from '../typography/links';
 import Image from 'next/image';
 
 const Footer = () => {
@@ -17,7 +17,7 @@ const Footer = () => {
           <FooterLink link={'/'}>Home</FooterLink>
           <FooterLink link={'/'}>Offer</FooterLink>
           <FooterLink link={'/'}>Review</FooterLink>
-          <FooterLink link={'/'}>Privacy Policy</FooterLink>
+          <FooterLink link={'/privacy'}>Privacy Policy</FooterLink>
         </div>
         <div>
           <FooterLink link={'/'}>Affiliate Network</FooterLink>
@@ -29,15 +29,15 @@ const Footer = () => {
         </div>
         <div>
           <FooterLink link={'/'}>News Feed</FooterLink>
-          <FooterLink link={'/'}>FAQ</FooterLink>
+          <FooterLink link={'/faq'}>FAQ</FooterLink>
           <FooterLink link={'/'}>Tag</FooterLink>
           <FooterLink link={'/'}>Tracking Software</FooterLink>
           <FooterLink link={'/'}>Marketing Tools</FooterLink>
-          <FooterLink link={'/'}>Terms & Condition</FooterLink>
+          <FooterLink link={'/condition'}>Terms & Condition</FooterLink>
         </div>
         <div className="gap-15 flex flex-col">
           <FooterLink link={'/'}>Contact Us</FooterLink>
-          <div className="flex mt-[20px] mb-[20px]">
+          <div className="mb-[20px] mt-[20px] flex">
             <input
               className="w-[189px] rounded-l-3xl pl-5 text-base text-gray-600"
               placeholder="Enter Your Email..."
