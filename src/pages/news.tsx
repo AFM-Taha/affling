@@ -1,7 +1,7 @@
 import NewsCard from '@/components/common/BlogNews/NewsCard';
 import NewsCategories from '@/components/common/BlogNews/NewsCategories';
 import NewsSearch from '@/components/common/BlogNews/NewsSearch';
-import RecentPost from '@/components/common/BlogNews/RecentPost';
+import RecentPosts from '@/components/common/BlogNews/RecentPosts';
 
 export default function News() {
   return (
@@ -18,7 +18,7 @@ export default function News() {
         </div>
         <div>
           <NewsSearch />
-          <RecentPost />
+          <RecentPosts />
           <NewsCategories />
         </div>
       </div>
