@@ -16,7 +16,7 @@ export default function News() {
           <NewsCard />
           <NewsCard />
         </div>
-        <div>
+        <div className="flex flex-col gap-12">
           <NewsSearch />
           <RecentPosts />
           <NewsCategories />
