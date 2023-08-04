@@ -1,6 +1,6 @@
 export default function NewsSearch() {
   return (
-    <div className="mb-12 rounded-3xl bg-[#EFF5FF] p-4">
+    <div className="rounded-3xl bg-[#EFF5FF] p-4">
       <div className="px-8 py-10">
         <label htmlFor="search" className="text-2xl font-bold text-[#313131]">
           Search
