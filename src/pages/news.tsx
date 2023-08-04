@@ -10,7 +10,7 @@ export default function News() {
         <h2 className="mb-6 mt-12 text-3xl">OUR BLOG NEWS</h2>
         <h3 className="text-3xl">We are trying to help people by our blog.</h3>
       </div>
-      <div className="lg:flex">
+      <div className="gap-6 lg:flex">
         <div>
           <NewsCard />
           <NewsCard />
