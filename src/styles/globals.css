@@ -14,6 +14,12 @@
   font-weight: 700;
 }
 
+@font-face {
+  font-family: Gordita;
+  src: url(/Gordita-Medium.woff2);
+  font-weight: 500;
+}
+
 html {
   /* background-color: aliceblue; */
 }
