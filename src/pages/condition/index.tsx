@@ -1,8 +1,8 @@
 import condition from '@/assets/static-data/condition';
-import privacy from '@/assets/static-data/privacy';
+// import privacy from '@/assets/static-data/privacy';
 import SimpleBanner from '@/components/common/SimpleBanner';
 import { Para20, Para50, ParaDiv } from '@/components/common/typography/para';
-import { BlueTitle, BlueTitleNum } from '@/components/common/typography/titles';
+import { BlueTitleNum } from '@/components/common/typography/titles';
 
 export default function Condition() {
   return (

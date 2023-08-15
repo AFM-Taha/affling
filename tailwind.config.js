@@ -33,6 +33,7 @@ module.exports = {
     },
     fontFamily: {
       axiforma: ['Axiforma', 'sans-serif'],
+      gordita: ['Gordita', 'sans-serif'],
     },
   },
   plugins: [require('tailwindcss-animate')],

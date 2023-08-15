@@ -1,17 +1,15 @@
-import Footer from '@/components/common/Footer';
-import Navbar from '@/components/common/Navbar';
+import { useRouter } from 'next/router';
 import { ReactNode } from 'react';
+import AdminLayout from './AdminLayout';
+import UserLayout from './UserLayout';
 
 interface Props {
   children: ReactNode;
 }
 
 export default function Layout({ children }: Props) {
-  return (
-    <div className="bg-[#ffffff]">
-      <Navbar />
-      {children}
-      <Footer />
-    </div>
-  );
+  const path = useRouter().pathname;
+
+  if (path.includes('admin')) return <AdminLayout>{children}</AdminLayout>;
+  return <UserLayout>{children}</UserLayout>;
 }
