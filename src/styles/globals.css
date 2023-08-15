@@ -16,6 +16,12 @@
 
 @font-face {
   font-family: Gordita;
+  src: url(/Gordita-Regular.woff2);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Gordita;
   src: url(/Gordita-Medium.woff2);
   font-weight: 500;
 }
@@ -28,7 +34,7 @@ body {
   max-width: 1600px;
   margin: auto;
   font-family: Inter;
-  background-color: #ffffff;
+  background-color: #f7f7f7;
 }
 
 .para {
