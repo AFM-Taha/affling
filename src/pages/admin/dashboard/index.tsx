@@ -32,7 +32,7 @@ export default function Dashboard() {
       </div>
 
       {/* ----- Small Cards ----- */}
-      <div>
+      <div className="mt-6 grid grid-cols-4 gap-6">
         <DashboardSmallCard
           title={'Affiliate Network'}
           quantity={'12'}
