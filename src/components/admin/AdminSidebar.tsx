@@ -5,7 +5,7 @@ import { MdOutlineHelpOutline } from 'react-icons/md';
 
 export default function AdminSidebar() {
   return (
-    <aside className="relative h-screen w-[285px] bg-[#2A3447] pt-14 text-white">
+    <aside className="relative h-screen w-[285px] border-x border-x-[#3f4e69] bg-[#2A3447] pt-14 text-white">
       <div className="mb-9 flex items-center justify-start gap-3 border-l-[5px] border-[#1AA5CF] bg-[#1aa5cf26] py-4 pl-4 text-xl text-[#1AA5CF]">
         <Image
           style={{ width: 'auto' }}
