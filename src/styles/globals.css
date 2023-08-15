@@ -26,15 +26,10 @@
   font-weight: 500;
 }
 
-html {
-  /* background-color: aliceblue; */
-}
-
 body {
   max-width: 1600px;
   margin: auto;
   font-family: Inter;
-  background-color: #f7f7f7;
 }
 
 .para {
