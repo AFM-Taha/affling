@@ -37,31 +37,31 @@ export default function Dashboard() {
       {/* ----- Small Cards ----- */}
       <div className="mt-6 grid grid-cols-4 gap-6">
         <DashboardSmallCard
-          bg={'#f5bc00'}
+          bg={'bg-[#f5bc00]'}
           title={'Affiliate Network'}
           quantity={'12'}
           icon={<NetworkIcon />}
         />
         <DashboardSmallCard
-          bg={'#3dd6b2'}
+          bg={'bg-[#3dd6b2]'}
           title={'Affiliate Program'}
           quantity={'20'}
           icon={<LinkCircleFill />}
         />
         <DashboardSmallCard
-          bg={'#ddbaff'}
+          bg={'bg-[#ddbaff]'}
           title={'Advertising Network'}
           quantity={'25'}
           icon={<MicFillCircle />}
         />
         <DashboardSmallCard
-          bg={'#f55376'}
+          bg={'bg-[#f55376]'}
           title={'Tracking Software'}
           quantity={'30'}
           icon={<RoboticHand />}
         />
         <DashboardSmallCard
-          bg={'#3dd9eb'}
+          bg={'bg-[#3dd9eb]'}
           title={'Marketing Spy Tools'}
           quantity={'35'}
           icon={<Mic />}

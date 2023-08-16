@@ -12,11 +12,10 @@ export default function DashboardSmallCard({
   quantity,
   bg,
 }: Props) {
-  if (bg) console.log(bg);
   return (
     <div
       // style={{ backgroundColor: bg }}
-      className={`h-[176px] w-[299px] rounded-3xl bg-[${bg}] bg-opacity-10 p-4 text-white`}>
+      className={`h-[176px] w-[299px] rounded-3xl ${bg} bg-opacity-10 p-4 text-white`}>
       {/* --- Icon --- */}
       <div>
         <span className="inline-block rounded p-3">{icon}</span>
