@@ -12,6 +12,7 @@ export default function Dashboard() {
       <div>
         <div className="mb-6">
           <DashboardCard
+            progress={30}
             title={'Total Balance'}
             quantity={'$245,000'}
             time={'30 days '}
@@ -19,11 +20,13 @@ export default function Dashboard() {
         </div>
         <div className="flex flex-col gap-6 lg:flex-row">
           <DashboardCard
+            progress={74}
             title={'Total Premium Customer'}
             quantity={'300+'}
             time={'30 days'}
           />
           <DashboardCard
+            progress={58}
             title={'Sponsor Customer'}
             quantity={'300+'}
             time={'30 days'}
@@ -34,26 +37,31 @@ export default function Dashboard() {
       {/* ----- Small Cards ----- */}
       <div className="mt-6 grid grid-cols-4 gap-6">
         <DashboardSmallCard
+          bg={'bg-[#f5bc00]'}
           title={'Affiliate Network'}
           quantity={'12'}
           icon={<NetworkIcon />}
         />
         <DashboardSmallCard
+          bg={'bg-[#3dd6b2]'}
           title={'Affiliate Program'}
           quantity={'20'}
           icon={<LinkCircleFill />}
         />
         <DashboardSmallCard
+          bg={'bg-[#ddbaff]'}
           title={'Advertising Network'}
           quantity={'25'}
           icon={<MicFillCircle />}
         />
         <DashboardSmallCard
+          bg={'bg-[#f55376]'}
           title={'Tracking Software'}
           quantity={'30'}
           icon={<RoboticHand />}
         />
         <DashboardSmallCard
+          bg={'bg-[#3dd9eb]'}
           title={'Marketing Spy Tools'}
           quantity={'35'}
           icon={<Mic />}
