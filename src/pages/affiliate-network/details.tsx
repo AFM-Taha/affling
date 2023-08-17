@@ -51,7 +51,7 @@ export default function Details() {
           </div>
         </div>
       </div>
-      {/* --- Description container --- */}
+      {/* --- Description and rating container --- */}
       <div className="my-12 flex flex-col lg:flex-row">
         <p className="max-w-[872px] leading-[25.8px]">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
@@ -73,18 +73,19 @@ export default function Details() {
           scelerisque sed nunc.
         </p>
 
-        {/* ---- Big rating star container --- */}
-        <BigRatingStar />
+        {/* ---- Big rating star Rating Distribution container --- */}
+        <div>
+          <BigRatingStar />
+          <RatingDistribution />
+        </div>
       </div>
-      <div>
-        <div className="flex flex-col lg:flex-row">
+      <div className="-mt-32">
+        <div className="">
           {/* ---Table --- */}
           <div className="max-w-[872px]">
             <h5 className="text-lg font-bold">Affiliate Network Information</h5>
             <Table />
           </div>
-          {/* --- Rating Distribution ---  */}
-          <RatingDistribution />
         </div>
         {/* --- All Reviews --- */}
         <div>
@@ -120,7 +121,7 @@ export default function Details() {
                 ligula non.
               </p>
               {/* --- Review screenshots --- */}
-              <div className="relative mb-7 mt-5 h-[154px] w-[311px]">
+              <div className="relative mb-7 mt-5 h-[154px] w-[311px] shadow-lg">
                 <Image
                   src="/review-ss.png"
                   alt="review-ss.png"
@@ -223,7 +224,7 @@ export default function Details() {
                 ligula non.
               </p>
               {/* --- Review screenshots --- */}
-              <div className="relative mb-7 mt-5 h-[154px] w-[311px]">
+              <div className="relative mb-7 mt-5 h-[154px] w-[311px] shadow-lg">
                 <Image
                   src="/review-ss.png"
                   alt="review-ss.png"
