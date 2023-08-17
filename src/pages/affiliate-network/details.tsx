@@ -1,21 +1,14 @@
+import CoverPhoto from '@/components/common/Cover/CoverPhoto';
+import BigRatingStar from '@/components/common/Rating/BigRatingStar';
+import Table from '@/components/common/Table/Table';
+import { Progress } from '@/components/ui/progress';
 import Image from 'next/image';
-import { AiOutlineSkype } from 'react-icons/ai';
-import { HiMail } from 'react-icons/hi';
-import { RiSkypeFill, RiTelegramFill } from 'react-icons/ri';
 
 export default function Details() {
   return (
     <div className="relative mx-auto max-w-[1320px]">
       {/* --- Cover photo --- */}
-      <div className="relative mx-auto mt-5 h-[250px] w-[500] lg:h-[250px] lg:w-[1320px]">
-        <Image
-          className="lg:rounded-3xl"
-          objectFit="cover"
-          layout="fill"
-          src={'/affiliate-network-details-banner.png'}
-          alt={'affiliate-network-details-banner.png'}
-        />
-      </div>
+      <CoverPhoto />
       {/* --- Profile picture and name container --- */}
       <div className="relative -top-8 z-50 mx-auto  flex flex-col items-center lg:ml-44 lg:flex-row">
         {/* --- Profile picture --- */}
@@ -71,85 +64,59 @@ export default function Details() {
         </p>
 
         {/* ---- Big rating star container --- */}
-        <div className="relative -top-12 rounded-full lg:h-[323px] lg:w-[323px]">
-          <Image
-            src={'/big-rating-star-container.png'}
-            alt="big-rating-star-container."
-            width={323}
-            height={323}
-          />
-          <p className="absolute left-[122px] top-[190px] text-5xl font-bold text-[#E7B228]">
-            4.9
-          </p>
-        </div>
+        <BigRatingStar />
       </div>
       <div>
-        {/* ---Table --- */}
-        <div className="max-w-[872px]">
-          <h5 className="text-lg font-bold">Affiliate Network Information</h5>
-          <table className="w-full">
-            <tbody>
-              <tr className="border-b-[20px] border-white bg-[#e4e4e4]">
-                <td>Tag</td>
-                <td>
-                  Gaming, Nature, Entertanment, Dating, Sweeptakes, E-commerce
-                </td>
-              </tr>
-              <tr className="border-b-[20px] border-white bg-[#e4e4e4]">
-                <td>Payment Option</td>
-                <td>$100/$500</td>
-              </tr>
-              <tr className="border-b-[20px] border-white bg-[#e4e4e4]">
-                <td>Offers</td>
-                <td>1000+</td>
-              </tr>
-              <tr className="border-b-[20px] border-white bg-[#e4e4e4]">
-                <td>Payment Cycle</td>
-                <td> Daily, Weekly, Bi-Weekly, Net-15, Net-30 </td>
-              </tr>
-              <tr className="border-b-[20px] border-white bg-[#e4e4e4]">
-                <td>Payment Method</td>
-                <td> Paypal, Payoneer, Bitcoin, WebMoney Bank Wire </td>
-              </tr>
-              <tr className="border-b-[20px] border-white bg-[#e4e4e4]">
-                <td>Commission System</td>
-                <td>CPA,CPL,CPI,CPS,ResShare,SmartLink,more</td>
-              </tr>
-              <tr className="border-b-[20px] border-white bg-[#e4e4e4]">
-                <td>Referral Commission</td>
-                <td>5%,2%,10%</td>
-              </tr>
-              <tr className="border-b-[20px] border-white bg-[#e4e4e4]">
-                <td>Affiliate Tracking Software</td>
-                <td>Affigate ,HasOffer, OfferLook, Tune,Everflow, OfferIT</td>
-              </tr>
-              <tr className="border-b-[20px] border-white bg-[#e4e4e4]">
-                <td>Affiliate Tracking Link</td>
-                <td>https://track.topclientoffer.com/click </td>
-              </tr>
-              <tr className="border-b-[20px] border-white bg-[#e4e4e4]">
-                <td>Affiliate Support Managers</td>
-                <td className="row-span-2">
-                  <div className="flex gap-4">
-                    Olha TopClientOffer
-                    <div className="flex gap-2">
-                      <RiSkypeFill size={24} />
-                      <HiMail size={24} />
-                      <RiTelegramFill size={24} />
-                    </div>
-                  </div>
-                  <div className="flex gap-4">
-                    Yudina TopClientOffer
-                    <div className="flex gap-2">
-                      <RiSkypeFill size={24} />
-                      <HiMail size={24} />
-                      <RiTelegramFill size={24} />
-                    </div>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <div className="flex flex-col lg:flex-row">
+          {/* ---Table --- */}
+          <div className="max-w-[872px]">
+            <h5 className="text-lg font-bold">Affiliate Network Information</h5>
+            <Table />
+          </div>
+          {/* --- Rating Distribution ---  */}
+          <div className="ml-7 min-w-[424px]">
+            <h5 className="mb-6 text-lg font-bold">Rating Distribution</h5>
+            <div className="flex items-center justify-evenly gap-2">
+              <p className="">5 star</p>
+              <Progress
+                className="h-3 max-w-[326px] border border-[#4E93D3] bg-[#EBEDED]"
+                value={68}
+              />
+              <p className="">68%</p>
+            </div>
+            <div className="flex items-center justify-evenly gap-2">
+              <p className="">4 star</p>
+              <Progress
+                className="h-3 max-w-[326px] border border-[#4E93D3] bg-[#EBEDED]"
+                value={20}
+              />
+              <p className="">20%</p>
+            </div>
+            <div className="flex items-center justify-evenly gap-2">
+              <p className="">3 star</p>
+              <Progress
+                className="h-3 max-w-[326px] border border-[#4E93D3] bg-[#EBEDED]"
+                value={10}
+              />
+              <p className="">10%</p>
+            </div>
+            <div className="flex items-center justify-evenly gap-2">
+              <p className="">2 star</p>
+              <Progress
+                className="h-3 max-w-[326px] border border-[#4E93D3] bg-[#EBEDED]"
+                value={2}
+              />
+              <p className="">2%</p>
+            </div>
+            <div className="flex items-center justify-evenly gap-2">
+              <p className="">1 star</p>
+              <Progress
+                className="h-3 max-w-[326px] border border-[#4E93D3] bg-[#EBEDED]"
+                value={0}
+              />
+              <p className="">0%</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
