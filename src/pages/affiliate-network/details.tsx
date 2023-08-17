@@ -90,10 +90,210 @@ export default function Details() {
         <div>
           <h5 className="text-lg font-bold">All Reviews</h5>
           {/* --- Review Card --- */}
-          <div className="h-[753px] w-[872px] bg-white pb-[46px] pl-[58px] pr-[87px] pt-[14px] shadow-2xl">
-            {/* Avatar, name and date container */}
-            <div className="flex">
-              <div>John Doe</div>
+          <div className="my-8 h-[753px] w-[872px] bg-white pb-[46px] pl-[58px] pr-[87px] pt-[14px] shadow-xl">
+            <div>
+              {/* Avatar, name and date container */}
+              <div className="flex items-center gap-2">
+                <div className="relative h-[56px] w-[56px]">
+                  <Image
+                    className="rounded-full object-cover"
+                    objectPosition="top"
+                    src={'/man-profile-pic.webp'}
+                    alt="man-profile-pic.webp"
+                    layout="fill"
+                  />
+                </div>
+                <div>
+                  <div className="font-bold">John Doe</div>
+                  <div>Aug 18, 2022</div>
+                </div>
+              </div>
+              {/* --- Review text container --- */}
+              <p className="mt-6">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+                elit bibendum eget quis dictum euismod massa interdum. Donec
+                libero, habitant pulvinar eget felis. Ac neque orci faucibus est
+                lacus, libero quisque. Neque aenean cras amet sapien, morbi
+                imperdiet imperdiet tincidunt tortor. Turpis elementum felis,
+                mus cras. Mi, non porttitor platea nullam tellus vel, id enim
+                nulla. Sagittis nibh scelerisque massa enim volutpat tellus at
+                ligula non.
+              </p>
+              {/* --- Review screenshots --- */}
+              <div className="relative mb-7 mt-5 h-[154px] w-[311px]">
+                <Image
+                  src="/review-ss.png"
+                  alt="review-ss.png"
+                  layout="fill"
+                  objectFit="center"
+                />
+              </div>
+              {/* categorized reviews */}
+              <div className="flex flex-col gap-2">
+                <div className="flex max-w-[420px] items-center justify-between">
+                  <div className="text-[26px] font-bold text-[#313131]">
+                    Payment
+                  </div>
+                  <div className="flex">
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                  </div>
+                </div>
+                <div className="flex max-w-[420px] items-center justify-between">
+                  <div className="text-[26px] font-bold text-[#313131]">
+                    User Interface
+                  </div>
+                  <div className="flex">
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                  </div>
+                </div>
+                <div className="flex max-w-[420px] items-center justify-between">
+                  <div className="text-[26px] font-bold text-[#313131]">
+                    Offers
+                  </div>
+                  <div className="flex">
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                  </div>
+                </div>
+                <div className="flex max-w-[420px] items-center justify-between">
+                  <div className="text-[26px] font-bold text-[#313131]">
+                    Affiliate Support
+                  </div>
+                  <div className="flex">
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                  </div>
+                </div>
+                <div className="flex max-w-[420px] items-center justify-between">
+                  <div className="text-[26px] font-bold text-[#313131]">
+                    Recommend
+                  </div>
+                  <div className="flex">
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="my-8 h-[753px] w-[872px] bg-white pb-[46px] pl-[58px] pr-[87px] pt-[14px] shadow-xl">
+            <div>
+              {/* Avatar, name and date container */}
+              <div className="flex items-center gap-2">
+                <div className="relative h-[56px] w-[56px]">
+                  <Image
+                    className="rounded-full object-cover"
+                    objectPosition="top"
+                    src={'/man-profile-pic.webp'}
+                    alt="man-profile-pic.webp"
+                    layout="fill"
+                  />
+                </div>
+                <div>
+                  <div className="font-bold">John Doe</div>
+                  <div>Aug 18, 2022</div>
+                </div>
+              </div>
+              {/* --- Review text container --- */}
+              <p className="mt-6">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+                elit bibendum eget quis dictum euismod massa interdum. Donec
+                libero, habitant pulvinar eget felis. Ac neque orci faucibus est
+                lacus, libero quisque. Neque aenean cras amet sapien, morbi
+                imperdiet imperdiet tincidunt tortor. Turpis elementum felis,
+                mus cras. Mi, non porttitor platea nullam tellus vel, id enim
+                nulla. Sagittis nibh scelerisque massa enim volutpat tellus at
+                ligula non.
+              </p>
+              {/* --- Review screenshots --- */}
+              <div className="relative mb-7 mt-5 h-[154px] w-[311px]">
+                <Image
+                  src="/review-ss.png"
+                  alt="review-ss.png"
+                  layout="fill"
+                  objectFit="center"
+                />
+              </div>
+              {/* categorized reviews */}
+              <div className="flex flex-col gap-2">
+                <div className="flex max-w-[420px] items-center justify-between">
+                  <div className="text-[26px] font-bold text-[#313131]">
+                    Payment
+                  </div>
+                  <div className="flex">
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                  </div>
+                </div>
+                <div className="flex max-w-[420px] items-center justify-between">
+                  <div className="text-[26px] font-bold text-[#313131]">
+                    User Interface
+                  </div>
+                  <div className="flex">
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                  </div>
+                </div>
+                <div className="flex max-w-[420px] items-center justify-between">
+                  <div className="text-[26px] font-bold text-[#313131]">
+                    Offers
+                  </div>
+                  <div className="flex">
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                  </div>
+                </div>
+                <div className="flex max-w-[420px] items-center justify-between">
+                  <div className="text-[26px] font-bold text-[#313131]">
+                    Affiliate Support
+                  </div>
+                  <div className="flex">
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                  </div>
+                </div>
+                <div className="flex max-w-[420px] items-center justify-between">
+                  <div className="text-[26px] font-bold text-[#313131]">
+                    Recommend
+                  </div>
+                  <div className="flex">
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                    <BiSolidStar size={25} color="#FFAB2D" />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
