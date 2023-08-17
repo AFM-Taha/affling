@@ -1,12 +1,25 @@
+import axios from 'axios';
 import CoverPhoto from '@/components/common/Cover/CoverPhoto';
 import BigRatingStar from '@/components/common/Rating/BigRatingStar';
 import RatingDistribution from '@/components/common/Rating/RatingDistribution';
 import Table from '@/components/common/Table/Table';
+import { useQuery } from '@tanstack/react-query';
 import Image from 'next/image';
 import { BiSolidStar } from 'react-icons/bi';
 import { IoMdAddCircle } from 'react-icons/io';
+import baseURL from '@/assets/baseURL';
 
 export default function Details() {
+  const { data } = useQuery({
+    queryKey: ['details'],
+    queryFn: () =>
+      axios
+        .get(`${baseURL}/top-it?filter=Affiliate%20Program`)
+        .then((res) => res.data),
+  });
+
+  console.log(data);
+
   return (
     <div className="relative mx-auto max-w-[1320px]">
       {/* --- Cover photo --- */}
