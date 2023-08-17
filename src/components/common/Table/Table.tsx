@@ -42,7 +42,7 @@ export default function Table() {
           <td>https://track.topclientoffer.com/click </td>
         </tr>
         <tr className="border-b-[20px] border-white bg-[#e4e4e4]">
-          <td>Affiliate Support Managers</td>
+          <td className="pr-4">Affiliate Support Managers</td>
           <td className="row-span-2">
             <div className="flex gap-4">
               Olha TopClientOffer
