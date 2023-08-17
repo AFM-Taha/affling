@@ -2,8 +2,9 @@ import CoverPhoto from '@/components/common/Cover/CoverPhoto';
 import BigRatingStar from '@/components/common/Rating/BigRatingStar';
 import RatingDistribution from '@/components/common/Rating/RatingDistribution';
 import Table from '@/components/common/Table/Table';
-import { Progress } from '@/components/ui/progress';
 import Image from 'next/image';
+import { BiSolidStar } from 'react-icons/bi';
+import { IoMdAddCircle } from 'react-icons/io';
 
 export default function Details() {
   return (
@@ -28,16 +29,24 @@ export default function Details() {
           <h3 className=" text-[26px] text-black">ADVIDI.COM</h3>
           <p className="my-1">www.website.com</p>
           <p>Affiliate Network</p>
-          <div className="mb-8 flex">
-            <p>⭐⭐⭐⭐⭐</p>
+          <div className="mb-8 flex items-center gap-2">
+            {/* Review stars */}
+            <div className="flex gap-1">
+              <BiSolidStar color="#FFAB2D" />
+              <BiSolidStar color="#FFAB2D" />
+              <BiSolidStar color="#FFAB2D" />
+              <BiSolidStar color="#FFAB2D" />
+              <BiSolidStar color="#FFAB2D" />
+            </div>
             <p>4.98 (117) Reviews</p>
           </div>
           <div className="mt-2 flex gap-6 text-white">
-            <button className="rounded-md bg-[#4E93D3] px-4 font-normal">
-              ⭐ Add Review
+            <button className="flex items-center gap-1 rounded-md bg-[#4E93D3] px-4 font-normal">
+              <BiSolidStar color="#FFAB2D" />
+              Add Review
             </button>
-            <button className="rounded-md bg-[#4E93D3] px-4 font-normal">
-              (+) Join Now
+            <button className="flex items-center gap-1 rounded-md bg-[#4E93D3] px-4 font-normal">
+              <IoMdAddCircle /> Join Now
             </button>
           </div>
         </div>
@@ -80,6 +89,13 @@ export default function Details() {
         {/* --- All Reviews --- */}
         <div>
           <h5 className="text-lg font-bold">All Reviews</h5>
+          {/* --- Review Card --- */}
+          <div className="h-[753px] w-[872px] bg-white pb-[46px] pl-[58px] pr-[87px] pt-[14px] shadow-2xl">
+            {/* Avatar, name and date container */}
+            <div className="flex">
+              <div>John Doe</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
