@@ -1,22 +1,20 @@
-import axios from 'axios';
 import CoverPhoto from '@/components/common/Cover/CoverPhoto';
 import BigRatingStar from '@/components/common/Rating/BigRatingStar';
 import RatingDistribution from '@/components/common/Rating/RatingDistribution';
 import Table from '@/components/common/Table/Table';
-import { useQuery } from '@tanstack/react-query';
 import Image from 'next/image';
 import { BiSolidStar } from 'react-icons/bi';
 import { IoMdAddCircle } from 'react-icons/io';
-import baseURL from '@/assets/baseURL';
+import useGet from '@/hooks/useGet';
+
+interface FetchedNetworkDetails {
+  name: string;
+}
 
 export default function Details() {
-  const { data } = useQuery({
-    queryKey: ['details'],
-    queryFn: () =>
-      axios
-        .get(`${baseURL}/top-it?filter=Affiliate%20Program`)
-        .then((res) => res.data),
-  });
+  const { data } = useGet<FetchedNetworkDetails>(
+    'top-it?filter=Affiliate%20Program'
+  );
 
   console.log(data);
 
