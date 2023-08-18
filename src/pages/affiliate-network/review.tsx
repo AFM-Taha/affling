@@ -5,7 +5,7 @@ import { BiSolidStar } from 'react-icons/bi';
 export default function Review() {
   return (
     <div className="max-w-[648px] pl-[49px] pt-[49px]">
-      <div className="mb-8 flex items-center gap-2">
+      <div className="mb-12 flex items-center gap-2">
         <Image
           src="/topclientofffer.png"
           alt="topclientofffer"
