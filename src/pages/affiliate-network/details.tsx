@@ -5,8 +5,19 @@ import Table from '@/components/common/Table/Table';
 import Image from 'next/image';
 import { BiSolidStar } from 'react-icons/bi';
 import { IoMdAddCircle } from 'react-icons/io';
+import useGet from '@/hooks/useGet';
+
+interface FetchedNetworkDetails {
+  name: string;
+}
 
 export default function Details() {
+  const { data } = useGet<FetchedNetworkDetails>(
+    'top-it?filter=Affiliate%20Program'
+  );
+
+  console.log(data);
+
   return (
     <div className="relative mx-auto max-w-[1320px]">
       {/* --- Cover photo --- */}
