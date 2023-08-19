@@ -1,4 +1,6 @@
-export const InputFormTextLabels = [
+import { IInputTextLabels } from "@/interface/globalInterface";
+
+export const InputFormTextLabels:IInputTextLabels[] = [
   {
     labelName: 'Name',
     id: 'name',
@@ -28,31 +30,31 @@ export const InputFormTextLabels = [
     name: 'programType',
     options: [
       {
-        id: 1,
+        id: "1",
         type: 'options1',
         labelName: 'Advertisement Network',
         name: 'advertisementNetwork',
       },
       {
-        id: 2,
+        id: "2",
         type: 'options2',
         labelName: 'Virtual Network',
         name: 'virtualNetwork',
       },
       {
-        id: 3,
+        id: "3",
         type: 'options3',
         labelName: 'Common Network',
         name: 'commonNetwork',
       },
       {
-        id: 4,
+        id: "4",
         type: 'options4',
         labelName: 'Dynamic Network',
         name: 'dynamicNetwork',
       },
       {
-        id: 5,
+        id: "5",
         type: 'options5',
         labelName: 'Static Network',
         name: 'staticNetwork',

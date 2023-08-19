@@ -19,7 +19,7 @@ const InputFromText: React.FC<{ field: IInputTextLabels }> = ({ field }) => {
           id={id}
           placeholder={placeholder}
           type={type}
-          className={` h-[37.07px] w-full bg-stone-100 `}
+          className={` h-[37.07px] w-full bg-stone-100 pl-2`}
         />
       </>
       }
@@ -37,7 +37,7 @@ const InputFromText: React.FC<{ field: IInputTextLabels }> = ({ field }) => {
         </label>
         <textarea
           id={id}
-          className={` w-full bg-stone-100 `}
+          className={` w-full bg-stone-100 pl-2`}
           rows={field?.id ==='faq' ? 6 :10}
           cols={1}></textarea>
           
@@ -56,7 +56,7 @@ const InputFromText: React.FC<{ field: IInputTextLabels }> = ({ field }) => {
               </label>
               <select className='w-[760px] h-[37.07px] bg-stone-100 text-center text-zinc-800 text-xl font-normal'>
                 {
-                    field?.options.map(option=> (
+                    field?.options?.map(option=> (
                         <option key={option?.id}  value={option?.name} className=''>{option?.labelName}</option>
                     ))
                 }
