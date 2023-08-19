@@ -9,7 +9,7 @@ export default function BigRatingStar() {
         width={323}
         height={323}
       />
-      <p className="absolute  left-16 top-[70px] text-5xl font-bold  text-[#E7B228] lg:left-[110px] lg:top-[140px] lg:text-6xl">
+      <p className="absolute  left-[56px] top-[70px] text-5xl font-bold  text-[#E7B228] lg:left-[110px] lg:top-[140px] lg:text-6xl">
         4.9
       </p>
     </div>
