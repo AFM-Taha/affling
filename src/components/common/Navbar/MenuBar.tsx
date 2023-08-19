@@ -3,7 +3,7 @@ import Link from 'next/link';
 export default function MenuBar() {
   return (
     <div>
-      <ul className="flex justify-evenly gap-8 overflow-x-scroll sm:overflow-auto">
+      <div className="flex items-center justify-evenly gap-6 overflow-x-scroll sm:overflow-auto">
         <Link
           className="min-w-fit font-medium hover:underline"
           href={'/categories'}>
@@ -41,7 +41,7 @@ export default function MenuBar() {
           href={'quick-links'}>
           Quick Links
         </Link>
-      </ul>
+      </div>
     </div>
   );
 }

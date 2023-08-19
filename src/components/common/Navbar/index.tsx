@@ -16,7 +16,7 @@ export default function NavBar() {
           Sign Up
         </button>
       </div>
-      <div className="w-full bg-gradient-to-r from-[#217CD9] via-[#218fd9e8] to-[#21C1D9] py-2 font-bold text-white">
+      <div className="bg-gradient-to-r from-[#217CD9] via-[#218fd9e8] to-[#21C1D9] py-2 font-bold text-white">
         <MenuBar />
       </div>
       <div className="w-full max-w-4xl py-1 sm:hidden">
