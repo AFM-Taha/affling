@@ -102,7 +102,7 @@ export default function Details() {
         <div>
           <h5 className="text-lg font-bold">All Reviews</h5>
           {/* --- Review Card --- */}
-          <div className="my-8 h-[753px] w-[872px] bg-white pb-[46px] pl-[58px] pr-[87px] pt-[14px] shadow-xl">
+          <div className="my-8 h-[753px] max-w-[872px] bg-white pb-[46px] pl-[58px] pr-[87px] pt-[14px] shadow-xl">
             <div>
               {/* Avatar, name and date container */}
               <div className="flex items-center gap-2">
@@ -205,7 +205,7 @@ export default function Details() {
               </div>
             </div>
           </div>
-          <div className="my-8 h-[753px] w-[872px] bg-white pb-[46px] pl-[58px] pr-[87px] pt-[14px] shadow-xl">
+          <div className="my-8 h-[753px] max-w-[872px] bg-white pb-[46px] pl-[58px] pr-[87px] pt-[14px] shadow-xl">
             <div>
               {/* Avatar, name and date container */}
               <div className="flex items-center gap-2">
