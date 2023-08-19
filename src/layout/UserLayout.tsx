@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 
 export default function UserLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="bg-[#ffffff]">
+    <div className="mx-auto bg-[#ffffff]">
       <Navbar />
       {children}
       <Footer />

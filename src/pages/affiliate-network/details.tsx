@@ -85,7 +85,7 @@ export default function Details() {
         </p>
 
         {/* ---- Big rating star Rating Distribution container --- */}
-        <div>
+        <div className="my-32">
           <BigRatingStar />
           <RatingDistribution />
         </div>
