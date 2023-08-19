@@ -1,16 +1,36 @@
+import Link from 'next/link';
+
 export default function MenuBar() {
   return (
     <div>
-      <ul className="flex justify-evenly">
-        <li className="hover:underline">All Categories</li>
-        <li className="hover:underline">Home</li>
-        <li className="hover:underline">Offers</li>
-        <li className="hover:underline">Marketing Tools</li>
-        <li className="hover:underline">Tag</li>
-        <li className="hover:underline">News Feed</li>
-        <li className="hover:underline">Review</li>
-        <li className="hover:underline">FAQ</li>
-        <li className="hover:underline">Quick Links</li>
+      <ul className="flex justify-evenly gap-8 overflow-x-scroll sm:overflow-auto">
+        <Link className="min-w-fit font-medium" href={'#'}>
+          All Categories
+        </Link>
+        <Link className="min-w-fit font-medium" href={'#'}>
+          Home
+        </Link>
+        <Link className="min-w-fit font-medium" href={'#'}>
+          Offers
+        </Link>
+        <Link className="min-w-fit font-medium" href={'#'}>
+          Marketing Tools
+        </Link>
+        <Link className="min-w-fit font-medium" href={'#'}>
+          Tag
+        </Link>
+        <Link className="min-w-fit font-medium" href={'#'}>
+          News Feed
+        </Link>
+        <Link className="min-w-fit font-medium" href={'#'}>
+          Review
+        </Link>
+        <Link className="min-w-fit font-medium" href={'#'}>
+          FAQ
+        </Link>
+        <Link className="min-w-fit font-medium" href={'#'}>
+          Quick Links
+        </Link>
       </ul>
     </div>
   );
