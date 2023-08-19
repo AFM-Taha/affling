@@ -3,7 +3,7 @@ export default function SearchBar() {
   return (
     <form className="rounded-full bg-gradient-to-r from-[#217CD9] via-[#218fd9e8] to-[#21C1D9] p-[3px]">
       <div className="flex">
-        <button className="rounded-l-full border-r-[3px] border-r-[#217CD9] bg-white px-11 py-4">
+        <button className="rounded-l-full border-r-[3px] border-r-[#217CD9] bg-white px-4 py-4 sm:px-11">
           All
         </button>
         <div className="relative w-full">
@@ -14,7 +14,7 @@ export default function SearchBar() {
           />
           <button
             type="submit"
-            className="absolute right-0 top-0 flex h-full items-center gap-2 rounded-r-full bg-gradient-to-r from-[#217CD9] via-[#218fd9e8] to-[#21C1D9] p-2.5 px-7 text-[26px] font-bold text-white">
+            className="absolute right-0 top-0 flex h-full items-center gap-2 rounded-r-full bg-gradient-to-r from-[#217CD9] via-[#218fd9e8] to-[#21C1D9] p-2.5 text-lg font-bold text-white sm:px-7 sm:text-[26px]">
             <HiSearch /> Search
           </button>
         </div>
