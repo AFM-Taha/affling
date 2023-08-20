@@ -1,11 +1,11 @@
 import CoverPhoto from '@/components/common/Cover/CoverPhoto';
 import BigRatingStar from '@/components/common/Rating/BigRatingStar';
 import RatingDistribution from '@/components/common/Rating/RatingDistribution';
-import Table from '@/components/common/Table/Table';
 import Image from 'next/image';
 import { BiSolidStar } from 'react-icons/bi';
 import { IoMdAddCircle } from 'react-icons/io';
 import useGet from '@/hooks/useGet';
+import TableComponent from '@/components/common/Table/Table';
 
 interface FetchedNetworkDetails {
   name: string;
@@ -85,7 +85,7 @@ export default function Details() {
         </p>
 
         {/* ---- Big rating star Rating Distribution container --- */}
-        <div>
+        <div className="my-32">
           <BigRatingStar />
           <RatingDistribution />
         </div>
@@ -93,16 +93,16 @@ export default function Details() {
       <div className="-mt-32">
         <div className="">
           {/* ---Table --- */}
-          <div className="max-w-[872px]">
+          <div className="min-w-[250px] max-w-[872px]">
             <h5 className="text-lg font-bold">Affiliate Network Information</h5>
-            <Table />
+            <TableComponent />
           </div>
         </div>
         {/* --- All Reviews --- */}
         <div>
           <h5 className="text-lg font-bold">All Reviews</h5>
           {/* --- Review Card --- */}
-          <div className="my-8 h-[753px] w-[872px] bg-white pb-[46px] pl-[58px] pr-[87px] pt-[14px] shadow-xl">
+          <div className="my-8 h-[753px] max-w-[872px] bg-white pb-[46px] pl-[58px] pr-[87px] pt-[14px] shadow-xl">
             <div>
               {/* Avatar, name and date container */}
               <div className="flex items-center gap-2">
@@ -205,7 +205,7 @@ export default function Details() {
               </div>
             </div>
           </div>
-          <div className="my-8 h-[753px] w-[872px] bg-white pb-[46px] pl-[58px] pr-[87px] pt-[14px] shadow-xl">
+          <div className="my-8 h-[753px] max-w-[872px] bg-white pb-[46px] pl-[58px] pr-[87px] pt-[14px] shadow-xl">
             <div>
               {/* Avatar, name and date container */}
               <div className="flex items-center gap-2">

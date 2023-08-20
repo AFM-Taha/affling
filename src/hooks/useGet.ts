@@ -4,7 +4,7 @@ import axios from 'axios';
 
 export default function useGet<DataType>(urlEndpoint: string) {
   return useQuery<DataType, Error>({
-    queryKey: ['details'],
+    queryKey: [urlEndpoint],
     queryFn: () =>
       axios.get(`${baseURL}/${urlEndpoint}`).then((res) => res.data),
   });
