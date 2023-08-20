@@ -1,4 +1,4 @@
-import SignUpForm from '@/components/SignUpForm/SignUpForm';
+import SignUpForm from '@/components/SignUpForm/SignUpFormAdvertisingNetwork';
 import SignUpPageHero from '@/components/common/hero/SignUpPageHero';
 import React from 'react';
 
