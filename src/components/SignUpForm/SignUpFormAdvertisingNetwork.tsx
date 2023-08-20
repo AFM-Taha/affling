@@ -171,12 +171,19 @@ const SignUpFormAdvertisingNetwork = () => {
           />
 
           {/* Publishers Contact */}
-          <div>
-            <label
-              htmlFor="publishersContact1"
-              className="mt-4 block text-base font-bold leading-relaxed text-zinc-800">
-              Publishers Contact (optional)
-            </label>
+          <div className="">
+            <div className="my-5 flex items-center gap-x-20 ">
+              <div>
+                <label
+                  htmlFor="publishersContact1"
+                  className="mt-4 block text-base font-bold leading-relaxed text-zinc-800">
+                  Publishers Contact (optional)
+                </label>
+              </div>
+              <div className="mb-[-10px] border border-dashed border-blue-500 p-[10.30px]">
+                <div className="text-xl font-normal text-zinc-800">+Add</div>
+              </div>
+            </div>
             <div className="mb-5 flex flex-wrap items-center gap-6">
               <input
                 id="publishersContact1"
@@ -208,6 +215,15 @@ const SignUpFormAdvertisingNetwork = () => {
                 className="h-[37.07px] w-[453.12px]  bg-stone-100 pl-2"
                 {...register('publishersContactInfo2')}
               />
+            </div>
+          </div>
+
+          <div className="py-5">
+            <div className="relative">
+              <h3 className="absolute left-12 top-[-18px] rounded-[10.30px] bg-blue-500 px-[10.30px] py-[4.12px]  text-xl font-normal text-white">
+                For advertiser
+              </h3>
+              <div className=" min-w-[630.24px] border border-neutral-800 border-opacity-30"></div>
             </div>
           </div>
 
@@ -294,11 +310,18 @@ const SignUpFormAdvertisingNetwork = () => {
 
           {/*Advertisers Contact  */}
           <div>
-            <label
-              htmlFor="advertisersContact1"
-              className="mt-4 block text-base font-bold leading-relaxed text-zinc-800">
-              Advertisers Contact (optional)
-            </label>
+            <div className="my-5 flex items-center gap-x-20 ">
+              <div>
+                <label
+                  htmlFor="publishersContact1"
+                  className="mt-4 block text-base font-bold leading-relaxed text-zinc-800">
+                  Advertisers Contact (optional)
+                </label>
+              </div>
+              <div className="mb-[-10px] border border-dashed border-blue-500 p-[10.30px]">
+                <div className="text-xl font-normal text-zinc-800">+Add</div>
+              </div>
+            </div>
             <div className="mb-5 flex flex-wrap items-center gap-6">
               <input
                 id="advertisersContact1"
