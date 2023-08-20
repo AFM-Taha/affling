@@ -21,7 +21,10 @@ export default function Details() {
   return (
     <div className="relative mx-auto max-w-[1320px]">
       {/* --- Cover photo --- */}
-      <CoverPhoto />
+      <CoverPhoto
+        bannerImageUrl="/affiliate-network-details-banner.png"
+        bannerImageAlt="affiliate-network-details-banner"
+      />
       {/* --- Profile picture and name container --- */}
       <div className="relative -top-8 z-50 mx-auto  flex flex-col items-center lg:ml-44 lg:flex-row">
         {/* --- Profile picture --- */}
