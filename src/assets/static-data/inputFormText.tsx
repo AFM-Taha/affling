@@ -1,0 +1,123 @@
+
+export const   targetingOptimization= [
+  {
+    label: 'Self-serve Platform',
+    id: 'selfServePlatform',
+    type: 'checkbox',
+    name: 'selfServePlatform',
+  },
+  {
+    label: 'Language Targeting',
+    id: 'languageTargeting',
+    type: 'checkbox',
+    name: 'languageTargeting',
+  },
+  {
+    label: 'Device Targeting',
+    id: 'deviceTargeting',
+    type: 'checkbox',
+    name: 'deviceTargeting',
+  },
+  {
+    label: 'Category Targeting',
+    id: 'categoryTargeting',
+    type: 'checkbox',
+    name: 'categoryTargeting',
+  },
+  {
+    label: 'ISP/Carrier Targeting',
+    id: 'ispCarrierTargeting',
+    type: 'checkbox',
+    name: 'ispCarrierTargeting',
+  },
+  {
+    label: 'Retargeting',
+    id: 'retargeting',
+    type: 'checkbox',
+    name: 'retargeting',
+  },
+  {
+    label: 'Anti-Fraud',
+    id: 'antiFraud',
+    type: 'checkbox',
+    name: 'antiFraud',
+  },
+  {
+    label: 'IP Targeting',
+    id: 'ipTargeting',
+    type: 'checkbox',
+    name: 'ipTargeting',
+  },
+  {
+    label: 'Frequency Capping',
+    id: 'frequencyCapping',
+    type: 'checkbox',
+    name: 'frequencyCapping',
+  },
+  {
+    label: 'Gambling Ads',
+    id: 'gamblingAds',
+    type: 'checkbox',
+    name: 'gamblingAds',
+  },
+  {
+    label: 'GEO Targeting',
+    id: 'geoTargeting',
+    type: 'checkbox',
+    name: 'geoTargeting',
+  },
+  {
+    label: 'Time Targeting',
+    id: 'timeTargeting',
+    type: 'checkbox',
+    name: 'timeTargeting',
+  },
+  {
+    label: 'OS Targeting',
+    id: 'osTargeting',
+    type: 'checkbox',
+    name: 'osTargeting',
+  },
+  {
+    label: 'Demographic Targeting',
+    id: 'demographicTargeting',
+    type: 'checkbox',
+    name: 'demographicTargeting',
+  },
+  {
+    label: 'Browser Targeting',
+    id: 'browserTargeting',
+    type: 'checkbox',
+    name: 'browserTargeting',
+  },
+  {
+    label: 'Black/White List',
+    id: 'blackWhiteList',
+    type: 'checkbox',
+    name: 'blackWhiteList',
+  },
+  {
+    label: 'Adult Ads',
+    id: 'adultAds',
+    type: 'checkbox',
+    name: 'adultAds',
+  },
+  {
+    label: 'Website Targeting',
+    id: 'websiteTargeting',
+    type: 'checkbox',
+    name: 'websiteTargeting',
+  },
+  {
+    label: 'Token',
+    id: 'token',
+    type: 'checkbox',
+    name: 'token',
+  },
+  {
+    label: 'Personal Account Manager',
+    id: 'personalAccountManager',
+    type: 'checkbox',
+    name: 'personalAccountManager',
+  },
+]
