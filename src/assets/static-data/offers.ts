@@ -1,5 +1,5 @@
 /**
- * Offers and Menu Data Configuration
+ * Offers and Menu Data Configuration [Fake data]
  *
  * Contents:
  * - SubmenuItem: Defines the structure for a submenu item.
