@@ -1,0 +1,60 @@
+// GET All Offers
+GET http://localhost:3000/v1
+###
+GET http://localhost:3000/v1/top-it?filter=Affiliate Network
+###
+// POST All Offers
+POST http://localhost:3000/v1/top-it
+Content-Type: application/json
+
+{
+  "title": "Sample Offer",
+  "company_email": "contact@example.com",
+  "skype": "example_skype",
+  "program_type": "Affiliate Program",
+  "network_name": "Example Network",
+  "network_url": "https://www.example.com",
+  "social_page": "https://www.facebook.com/example",
+  "network_description": "Description of the network",
+  "minimum_payment": 100,
+  "payment_frequency": "Monthly",
+  "payment_method": "PayPal",
+  "referral_commission": 10,
+  "tracking_software": "Example Tracker",
+  "affiliate_advertiser_contacts": [
+    {
+      "name": "John Doe",
+      "contact": "john@example.com"
+    },
+    {
+      "name": "Jane Smith",
+      "contact": "jane@example.com"
+    }
+  ],
+  "question_aria": "Question area text",
+  "program_category": "Sample Category",
+  "base_commission": "15%",
+  "tag": "Sample Tag",
+  "add_format": "Banner",
+  "cost_model": 50,
+  "minimum_deposit": 10,
+  "targeting_optimization": ["Geo-targeting", "Device targeting"],
+  "daily_Impression": "1000",
+  "top": "Yes",
+  "publishers_contact": [
+    {
+      "name": "Publisher 1",
+      "contact": "publisher1@example.com"
+    },
+    {
+      "name": "Publisher 2",
+      "contact": "publisher2@example.com"
+    }
+  ],
+  "features": "Feature list",
+  "unlimited_offers": "No",
+  "select_device": "All devices",
+  "select_users": "All users",
+  "setup_fees": 20,
+  "startup_pricing": 2000
+}

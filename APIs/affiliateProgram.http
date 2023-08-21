@@ -1,0 +1,58 @@
+// GET All Offers
+GET https://lionfish-app-qfe6m.ondigitalocean.app/v1/top-it?filter=Affiliate Network
+###
+// POST All Offers
+POST https://lionfish-app-qfe6m.ondigitalocean.app/v1/top-it
+Content-Type: application/json
+
+{
+  "title": "Special Offer",
+  "company_email": "info@special-offer.com",
+  "skype": "special_offer_skype",
+  "program_type": "Affiliate Network",
+  "network_name": "AdvertisePro",
+  "network_url": "https://www.advertisepro.com",
+  "social_page": "https://www.twitter.com/advertisepro",
+  "network_description": "Leading advertising network",
+  "minimum_payment": 200,
+  "payment_frequency": "Bi-monthly",
+  "payment_method": "Bank Transfer",
+  "referral_commission": 12,
+  "tracking_software": "AdTracker",
+  "affiliate_advertiser_contacts": [
+    {
+      "name": "Alex Johnson",
+      "contact": "alex@advertisepro.com"
+    },
+    {
+      "name": "Sarah Miller",
+      "contact": "sarah@advertisepro.com"
+    }
+  ],
+  "question_aria": "Have any questions? Contact us.",
+  "program_category": "Digital Advertising",
+  "base_commission": "10%",
+  "tag": "Special Promotion",
+  "add_format": "Pop-up",
+  "cost_model": 30,
+  "minimum_deposit": 50,
+  "targeting_optimization": ["Demographic targeting", "Interest targeting"],
+  "daily_Impression": "5000",
+  "top": "No",
+  "publishers_contact": [
+    {
+      "name": "Publisher X",
+      "contact": "publisherx@advertisepro.com"
+    },
+    {
+      "name": "Publisher Y",
+      "contact": "publishery@advertisepro.com"
+    }
+  ],
+  "features": "Real-time analytics",
+  "unlimited_offers": "Yes",
+  "select_device": "Mobile devices",
+  "select_users": "Registered users",
+  "setup_fees": 0,
+  "startup_pricing": 1500
+}
