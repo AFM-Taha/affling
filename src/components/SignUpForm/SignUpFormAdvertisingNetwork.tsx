@@ -5,6 +5,11 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 
+// ______________________
+// ❓❓❓ I have soooo many questions regarding this form fields
+// and how it will be stored in the DB
+//________________________________
+
 // form schema for validation
 const schema = z.object({
   title: z.string().min(2, 'Name must be at least 2 characters'),
@@ -41,33 +46,55 @@ const schema = z.object({
   minimum_payment: z
     .number({ invalid_type_error: 'Enter a number' })
     .positive({ message: 'Must be greater than 0' }),
+
+  // ❓❓❓ Why isn't this 👇 a dropdown?
+
   payment_frequency: z.enum(
     ['Daily', 'Weekly', 'Monthly', 'Quarterly', 'Annually'],
     {
-      errorMap: (issue, ctx) => ({
+      errorMap: (_issue, _ctx) => ({
         message:
           'Must be one of the following: Daily, Weekly, Monthly, Quarterly, Annually',
       }),
     }
   ),
+
+  // ❓❓❓ Why is payment method mentioned multiple times?
+
   payment_method: z.string().min(2, 'Payment method is required'),
+
+  // ❓❓❓ Why is referral commission mentioned multiple times?
+
   referral_commission: z
     .number({ invalid_type_error: 'Enter a number' })
     .positive({ message: 'Must be greater than 0' }),
-  tracking_software: z.string().min(2, 'Tracking software is required'),
-  affiliate_advertiser_contacts: z.array(
-    z.object({
-      name: z.string().min(2, 'Name must be at least 2 characters'),
-      contact: z.string().min(2, 'Contact must be at least 2 characters'),
-    })
-  ),
+
+  // ⚠️ ❓❓❓ This field doesn't exist in the design
+
+  // tracking_software: z.string().min(2, 'Tracking software is required'),
+
+  // TODO: Uncomment this later
+
+  // affiliate_advertiser_contacts: z.array(
+  //   z.object({
+  //     name: z.string().min(2, 'Name must be at least 2 characters'),
+  //     contact: z.string().min(2, 'Contact must be at least 2 characters'),
+  //   })
+  // ),
   question_aria: z.string().optional(),
-  program_category: z.string().min(2, 'Program category is required'),
-  base_commission: z
-    .number({ invalid_type_error: 'Enter a number' })
-    .positive({ message: 'Must be greater than 0' }),
+
+  // ⚠️ ❓❓❓ This field doesn't exist in the design
+
+  // program_category: z.string().min(2, 'Program category is required'),
+
+  // ⚠️ ❓❓❓ This field doesn't exist in the design
+
+  // base_commission: z
+  //   .number({ invalid_type_error: 'Enter a number' })
+  //   .positive({ message: 'Must be greater than 0' }),
+
   tag: z.string().min(2, 'Tag is required'),
-  add_format: z.string().min(2, 'Add format is required'),
+  add_format: z.string().min(2, 'Ad format is required'),
   cost_model: z.string().min(2, 'Cost model is required'),
   minimum_deposit: z
     .number({ invalid_type_error: 'Enter a number' })
@@ -87,19 +114,25 @@ const schema = z.object({
       })
       .optional()
   ),
-  features: z.string().min(2, 'Features must be at least 2 characters'),
-  unlimited_offers: z.enum(['Yes', 'No'], {
-    required_error: 'Must be Yes or No',
-    invalid_type_error: 'Must be Yes or No',
-  }),
-  select_device: z.string().min(2, 'Must be at least 2 characters'),
-  select_users: z.string().min(2, 'Must be at least 2 characters'),
-  setup_fees: z
-    .number({ invalid_type_error: 'Enter a number' })
-    .positive({ message: 'Must be greater than 0' }),
-  startup_pricing: z
-    .number({ invalid_type_error: 'Enter a number' })
-    .positive({ message: 'Must be greater than 0' }),
+
+  // ❓❓❓ All these doesn't exist on the design
+  // features: z.string().min(2, 'Features must be at least 2 characters'),
+
+  // unlimited_offers: z.enum(['Yes', 'No'], {
+  //   required_error: 'Must be Yes or No',
+  //   invalid_type_error: 'Must be Yes or No',
+  // }),
+
+  // select_device: z.string().min(2, 'Must be at least 2 characters'),
+  // select_users: z.string().min(2, 'Must be at least 2 characters'),
+
+  // setup_fees: z
+  //   .number({ invalid_type_error: 'Enter a number' })
+  //   .positive({ message: 'Must be greater than 0' }),
+
+  // startup_pricing: z
+  //   .number({ invalid_type_error: 'Enter a number' })
+  //   .positive({ message: 'Must be greater than 0' }),
 });
 
 // Make a type for FormData
@@ -123,7 +156,7 @@ const SignUpFormAdvertisingNetwork = () => {
           <Registration />
         </div>
         <div className="space-y-4">
-          {/* name  */}
+          {/* -------- name ---------  */}
           <InputField
             label="Name"
             id="title"
@@ -132,7 +165,7 @@ const SignUpFormAdvertisingNetwork = () => {
             register={register}
             errors={errors}
           />
-          {/* Company Email */}
+          {/* -------- Company Email  -------------*/}
           <InputField
             label="Company Email"
             id="company_email"
@@ -141,7 +174,7 @@ const SignUpFormAdvertisingNetwork = () => {
             register={register}
             errors={errors}
           />
-          {/* Skype */}
+          {/* ------------- 📱 📽️ Skype ---------- */}
           <InputField
             label="Skype"
             id="skype"
@@ -151,7 +184,7 @@ const SignUpFormAdvertisingNetwork = () => {
             errors={errors}
           />
 
-          {/* Choose your program  type*/}
+          {/* ---------- Choose your program  type ------ */}
 
           <div>
             <label
@@ -235,7 +268,7 @@ const SignUpFormAdvertisingNetwork = () => {
             errors={errors}
           />
           {/* ________________________________________________________ */}
-          {/* --- Currently this doesn't exit in the backend ---- */}
+          {/* --- CONFUSION: commission type doesn't exit in the backend ---- */}
           {/* ________________________________________________________ */}
 
           {/* <InputField
@@ -281,6 +314,8 @@ const SignUpFormAdvertisingNetwork = () => {
             errors={errors}
           />
 
+          {/* ___________________________________________________________________________ */}
+          {/* ------- CONFUSION: Why Referral Commission is included 3 times? -------  */}
           <InputField
             label="Referral Commission (2%, 5%, None, more)"
             id="referral_commission"
@@ -374,23 +409,23 @@ const SignUpFormAdvertisingNetwork = () => {
             errors={errors}
           />
 
-          <InputField
+          {/* <InputField
             label="Payment Method (Check, PayPal, Wire, more)"
             id="payment_method"
             placeholder=""
             type="text"
             register={register}
             errors={errors}
-          />
+          /> */}
 
-          <InputField
+          {/* <InputField
             label="Referral Commission (2%, 5%, None, more)"
             id="referral_commission"
             placeholder=""
             type="number"
             register={register}
             errors={errors}
-          />
+          /> */}
 
           <InputField
             label="Daily Impression (100 million, 1 billion, more)"
@@ -401,7 +436,9 @@ const SignUpFormAdvertisingNetwork = () => {
             errors={errors}
           />
 
-          <InputField
+          {/* ⚠️ ❓❓❓ Backend only has 'top' */}
+
+          {/* <InputField
             label="Top GEO (US, RU, UK, CA, IN, BR, WorldWide, more)"
             id="top"
             placeholder=""
@@ -417,16 +454,16 @@ const SignUpFormAdvertisingNetwork = () => {
             type="text"
             register={register}
             errors={errors}
-          />
+          /> */}
 
-          <InputField
+          {/* <InputField
             label="Referral Commission (2%, 5%, None, more)"
             id="referral_commission"
             placeholder=""
             type="number"
             register={register}
             errors={errors}
-          />
+          /> */}
 
           {/*Advertisers Contact  */}
           <div>
@@ -448,14 +485,14 @@ const SignUpFormAdvertisingNetwork = () => {
                 type="text"
                 placeholder="Name"
                 className="h-[37.07px] w-[236.86px] bg-stone-100 pl-2"
-                {...register('affiliate_advertiser_contacts')}
+                // {...register('affiliate_advertiser_contacts')}
               />
               <input
                 id="advertisersContact2"
                 type="text"
                 placeholder="ex: Email,Skype"
                 className="h-[37.07px] w-[453.12px]  bg-stone-100 pl-2"
-                {...register('affiliate_advertiser_contacts')}
+                // {...register('affiliate_advertiser_contacts')}
               />
             </div>
             <div className="flex flex-wrap items-center gap-6">
@@ -464,14 +501,14 @@ const SignUpFormAdvertisingNetwork = () => {
                 type="text"
                 placeholder="Name"
                 className="h-[37.07px] w-[236.86px] bg-stone-100 pl-2"
-                {...register('affiliate_advertiser_contacts')}
+                // {...register('affiliate_advertiser_contacts')}
               />
               <input
                 id="advertisersContact4"
                 type="text"
                 placeholder="ex: Email,Skype"
                 className="h-[37.07px] w-[453.12px]  bg-stone-100 pl-2"
-                {...register('affiliate_advertiser_contacts')}
+                // {...register('affiliate_advertiser_contacts')}
               />
             </div>
           </div>
