@@ -20,54 +20,54 @@ const schema = z.object({
       'Enter a valid email'
     ),
   skype: z.string().min(2, 'Skype is required'),
-  program_type: z.enum([
-    'Affiliate Network',
-    'Affiliate Program',
-    'Advertising Network',
-    'Tracking Software',
-    'Marketing Spy Tools',
-  ]),
-  network_name: z.string().min(2, 'Advertising network name is required'),
-  network_url: z
-    .string()
-    .regex(
-      /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/,
-      'Enter a valid URL'
-    ),
-  social_page: z
-    .string()
-    .regex(
-      /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/,
-      'Enter a valid URL'
-    ),
-  network_description: z
-    .string()
-    .min(10, 'Description must be at least 10 characters'),
-  minimum_payment: z
-    .number({ invalid_type_error: 'Enter a number' })
-    .positive({ message: 'Must be greater than 0' }),
+  // program_type: z.enum([
+  //   'Affiliate Network',
+  //   'Affiliate Program',
+  //   'Advertising Network',
+  //   'Tracking Software',
+  //   'Marketing Spy Tools',
+  // ]),
+  // network_name: z.string().min(2, 'Advertising network name is required'),
+  // network_url: z
+  //   .string()
+  //   .regex(
+  //     /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/,
+  //     'Enter a valid URL'
+  //   ),
+  // social_page: z
+  //   .string()
+  //   .regex(
+  //     /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/,
+  //     'Enter a valid URL'
+  //   ),
+  // network_description: z
+  //   .string()
+  //   .min(10, 'Description must be at least 10 characters'),
+  // minimum_payment: z
+  //   .number({ invalid_type_error: 'Enter a number' })
+  //   .positive({ message: 'Must be greater than 0' }),
 
   // ❓❓❓ Why isn't this 👇 a dropdown?
 
-  payment_frequency: z.enum(
-    ['Daily', 'Weekly', 'Monthly', 'Quarterly', 'Annually'],
-    {
-      errorMap: (_issue, _ctx) => ({
-        message:
-          'Must be one of the following: Daily, Weekly, Monthly, Quarterly, Annually',
-      }),
-    }
-  ),
+  // payment_frequency: z.enum(
+  //   ['Daily', 'Weekly', 'Monthly', 'Quarterly', 'Annually'],
+  //   {
+  //     errorMap: (_issue, _ctx) => ({
+  //       message:
+  //         'Must be one of the following: Daily, Weekly, Monthly, Quarterly, Annually',
+  //     }),
+  //   }
+  // ),
 
   // ❓❓❓ Why is payment method mentioned multiple times?
 
-  payment_method: z.string().min(2, 'Payment method is required'),
+  // payment_method: z.string().min(2, 'Payment method is required'),
 
   // ❓❓❓ Why is referral commission mentioned multiple times?
 
-  referral_commission: z
-    .number({ invalid_type_error: 'Enter a number' })
-    .positive({ message: 'Must be greater than 0' }),
+  // referral_commission: z
+  //   .number({ invalid_type_error: 'Enter a number' })
+  //   .positive({ message: 'Must be greater than 0' }),
 
   // ⚠️ ❓❓❓ This field doesn't exist in the design
 
@@ -81,7 +81,7 @@ const schema = z.object({
   //     contact: z.string().min(2, 'Contact must be at least 2 characters'),
   //   })
   // ),
-  question_aria: z.string().optional(),
+  // question_aria: z.string().optional(),
 
   // ⚠️ ❓❓❓ This field doesn't exist in the design
 
@@ -93,27 +93,33 @@ const schema = z.object({
   //   .number({ invalid_type_error: 'Enter a number' })
   //   .positive({ message: 'Must be greater than 0' }),
 
-  tag: z.string().min(2, 'Tag is required'),
-  add_format: z.string().min(2, 'Ad format is required'),
-  cost_model: z.string().min(2, 'Cost model is required'),
-  minimum_deposit: z
-    .number({ invalid_type_error: 'Enter a number' })
-    .positive({ message: 'Must be greater than 0' }),
-  targeting_optimization: z
-    .string()
-    .min(2, 'Targeting optimization is required'),
-  daily_Impression: z
-    .number({ invalid_type_error: 'Enter a number' })
-    .min(2, 'Daily Impression is required'),
-  top: z.string().min(2, 'Top is required'),
-  publishers_contact: z.array(
-    z
-      .object({
-        name: z.string().min(2, 'Name must be at least 2 characters'),
-        contact: z.string().min(2, 'Contact must be at least 2 characters'),
-      })
-      .optional()
-  ),
+  // tag: z.string().min(2, 'Tag is required'),
+  // add_format: z.string().min(2, 'Ad format is required'),
+  // cost_model: z.string().min(2, 'Cost model is required'),
+  // minimum_deposit: z
+  //   .number({ invalid_type_error: 'Enter a number' })
+  //   .positive({ message: 'Must be greater than 0' }),
+
+  /* 🚫🚫🚫 Uncomment targeting optimization later */
+
+  // targeting_optimization: z
+  //   .string()
+  //   .min(2, 'Targeting optimization is required'),
+  // daily_Impression: z
+  //   .number({ invalid_type_error: 'Enter a number' })
+  //   .min(2, 'Daily Impression is required'),
+  // top: z.string().min(2, 'Top is required'),
+
+  /* 🚫🚫🚫 Uncomment publisher's contact later */
+
+  // publishers_contact: z.array(
+  //   z
+  //     .object({
+  //       name: z.string().min(2, 'Name must be at least 2 characters'),
+  //       contact: z.string().min(2, 'Contact must be at least 2 characters'),
+  //     })
+  //     .optional()
+  // ),
 
   // ❓❓❓ All these doesn't exist on the design
   // features: z.string().min(2, 'Features must be at least 2 characters'),
@@ -184,6 +190,8 @@ const SignUpFormAdvertisingNetwork = () => {
             errors={errors}
           />
 
+          {/* 🚫🚫🚫 Uncomment program type later */}
+
           {/* ---------- Choose your program  type ------ */}
 
           <div>
@@ -195,10 +203,9 @@ const SignUpFormAdvertisingNetwork = () => {
             <select
               // Force the value to be Advertisement Network and make it readonly
               disabled
-              value={'Advertisement Network'}
-              className="h-[37.07px] w-[760px] bg-stone-100 text-center text-xl font-normal text-zinc-800"
-              {...register('program_type')}>
-              <option value="Advertisement Network" className="">
+              defaultValue={'Advertising Network'}
+              className="h-[37.07px] w-[760px] bg-stone-100 text-center text-xl font-normal text-zinc-800">
+              <option value="Advertising Network" className="">
                 Advertisement Network
               </option>
               <option value="Affiliate Network" className="">
@@ -216,7 +223,7 @@ const SignUpFormAdvertisingNetwork = () => {
             </select>
           </div>
 
-          <InputField
+          {/* <InputField
             label="Advertising Network Name"
             id="network_name"
             placeholder=""
@@ -241,11 +248,11 @@ const SignUpFormAdvertisingNetwork = () => {
             type="text"
             register={register}
             errors={errors}
-          />
+          /> */}
 
           {/* Network Description  */}
 
-          <div>
+          {/* <div>
             <label
               htmlFor="networkDescription"
               className="mt-4 block text-base font-bold leading-relaxed text-zinc-800">
@@ -266,7 +273,7 @@ const SignUpFormAdvertisingNetwork = () => {
             type="text"
             register={register}
             errors={errors}
-          />
+          /> */}
           {/* ________________________________________________________ */}
           {/* --- CONFUSION: commission type doesn't exit in the backend ---- */}
           {/* ________________________________________________________ */}
@@ -280,7 +287,7 @@ const SignUpFormAdvertisingNetwork = () => {
             errors={errors}
           /> */}
 
-          <InputField
+          {/* <InputField
             label="Minimum Payment ($50, $100, more)"
             id="minimum_payment"
             placeholder=""
@@ -296,7 +303,7 @@ const SignUpFormAdvertisingNetwork = () => {
             type="text"
             register={register}
             errors={errors}
-          />
+          /> */}
           {/* <InputField
             label="Minimum Payment ($50, $100, more)"
             id="minimum_payment"
@@ -305,28 +312,30 @@ const SignUpFormAdvertisingNetwork = () => {
             register={register}
             errors={errors}
           /> */}
-          <InputField
+          {/* <InputField
             label="Payment Method (Check, PayPal, Wire, more)"
             id="payment_method"
             placeholder=""
             type="text"
             register={register}
             errors={errors}
-          />
+          /> */}
 
           {/* ___________________________________________________________________________ */}
           {/* ------- CONFUSION: Why Referral Commission is included 3 times? -------  */}
-          <InputField
+          {/* <InputField
             label="Referral Commission (2%, 5%, None, more)"
             id="referral_commission"
             placeholder=""
             type="number"
             register={register}
             errors={errors}
-          />
+          /> */}
+
+          {/* 🚫🚫🚫 Uncomment publishers contact later */}
 
           {/* Publishers Contact */}
-          <div className="">
+          {/* <div className="">
             <div className="my-5 flex items-center gap-x-20 ">
               <div>
                 <label
@@ -371,9 +380,9 @@ const SignUpFormAdvertisingNetwork = () => {
                 {...register('publishers_contact')} // This should be contact
               />
             </div>
-          </div>
+          </div> */}
 
-          <div className="py-5">
+          {/* <div className="py-5">
             <div className="relative">
               <h3 className="absolute left-12 top-[-18px] rounded-[10.30px] bg-blue-500 px-[10.30px] py-[4.12px]  text-xl font-normal text-white">
                 For advertiser
@@ -407,7 +416,7 @@ const SignUpFormAdvertisingNetwork = () => {
             type="number"
             register={register}
             errors={errors}
-          />
+          /> */}
 
           {/* <InputField
             label="Payment Method (Check, PayPal, Wire, more)"
@@ -427,14 +436,14 @@ const SignUpFormAdvertisingNetwork = () => {
             errors={errors}
           /> */}
 
-          <InputField
+          {/* <InputField
             label="Daily Impression (100 million, 1 billion, more)"
             id="daily_Impression"
             placeholder=""
             type="number"
             register={register}
             errors={errors}
-          />
+          /> */}
 
           {/* ⚠️ ❓❓❓ Backend only has 'top' */}
 
@@ -465,8 +474,10 @@ const SignUpFormAdvertisingNetwork = () => {
             errors={errors}
           /> */}
 
+          {/* 🚫🚫🚫 Uncomment advertise contact later */}
+
           {/*Advertisers Contact  */}
-          <div>
+          {/* <div>
             <div className="my-5 flex items-center gap-x-20 ">
               <div>
                 <label
@@ -511,9 +522,12 @@ const SignUpFormAdvertisingNetwork = () => {
                 // {...register('affiliate_advertiser_contacts')}
               />
             </div>
-          </div>
+          </div> */}
+
+          {/*  🚫🚫🚫 Uncomment targeting optimization later */}
+
           {/* Targeting & Optimization */}
-          <div>
+          {/* <div>
             <div className="mb-2 mt-16">
               <label
                 htmlFor="targetingOptimization"
@@ -543,9 +557,9 @@ const SignUpFormAdvertisingNetwork = () => {
                 );
               })}
             </div>
-          </div>
+          </div> */}
 
-          <div>
+          {/* <div>
             <label
               htmlFor="networkDescription"
               className="mt-4 block text-base font-bold leading-relaxed text-zinc-800">
@@ -558,10 +572,12 @@ const SignUpFormAdvertisingNetwork = () => {
               className="w-full bg-stone-100 pl-2 pt-1"
               rows={6}
               cols={1}></textarea>
-          </div>
+          </div> */}
         </div>
 
-        <button className="mt-5 inline-flex h-[45.60px] w-[89.60px] items-start justify-start bg-blue-500 p-[10.30px] text-xl font-normal text-white">
+        <button
+          type="submit"
+          className="mt-5 inline-flex h-[45.60px] w-[89.60px] items-start justify-start bg-blue-500 p-[10.30px] text-xl font-normal text-white active:bg-blue-950">
           Submit
         </button>
       </form>
