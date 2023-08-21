@@ -1,7 +1,29 @@
 import { targetingOptimization } from '@/assets/static-data/inputFormText';
 import InputField from '../common/Forms/InputField';
 import Registration from '../common/Forms/Registration';
+import { z } from 'zod';
 import { useForm } from 'react-hook-form';
+
+// form schema for validation
+const schema = z.object({
+  name: z.string().min(2, 'Name must be at least 2 characters'),
+  companyEmail: z
+    .string()
+    .regex(
+      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+      'Enter a valid email'
+    ),
+  skype: z.string().min(2, 'Skype is required'),
+  program_type: z.enum([
+    'Affiliate Network',
+    'Affiliate Program',
+    'Advertising Network',
+    'Tracking Software',
+    'Marketing Spy Tools',
+  ]),
+  affiliateNetworkName: z.string().min(2, 'Affiliate netrok name is required'),
+});
+
 const SignUpFormAdvertisingNetwork = () => {
   const {
     register,
@@ -29,6 +51,7 @@ const SignUpFormAdvertisingNetwork = () => {
             register={register}
             errors={errors}
           />
+          {/* Company Email */}
           <InputField
             label="Company Email"
             id="companyEmail"
@@ -37,6 +60,7 @@ const SignUpFormAdvertisingNetwork = () => {
             register={register}
             errors={errors}
           />
+          {/* Skype */}
           <InputField
             label="Skype"
             id="skype"
@@ -55,13 +79,23 @@ const SignUpFormAdvertisingNetwork = () => {
               Choose your program type
             </label>
             <select
+              value={'Advertisement Network'}
               className="h-[37.07px] w-[760px] bg-stone-100 text-center text-xl font-normal text-zinc-800"
               {...register('programType')}>
-              <option value="advertisementNetwork" className="">
+              <option value="Advertisement Network" className="">
                 Advertisement Network
               </option>
-              <option value="dynamicNetwork" className="">
-                Dynamic Network
+              <option value="Affiliate Network" className="">
+                Affiliate Network
+              </option>
+              <option value="Affiliate Program" className="">
+                Affiliate Program
+              </option>
+              <option value="Tracking Software" className="">
+                Tracking Software
+              </option>
+              <option value="Marketing Spy Tools" className="">
+                Marketing Spy Tools
               </option>
             </select>
           </div>
