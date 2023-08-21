@@ -1,16 +1,10 @@
-export interface IOption {
-  labelName: string;
-  id: string;
-  placeholder?:string;
-  type: string;
-  name: string;
-}
+import { UseFormRegister, FieldValues } from 'react-hook-form';
 
-export interface IInputTextLabels {
-  labelName: string;
+export interface IInputField {
+  label: string;
   id: string;
-  placeholder: string;
+  placeholder: string | null;
   type: string;
-  name: string;
-  options?: IOption[];
+  register: UseFormRegister<FieldValues>; 
+  errors: Record<string, any>;
 }
