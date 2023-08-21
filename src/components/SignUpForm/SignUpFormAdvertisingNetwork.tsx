@@ -22,7 +22,7 @@ const schema = z.object({
     'Tracking Software',
     'Marketing Spy Tools',
   ]),
-  network_name: z.string().min(2, 'Affiliate netrok name is required'),
+  network_name: z.string().min(2, 'Advertising network name is required'),
   network_url: z
     .string()
     .regex(
@@ -38,19 +38,21 @@ const schema = z.object({
   network_description: z
     .string()
     .min(10, 'Description must be at least 10 characters'),
-  minimum_payment: z.number().positive({ message: 'be greater than 0' }),
+  minimum_payment: z
+    .number({ invalid_type_error: 'Enter a number' })
+    .positive({ message: 'Must be greater than 0' }),
   payment_frequency: z.enum(
     ['Daily', 'Weekly', 'Monthly', 'Quarterly', 'Annually'],
     {
-      invalid_type_error:
-        'Must be one of the following: Daily, Weekly, Monthly, Quarterly, Annually',
-      required_error:
-        'Must be one of the following: Daily, Weekly, Monthly, Quarterly, Annually',
+      errorMap: (issue, ctx) => ({
+        message:
+          'Must be one of the following: Daily, Weekly, Monthly, Quarterly, Annually',
+      }),
     }
   ),
   payment_method: z.string().min(2, 'Payment method is required'),
   referral_commission: z
-    .number()
+    .number({ invalid_type_error: 'Enter a number' })
     .positive({ message: 'Must be greater than 0' }),
   tracking_software: z.string().min(2, 'Tracking software is required'),
   affiliate_advertiser_contacts: z.array(
@@ -61,15 +63,21 @@ const schema = z.object({
   ),
   question_aria: z.string().optional(),
   program_category: z.string().min(2, 'Program category is required'),
-  base_commission: z.number().positive({ message: 'Must be greater than 0' }),
+  base_commission: z
+    .number({ invalid_type_error: 'Enter a number' })
+    .positive({ message: 'Must be greater than 0' }),
   tag: z.string().min(2, 'Tag is required'),
   add_format: z.string().min(2, 'Add format is required'),
   cost_model: z.string().min(2, 'Cost model is required'),
-  minimum_deposit: z.number().positive({ message: 'Must be greater than 0' }),
+  minimum_deposit: z
+    .number({ invalid_type_error: 'Enter a number' })
+    .positive({ message: 'Must be greater than 0' }),
   targeting_optimization: z
     .string()
     .min(2, 'Targeting optimization is required'),
-  daily_Impression: z.string().min(2, 'Daily Impression is required'),
+  daily_Impression: z
+    .number({ invalid_type_error: 'Enter a number' })
+    .min(2, 'Daily Impression is required'),
   top: z.string().min(2, 'Top is required'),
   publishers_contact: z.array(
     z
@@ -86,8 +94,12 @@ const schema = z.object({
   }),
   select_device: z.string().min(2, 'Must be at least 2 characters'),
   select_users: z.string().min(2, 'Must be at least 2 characters'),
-  setup_fees: z.number().positive({ message: 'Must be greater than 0' }),
-  startup_pricing: z.number().positive({ message: 'Must be greater than 0' }),
+  setup_fees: z
+    .number({ invalid_type_error: 'Enter a number' })
+    .positive({ message: 'Must be greater than 0' }),
+  startup_pricing: z
+    .number({ invalid_type_error: 'Enter a number' })
+    .positive({ message: 'Must be greater than 0' }),
 });
 
 // Make a type for FormData
@@ -113,7 +125,7 @@ const SignUpFormAdvertisingNetwork = () => {
         <div className="space-y-4">
           {/* name  */}
           <InputField
-            label="Title"
+            label="Name"
             id="title"
             placeholder=""
             type="text"
@@ -149,6 +161,7 @@ const SignUpFormAdvertisingNetwork = () => {
             </label>
             <select
               // Force the value to be Advertisement Network and make it readonly
+              disabled
               value={'Advertisement Network'}
               className="h-[37.07px] w-[760px] bg-stone-100 text-center text-xl font-normal text-zinc-800"
               {...register('program_type')}>
@@ -221,21 +234,24 @@ const SignUpFormAdvertisingNetwork = () => {
             register={register}
             errors={errors}
           />
+          {/* ________________________________________________________ */}
+          {/* --- Currently this doesn't exit in the backend ---- */}
+          {/* ________________________________________________________ */}
 
-          <InputField
+          {/* <InputField
             label="Commission Type (CPM, CPC, CPA, RevShare, more)"
             id="base_commission"
             placeholder=""
-            type="text"
+            type="number"
             register={register}
             errors={errors}
-          />
+          /> */}
 
           <InputField
             label="Minimum Payment ($50, $100, more)"
             id="minimum_payment"
             placeholder=""
-            type="text"
+            type="number"
             register={register}
             errors={errors}
           />
@@ -248,14 +264,14 @@ const SignUpFormAdvertisingNetwork = () => {
             register={register}
             errors={errors}
           />
-          <InputField
+          {/* <InputField
             label="Minimum Payment ($50, $100, more)"
             id="minimum_payment"
             placeholder=""
-            type="text"
+            type="number"
             register={register}
             errors={errors}
-          />
+          /> */}
           <InputField
             label="Payment Method (Check, PayPal, Wire, more)"
             id="payment_method"
@@ -269,7 +285,7 @@ const SignUpFormAdvertisingNetwork = () => {
             label="Referral Commission (2%, 5%, None, more)"
             id="referral_commission"
             placeholder=""
-            type="text"
+            type="number"
             register={register}
             errors={errors}
           />
@@ -332,8 +348,8 @@ const SignUpFormAdvertisingNetwork = () => {
           </div>
 
           <InputField
-            label="Ad Format"
-            id="adFormat"
+            label="Ad Format (Native, Push, Popunder, Popup, Video, more)"
+            id="add_format"
             placeholder=""
             type="text"
             register={register}
@@ -341,8 +357,8 @@ const SignUpFormAdvertisingNetwork = () => {
           />
 
           <InputField
-            label="Cost Model"
-            id="costModel"
+            label="Cost Model (CPM, CPC, more)"
+            id="cost_model"
             placeholder=""
             type="text"
             register={register}
@@ -350,17 +366,17 @@ const SignUpFormAdvertisingNetwork = () => {
           />
 
           <InputField
-            label="Minimum Deposit"
-            id="minimumDeposit"
+            label="Minimum Deposit ($50, $100 more)"
+            id="minimum_deposit"
             placeholder=""
-            type="text"
+            type="number"
             register={register}
             errors={errors}
           />
 
           <InputField
             label="Payment Method (Check, PayPal, Wire, more)"
-            id="paymentMethod"
+            id="payment_method"
             placeholder=""
             type="text"
             register={register}
@@ -369,25 +385,25 @@ const SignUpFormAdvertisingNetwork = () => {
 
           <InputField
             label="Referral Commission (2%, 5%, None, more)"
-            id="referralCommissionAdvertisers"
+            id="referral_commission"
             placeholder=""
-            type="text"
+            type="number"
             register={register}
             errors={errors}
           />
 
           <InputField
             label="Daily Impression (100 million, 1 billion, more)"
-            id="dailyImpression"
+            id="daily_Impression"
             placeholder=""
-            type="text"
+            type="number"
             register={register}
             errors={errors}
           />
 
           <InputField
             label="Top GEO (US, RU, UK, CA, IN, BR, WorldWide, more)"
-            id="topGeo"
+            id="top"
             placeholder=""
             type="text"
             register={register}
@@ -396,7 +412,7 @@ const SignUpFormAdvertisingNetwork = () => {
 
           <InputField
             label="Top Vertical (Dating, Sweepstakes, Mobile App, Health/Nutra, Forex, more)"
-            id="topVertical"
+            id="top"
             placeholder=""
             type="text"
             register={register}
@@ -405,9 +421,9 @@ const SignUpFormAdvertisingNetwork = () => {
 
           <InputField
             label="Referral Commission (2%, 5%, None, more)"
-            id="refCommission"
+            id="referral_commission"
             placeholder=""
-            type="text"
+            type="number"
             register={register}
             errors={errors}
           />
@@ -432,14 +448,14 @@ const SignUpFormAdvertisingNetwork = () => {
                 type="text"
                 placeholder="Name"
                 className="h-[37.07px] w-[236.86px] bg-stone-100 pl-2"
-                {...register('advertisersContactName1')}
+                {...register('affiliate_advertiser_contacts')}
               />
               <input
                 id="advertisersContact2"
                 type="text"
                 placeholder="ex: Email,Skype"
                 className="h-[37.07px] w-[453.12px]  bg-stone-100 pl-2"
-                {...register('advertisersContactInfo1')}
+                {...register('affiliate_advertiser_contacts')}
               />
             </div>
             <div className="flex flex-wrap items-center gap-6">
@@ -448,23 +464,23 @@ const SignUpFormAdvertisingNetwork = () => {
                 type="text"
                 placeholder="Name"
                 className="h-[37.07px] w-[236.86px] bg-stone-100 pl-2"
-                {...register('advertisersContactName2')}
+                {...register('affiliate_advertiser_contacts')}
               />
               <input
                 id="advertisersContact4"
                 type="text"
                 placeholder="ex: Email,Skype"
                 className="h-[37.07px] w-[453.12px]  bg-stone-100 pl-2"
-                {...register('advertisersContactInfo2')}
+                {...register('affiliate_advertiser_contacts')}
               />
             </div>
           </div>
           {/* Targeting & Optimization */}
           <div>
-            <div className="mb-7">
+            <div className="mb-2 mt-16">
               <label
                 htmlFor="targetingOptimization"
-                className="mt-4 block text-base font-bold leading-relaxed text-zinc-800">
+                className="mt-4 block text-xl font-extrabold leading-relaxed text-zinc-800">
                 Targeting & Optimization:
               </label>
             </div>
@@ -482,7 +498,7 @@ const SignUpFormAdvertisingNetwork = () => {
                         key={field.id}
                         type="checkbox"
                         value={field.name}
-                        {...register(field.name)}
+                        {...register('targeting_optimization')}
                         className=" border border-zinc-800"
                       />
                     </div>
@@ -501,7 +517,7 @@ const SignUpFormAdvertisingNetwork = () => {
             <textarea
               id="faq"
               placeholder=""
-              {...register('faq')}
+              {...register('question_aria')}
               className="w-full bg-stone-100 pl-2 pt-1"
               rows={6}
               cols={1}></textarea>
