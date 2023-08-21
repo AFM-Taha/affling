@@ -27,47 +27,47 @@ const schema = z.object({
   //   'Tracking Software',
   //   'Marketing Spy Tools',
   // ]),
-  // network_name: z.string().min(2, 'Advertising network name is required'),
-  // network_url: z
-  //   .string()
-  //   .regex(
-  //     /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/,
-  //     'Enter a valid URL'
-  //   ),
-  // social_page: z
-  //   .string()
-  //   .regex(
-  //     /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/,
-  //     'Enter a valid URL'
-  //   ),
-  // network_description: z
-  //   .string()
-  //   .min(10, 'Description must be at least 10 characters'),
-  // minimum_payment: z
-  //   .number({ invalid_type_error: 'Enter a number' })
-  //   .positive({ message: 'Must be greater than 0' }),
+  network_name: z.string().min(2, 'Advertising network name is required'),
+  network_url: z
+    .string()
+    .regex(
+      /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/,
+      'Enter a valid URL'
+    ),
+  social_page: z
+    .string()
+    .regex(
+      /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/,
+      'Enter a valid URL'
+    ),
+  network_description: z
+    .string()
+    .min(10, 'Description must be at least 10 characters'),
+  minimum_payment: z
+    .number({ invalid_type_error: 'Enter a number' })
+    .positive({ message: 'Must be greater than 0' }),
 
   // ❓❓❓ Why isn't this 👇 a dropdown?
 
-  // payment_frequency: z.enum(
-  //   ['Daily', 'Weekly', 'Monthly', 'Quarterly', 'Annually'],
-  //   {
-  //     errorMap: (_issue, _ctx) => ({
-  //       message:
-  //         'Must be one of the following: Daily, Weekly, Monthly, Quarterly, Annually',
-  //     }),
-  //   }
-  // ),
+  payment_frequency: z.enum(
+    ['Daily', 'Weekly', 'Monthly', 'Quarterly', 'Annually'],
+    {
+      errorMap: (_issue, _ctx) => ({
+        message:
+          'Must be one of the following: Daily, Weekly, Monthly, Quarterly, Annually',
+      }),
+    }
+  ),
 
   // ❓❓❓ Why is payment method mentioned multiple times?
 
-  // payment_method: z.string().min(2, 'Payment method is required'),
+  payment_method: z.string().min(2, 'Payment method is required'),
 
   // ❓❓❓ Why is referral commission mentioned multiple times?
 
-  // referral_commission: z
-  //   .number({ invalid_type_error: 'Enter a number' })
-  //   .positive({ message: 'Must be greater than 0' }),
+  referral_commission: z
+    .number({ invalid_type_error: 'Enter a number' })
+    .positive({ message: 'Must be greater than 0' }),
 
   // ⚠️ ❓❓❓ This field doesn't exist in the design
 
@@ -93,21 +93,21 @@ const schema = z.object({
   //   .number({ invalid_type_error: 'Enter a number' })
   //   .positive({ message: 'Must be greater than 0' }),
 
-  // tag: z.string().min(2, 'Tag is required'),
-  // add_format: z.string().min(2, 'Ad format is required'),
-  // cost_model: z.string().min(2, 'Cost model is required'),
-  // minimum_deposit: z
-  //   .number({ invalid_type_error: 'Enter a number' })
-  //   .positive({ message: 'Must be greater than 0' }),
+  tag: z.string().min(2, 'Tag is required'),
+  add_format: z.string().min(2, 'Ad format is required'),
+  cost_model: z.string().min(2, 'Cost model is required'),
+  minimum_deposit: z
+    .number({ invalid_type_error: 'Enter a number' })
+    .positive({ message: 'Must be greater than 0' }),
 
   /* 🚫🚫🚫 Uncomment targeting optimization later */
 
   // targeting_optimization: z
   //   .string()
   //   .min(2, 'Targeting optimization is required'),
-  // daily_Impression: z
-  //   .number({ invalid_type_error: 'Enter a number' })
-  //   .min(2, 'Daily Impression is required'),
+  daily_Impression: z
+    .number({ invalid_type_error: 'Enter a number' })
+    .min(2, 'Daily Impression is required'),
   // top: z.string().min(2, 'Top is required'),
 
   /* 🚫🚫🚫 Uncomment publisher's contact later */
@@ -223,7 +223,7 @@ const SignUpFormAdvertisingNetwork = () => {
             </select>
           </div>
 
-          {/* <InputField
+          <InputField
             label="Advertising Network Name"
             id="network_name"
             placeholder=""
@@ -248,11 +248,11 @@ const SignUpFormAdvertisingNetwork = () => {
             type="text"
             register={register}
             errors={errors}
-          /> */}
+          />
 
           {/* Network Description  */}
 
-          {/* <div>
+          <div>
             <label
               htmlFor="networkDescription"
               className="mt-4 block text-base font-bold leading-relaxed text-zinc-800">
@@ -265,6 +265,9 @@ const SignUpFormAdvertisingNetwork = () => {
               rows={10}
               cols={1}></textarea>
           </div>
+          <div className="text-red-500">
+            {errors.network_description?.message}
+          </div>
 
           <InputField
             label="Tags (Ad Network, Ad Server, Ad Exchange, DSP, SSP, RTB, more)"
@@ -273,7 +276,7 @@ const SignUpFormAdvertisingNetwork = () => {
             type="text"
             register={register}
             errors={errors}
-          /> */}
+          />
           {/* ________________________________________________________ */}
           {/* --- CONFUSION: commission type doesn't exit in the backend ---- */}
           {/* ________________________________________________________ */}
@@ -287,7 +290,7 @@ const SignUpFormAdvertisingNetwork = () => {
             errors={errors}
           /> */}
 
-          {/* <InputField
+          <InputField
             label="Minimum Payment ($50, $100, more)"
             id="minimum_payment"
             placeholder=""
@@ -303,7 +306,7 @@ const SignUpFormAdvertisingNetwork = () => {
             type="text"
             register={register}
             errors={errors}
-          /> */}
+          />
           {/* <InputField
             label="Minimum Payment ($50, $100, more)"
             id="minimum_payment"
@@ -312,25 +315,25 @@ const SignUpFormAdvertisingNetwork = () => {
             register={register}
             errors={errors}
           /> */}
-          {/* <InputField
+          <InputField
             label="Payment Method (Check, PayPal, Wire, more)"
             id="payment_method"
             placeholder=""
             type="text"
             register={register}
             errors={errors}
-          /> */}
+          />
 
           {/* ___________________________________________________________________________ */}
           {/* ------- CONFUSION: Why Referral Commission is included 3 times? -------  */}
-          {/* <InputField
+          <InputField
             label="Referral Commission (2%, 5%, None, more)"
             id="referral_commission"
             placeholder=""
             type="number"
             register={register}
             errors={errors}
-          /> */}
+          />
 
           {/* 🚫🚫🚫 Uncomment publishers contact later */}
 
@@ -382,7 +385,7 @@ const SignUpFormAdvertisingNetwork = () => {
             </div>
           </div> */}
 
-          {/* <div className="py-5">
+          <div className="py-5">
             <div className="relative">
               <h3 className="absolute left-12 top-[-18px] rounded-[10.30px] bg-blue-500 px-[10.30px] py-[4.12px]  text-xl font-normal text-white">
                 For advertiser
@@ -416,7 +419,7 @@ const SignUpFormAdvertisingNetwork = () => {
             type="number"
             register={register}
             errors={errors}
-          /> */}
+          />
 
           {/* <InputField
             label="Payment Method (Check, PayPal, Wire, more)"
@@ -436,14 +439,14 @@ const SignUpFormAdvertisingNetwork = () => {
             errors={errors}
           /> */}
 
-          {/* <InputField
+          <InputField
             label="Daily Impression (100 million, 1 billion, more)"
             id="daily_Impression"
             placeholder=""
             type="number"
             register={register}
             errors={errors}
-          /> */}
+          />
 
           {/* ⚠️ ❓❓❓ Backend only has 'top' */}
 
