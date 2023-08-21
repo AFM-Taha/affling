@@ -2,12 +2,13 @@ import { targetingOptimization } from '@/assets/static-data/inputFormText';
 import InputField from '../common/Forms/InputField';
 import Registration from '../common/Forms/Registration';
 import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 
 // form schema for validation
 const schema = z.object({
-  name: z.string().min(2, 'Name must be at least 2 characters'),
-  companyEmail: z
+  title: z.string().min(2, 'Name must be at least 2 characters'),
+  company_email: z
     .string()
     .regex(
       /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
@@ -21,17 +22,85 @@ const schema = z.object({
     'Tracking Software',
     'Marketing Spy Tools',
   ]),
-  affiliateNetworkName: z.string().min(2, 'Affiliate netrok name is required'),
+  network_name: z.string().min(2, 'Affiliate netrok name is required'),
+  network_url: z
+    .string()
+    .regex(
+      /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/,
+      'Enter a valid URL'
+    ),
+  social_page: z
+    .string()
+    .regex(
+      /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/,
+      'Enter a valid URL'
+    ),
+  network_description: z
+    .string()
+    .min(10, 'Description must be at least 10 characters'),
+  minimum_payment: z.number().positive({ message: 'be greater than 0' }),
+  payment_frequency: z.enum(
+    ['Daily', 'Weekly', 'Monthly', 'Quarterly', 'Annually'],
+    {
+      invalid_type_error:
+        'Must be one of the following: Daily, Weekly, Monthly, Quarterly, Annually',
+      required_error:
+        'Must be one of the following: Daily, Weekly, Monthly, Quarterly, Annually',
+    }
+  ),
+  payment_method: z.string().min(2, 'Payment method is required'),
+  referral_commission: z
+    .number()
+    .positive({ message: 'Must be greater than 0' }),
+  tracking_software: z.string().min(2, 'Tracking software is required'),
+  affiliate_advertiser_contacts: z.array(
+    z.object({
+      name: z.string().min(2, 'Name must be at least 2 characters'),
+      contact: z.string().min(2, 'Contact must be at least 2 characters'),
+    })
+  ),
+  question_aria: z.string().optional(),
+  program_category: z.string().min(2, 'Program category is required'),
+  base_commission: z.number().positive({ message: 'Must be greater than 0' }),
+  tag: z.string().min(2, 'Tag is required'),
+  add_format: z.string().min(2, 'Add format is required'),
+  cost_model: z.string().min(2, 'Cost model is required'),
+  minimum_deposit: z.number().positive({ message: 'Must be greater than 0' }),
+  targeting_optimization: z
+    .string()
+    .min(2, 'Targeting optimization is required'),
+  daily_Impression: z.string().min(2, 'Daily Impression is required'),
+  top: z.string().min(2, 'Top is required'),
+  publishers_contact: z.array(
+    z
+      .object({
+        name: z.string().min(2, 'Name must be at least 2 characters'),
+        contact: z.string().min(2, 'Contact must be at least 2 characters'),
+      })
+      .optional()
+  ),
+  features: z.string().min(2, 'Features must be at least 2 characters'),
+  unlimited_offers: z.enum(['Yes', 'No'], {
+    required_error: 'Must be Yes or No',
+    invalid_type_error: 'Must be Yes or No',
+  }),
+  select_device: z.string().min(2, 'Must be at least 2 characters'),
+  select_users: z.string().min(2, 'Must be at least 2 characters'),
+  setup_fees: z.number().positive({ message: 'Must be greater than 0' }),
+  startup_pricing: z.number().positive({ message: 'Must be greater than 0' }),
 });
+
+// Make a type for FormData
+export type AdvertisingFormData = z.infer<typeof schema>;
 
 const SignUpFormAdvertisingNetwork = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm<AdvertisingFormData>({ resolver: zodResolver(schema) });
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: AdvertisingFormData) => {
     console.log(data);
   };
 
@@ -44,8 +113,8 @@ const SignUpFormAdvertisingNetwork = () => {
         <div className="space-y-4">
           {/* name  */}
           <InputField
-            label="Name"
-            id="name"
+            label="Title"
+            id="title"
             placeholder=""
             type="text"
             register={register}
@@ -54,7 +123,7 @@ const SignUpFormAdvertisingNetwork = () => {
           {/* Company Email */}
           <InputField
             label="Company Email"
-            id="companyEmail"
+            id="company_email"
             placeholder=""
             type="email"
             register={register}
@@ -79,9 +148,10 @@ const SignUpFormAdvertisingNetwork = () => {
               Choose your program type
             </label>
             <select
+              // Force the value to be Advertisement Network and make it readonly
               value={'Advertisement Network'}
               className="h-[37.07px] w-[760px] bg-stone-100 text-center text-xl font-normal text-zinc-800"
-              {...register('programType')}>
+              {...register('program_type')}>
               <option value="Advertisement Network" className="">
                 Advertisement Network
               </option>
@@ -102,7 +172,7 @@ const SignUpFormAdvertisingNetwork = () => {
 
           <InputField
             label="Advertising Network Name"
-            id="networkName"
+            id="network_name"
             placeholder=""
             type="text"
             register={register}
@@ -111,7 +181,7 @@ const SignUpFormAdvertisingNetwork = () => {
 
           <InputField
             label="Network URL"
-            id="networkURL"
+            id="network_url"
             placeholder=""
             type="text"
             register={register}
@@ -120,7 +190,7 @@ const SignUpFormAdvertisingNetwork = () => {
 
           <InputField
             label="Social Page (Facebook, LinkedIn, Twitter)"
-            id="socialPage"
+            id="social_page"
             placeholder=""
             type="text"
             register={register}
@@ -136,16 +206,16 @@ const SignUpFormAdvertisingNetwork = () => {
               Network Description
             </label>
             <textarea
-              id="networkDescription"
+              id="network_description"
               className="w-full bg-stone-100 pl-2 pt-1"
-              {...register('networkDescription')}
+              {...register('network_description')}
               rows={10}
               cols={1}></textarea>
           </div>
 
           <InputField
             label="Tags (Ad Network, Ad Server, Ad Exchange, DSP, SSP, RTB, more)"
-            id="tags"
+            id="tag"
             placeholder=""
             type="text"
             register={register}
@@ -154,7 +224,7 @@ const SignUpFormAdvertisingNetwork = () => {
 
           <InputField
             label="Commission Type (CPM, CPC, CPA, RevShare, more)"
-            id="commissionType"
+            id="base_commission"
             placeholder=""
             type="text"
             register={register}
@@ -163,7 +233,7 @@ const SignUpFormAdvertisingNetwork = () => {
 
           <InputField
             label="Minimum Payment ($50, $100, more)"
-            id="minimumPayment"
+            id="minimum_payment"
             placeholder=""
             type="text"
             register={register}
@@ -172,7 +242,7 @@ const SignUpFormAdvertisingNetwork = () => {
 
           <InputField
             label="Payment Frequency (Net-30, Net-15, Weekly, Upon Request, more)"
-            id="paymentFrequency"
+            id="payment_frequency"
             placeholder=""
             type="text"
             register={register}
@@ -180,7 +250,7 @@ const SignUpFormAdvertisingNetwork = () => {
           />
           <InputField
             label="Minimum Payment ($50, $100, more)"
-            id="minimumPayment2"
+            id="minimum_payment"
             placeholder=""
             type="text"
             register={register}
@@ -188,7 +258,7 @@ const SignUpFormAdvertisingNetwork = () => {
           />
           <InputField
             label="Payment Method (Check, PayPal, Wire, more)"
-            id="paymentMethod"
+            id="payment_method"
             placeholder=""
             type="text"
             register={register}
@@ -197,7 +267,7 @@ const SignUpFormAdvertisingNetwork = () => {
 
           <InputField
             label="Referral Commission (2%, 5%, None, more)"
-            id="referralCommissionPublishers"
+            id="referral_commission"
             placeholder=""
             type="text"
             register={register}
@@ -224,14 +294,14 @@ const SignUpFormAdvertisingNetwork = () => {
                 type="text"
                 placeholder="Name"
                 className="h-[37.07px] w-[236.86px] bg-stone-100 pl-2"
-                {...register('PublishersContactName1')}
+                {...register('publishers_contact')} // This should be name
               />
               <input
                 id="PublishersContact2"
                 type="text"
                 placeholder="ex: Email,Skype"
                 className="h-[37.07px] w-[453.12px]  bg-stone-100 pl-2"
-                {...register('publishersContactInfo1')}
+                {...register('publishers_contact')} // This should be contact
               />
             </div>
             <div className="flex flex-wrap items-center gap-6">
@@ -240,14 +310,14 @@ const SignUpFormAdvertisingNetwork = () => {
                 type="text"
                 placeholder="Name"
                 className="h-[37.07px] w-[236.86px] bg-stone-100 pl-2"
-                {...register('publishersContactName2')}
+                {...register('publishers_contact')} // This should be name
               />
               <input
                 id="PublishersContact4"
                 type="text"
                 placeholder="ex: Email,Skype"
                 className="h-[37.07px] w-[453.12px]  bg-stone-100 pl-2"
-                {...register('publishersContactInfo2')}
+                {...register('publishers_contact')} // This should be contact
               />
             </div>
           </div>
