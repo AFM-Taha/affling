@@ -3,7 +3,7 @@ import InputField from '../common/Forms/InputField';
 import Registration from '../common/Forms/Registration';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
+import { useFieldArray, useForm } from 'react-hook-form';
 import { DevTool } from '@hookform/devtools';
 
 // ⚠️⚠️⚠️ WARNING: THIS FILE WILL BE UPDATED BASED ON THE BACKEND. DO NOT REMOVE ANY COMMENTS ⚠️⚠️⚠️
@@ -116,14 +116,14 @@ const schema = z.object({
 
   /* 🚫🚫🚫 Uncomment publisher's contact later */
 
-  // publishers_contact: z.array(
-  //   z
-  //     .object({
-  //       name: z.string().min(2, 'Name must be at least 2 characters'),
-  //       contact: z.string().min(2, 'Contact must be at least 2 characters'),
-  //     })
-  //     .optional()
-  // ),
+  publishers_contact: z.array(
+    z
+      .object({
+        name: z.string().min(2, 'Name must be at least 2 characters'),
+        contact: z.string().min(2, 'Contact must be at least 2 characters'),
+      })
+      .optional()
+  ),
 
   // ❓❓❓ All these doesn't exist on the design
   // features: z.string().min(2, 'Features must be at least 2 characters'),
@@ -154,7 +154,15 @@ const SignUpFormAdvertisingNetwork = () => {
     handleSubmit,
     control,
     formState: { errors },
-  } = useForm<AdvertisingFormData>({ resolver: zodResolver(schema) });
+  } = useForm<AdvertisingFormData>({
+    resolver: zodResolver(schema),
+    defaultValues: { publishers_contact: [{ name: '', contact: '' }] },
+  });
+
+  const { fields, append, remove } = useFieldArray({
+    name: 'publishers_contact',
+    control,
+  });
 
   const onSubmit = (data: AdvertisingFormData) => {
     console.log(data);
@@ -194,8 +202,6 @@ const SignUpFormAdvertisingNetwork = () => {
             register={register}
             errors={errors}
           />
-
-          {/* 🚫🚫🚫 Uncomment program type later */}
 
           {/* ---------- Choose your program  type ------ */}
 
@@ -343,7 +349,7 @@ const SignUpFormAdvertisingNetwork = () => {
           {/* 🚫🚫🚫 Uncomment publishers contact later */}
 
           {/* Publishers Contact */}
-          {/* <div className="">
+          <div className="">
             <div className="my-5 flex items-center gap-x-20 ">
               <div>
                 <label
@@ -352,43 +358,47 @@ const SignUpFormAdvertisingNetwork = () => {
                   Publishers Contact (optional)
                 </label>
               </div>
-              <div className="mb-[-10px] border border-dashed border-blue-500 p-[10.30px]">
-                <div className="text-xl font-normal text-zinc-800">+Add</div>
+              <div className="mb-[-10px] border border-dashed border-blue-500 ">
+                <button
+                  onClick={() => append({ name: '', contact: '' })}
+                  type="button"
+                  className="p-[10.30px] text-xl font-normal text-zinc-800 hover:bg-blue-300">
+                  +Add
+                </button>
               </div>
             </div>
-            <div className="mb-5 flex flex-wrap items-center gap-6">
-              <input
-                id="publishersContact1"
-                type="text"
-                placeholder="Name"
-                className="h-[37.07px] w-[236.86px] bg-stone-100 pl-2"
-                {...register('publishers_contact')} // This should be name
-              />
-              <input
-                id="PublishersContact2"
-                type="text"
-                placeholder="ex: Email,Skype"
-                className="h-[37.07px] w-[453.12px]  bg-stone-100 pl-2"
-                {...register('publishers_contact')} // This should be contact
-              />
-            </div>
-            <div className="flex flex-wrap items-center gap-6">
-              <input
-                id="PublishersContact3"
-                type="text"
-                placeholder="Name"
-                className="h-[37.07px] w-[236.86px] bg-stone-100 pl-2"
-                {...register('publishers_contact')} // This should be name
-              />
-              <input
-                id="PublishersContact4"
-                type="text"
-                placeholder="ex: Email,Skype"
-                className="h-[37.07px] w-[453.12px]  bg-stone-100 pl-2"
-                {...register('publishers_contact')} // This should be contact
-              />
-            </div>
-          </div> */}
+
+            {fields.map((field, index) => {
+              return (
+                <div
+                  className="mb-5 flex flex-wrap items-center gap-6"
+                  key={field.id}>
+                  <input
+                    id="publishersContact1"
+                    type="text"
+                    placeholder="Name"
+                    className="h-[37.07px] w-[236.86px] bg-stone-100 pl-2"
+                    {...register(`publishers_contact.${index}.name`)} // This should be name
+                  />
+                  <input
+                    id="PublishersContact2"
+                    type="text"
+                    placeholder="ex: Email,Skype"
+                    className="h-[37.07px] w-[453.12px]  bg-stone-100 pl-2"
+                    {...register(`publishers_contact.${index}.contact`)} // This should be contact
+                  />
+                  {index > 0 && (
+                    <button
+                      onClick={() => remove(index)}
+                      type="button"
+                      className="text-xl font-bold">
+                      -
+                    </button>
+                  )}
+                </div>
+              );
+            })}
+          </div>
 
           <div className="py-5">
             <div className="relative">
