@@ -4,6 +4,7 @@ import Registration from '../common/Forms/Registration';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useFieldArray, useForm } from 'react-hook-form';
+import usePost from '@/hooks/usePost';
 // import { DevTool } from '@hookform/devtools';
 
 // ⚠️⚠️⚠️ WARNING: THIS FILE WILL BE UPDATED BASED ON THE BACKEND. DO NOT REMOVE ANY COMMENTS ⚠️⚠️⚠️
@@ -13,6 +14,8 @@ import { useFieldArray, useForm } from 'react-hook-form';
 // ❓❓❓ I have soooo many questions regarding many form fields
 // and how will it be stored in the DB
 //________________________________
+
+// কোড ব্রাউজ করার সময় schema টা দেখার প্রয়োজন না হলে ফোল্ড করে নিন 😊
 
 // form schema for validation
 const schema = z.object({
@@ -24,13 +27,9 @@ const schema = z.object({
       'Enter a valid email'
     ),
   skype: z.string().min(2, 'Skype is required'),
-  // program_type: z.enum([
-  //   'Affiliate Network',
-  //   'Affiliate Program',
-  //   'Advertising Network',
-  //   'Tracking Software',
-  //   'Marketing Spy Tools',
-  // ]),
+  program_type: z
+    .string()
+    .regex(/Advertising Network/, 'Program type must be Advertising Network'),
   network_name: z.string().min(2, 'Advertising network name is required'),
   network_url: z
     .string()
@@ -156,7 +155,12 @@ const SignUpFormAdvertisingNetwork = () => {
     control,
     formState: { errors },
   } = useForm<AdvertisingFormData>({ resolver: zodResolver(schema) });
-
+  const {
+    mutate,
+    isLoading,
+    isError,
+    data: response,
+  } = usePost<AdvertisingFormData>('top-it');
   // field array for publisher contacts
 
   const {
@@ -176,10 +180,57 @@ const SignUpFormAdvertisingNetwork = () => {
   } = useFieldArray({
     control,
     name: 'affiliate_advertiser_contacts',
-  } as never);
+  });
 
-  const onSubmit = (data: AdvertisingFormData) => {
-    console.log(data);
+  const onSubmit = ({
+    title,
+    company_email,
+    skype,
+    add_format,
+    cost_model,
+    daily_Impression,
+    minimum_deposit,
+    minimum_payment,
+    network_description,
+    network_name,
+    network_url,
+    payment_frequency,
+    payment_method,
+    referral_commission,
+    social_page,
+    tag,
+    affiliate_advertiser_contacts,
+    publishers_contact,
+    targeting_optimization,
+    question_aria,
+  }: AdvertisingFormData) => {
+    mutate({
+      title,
+      company_email,
+      skype,
+      program_type: 'Advertising Network',
+      add_format,
+      cost_model,
+      daily_Impression,
+      minimum_deposit,
+      minimum_payment,
+      network_description,
+      network_name,
+      network_url,
+      payment_frequency,
+      payment_method,
+      referral_commission,
+      social_page,
+      tag,
+      affiliate_advertiser_contacts,
+      publishers_contact,
+      targeting_optimization,
+      question_aria,
+    });
+    // console.log(mutate);
+    // console.log(isLoading);
+    // console.log(isError);/
+    console.log(response);
   };
 
   return (
@@ -226,26 +277,16 @@ const SignUpFormAdvertisingNetwork = () => {
               Choose your program type
             </label>
             <select
-              // Force the value to be Advertisement Network and make it readonly
-              disabled
-              defaultValue={'Advertising Network'}
+              // Force the value to be Advertisement Network
+              {...register('program_type')}
               className="h-[37.07px] w-[760px] bg-stone-100 text-center text-xl font-normal text-zinc-800">
               <option value="Advertising Network" className="">
                 Advertisement Network
               </option>
-              <option value="Affiliate Network" className="">
-                Affiliate Network
-              </option>
-              <option value="Affiliate Program" className="">
-                Affiliate Program
-              </option>
-              <option value="Tracking Software" className="">
-                Tracking Software
-              </option>
-              <option value="Marketing Spy Tools" className="">
-                Marketing Spy Tools
-              </option>
             </select>
+            {errors.program_type && (
+              <div className="text-red-500">{errors.program_type?.message}</div>
+            )}
           </div>
 
           <InputField
@@ -617,10 +658,18 @@ const SignUpFormAdvertisingNetwork = () => {
         </div>
 
         <button
+          disabled={isLoading}
           type="submit"
-          className="mt-5 inline-flex h-[45.60px] w-[89.60px] items-start justify-start bg-blue-500 p-[10.30px] text-xl font-normal text-white active:bg-blue-950">
+          className={`mt-5 inline-flex h-[45.60px] w-[89.60px] items-start justify-start bg-blue-500 p-[10.30px] text-xl font-normal text-white active:bg-blue-950 ${
+            isLoading && 'opacity-30'
+          }`}>
           Submit
         </button>
+        {isError && (
+          <div className="text-red-500">
+            Something went wrong, Please try again.
+          </div>
+        )}
       </form>
       {/* <DevTool control={control} /> */}
     </>
