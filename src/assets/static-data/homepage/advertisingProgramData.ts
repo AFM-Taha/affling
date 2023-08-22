@@ -1,46 +1,34 @@
-export const advertisingNetworksData = [
+export const advertisingProgramData = [
   {
-    image: '/Home/AdvertisingNetwork/1.svg',
-    name: 'PropellerAds',
+    image: '/Home/program/1.svg',
+    name: 'N1 Partners Group',
     ratings: 4.98,
     totalReviews: 117,
     description:
       'TopClientOffer Is The leading performance marketing Company. TCO is one of the worlds best CPA network.',
-    minDeposit: 100,
-    payMethod: ['Paypal', 'Payoneer'],
-    CostModel: ['CPC', 'CPM'],
   },
   {
-    image: '/Home/AdvertisingNetwork/2.svg',
-    name: 'Dao.AD',
+    image: '/Home/program/2.svg',
+    name: 'Mostbet Partners',
     ratings: 4.98,
     totalReviews: 117,
     description:
       'TopClientOffer Is The leading performance marketing Company. TCO is one of the worlds best CPA network.',
-    minDeposit: 100,
-    payMethod: ['Paypal', 'Payoneer'],
-    CostModel: ['CPC', 'CPM'],
   },
   {
-    image: '/Home/AdvertisingNetwork/3.svg',
-    name: 'Push.House',
+    image: '/Home/program/3.svg',
+    name: '1xBet Partners',
     ratings: 4.98,
     totalReviews: 117,
     description:
       'TopClientOffer Is The leading performance marketing Company. TCO is one of the worlds best CPA network.',
-    minDeposit: 100,
-    payMethod: ['Paypal', 'Payoneer'],
-    CostModel: ['CPC', 'CPM'],
   },
   {
-    image: '/Home/AdvertisingNetwork/4.svg',
-    name: 'EZmob',
+    image: '/Home/program/4.svg',
+    name: 'Enchant Affiliates',
     ratings: 4.98,
     totalReviews: 117,
     description:
       'TopClientOffer Is The leading performance marketing Company. TCO is one of the worlds best CPA network.',
-    minDeposit: 100,
-    payMethod: ['Paypal', 'Payoneer'],
-    CostModel: ['CPC', 'CPM'],
   },
 ];

@@ -1,8 +1,9 @@
 import {
-  Banner,
   AdvertisingNetworks,
   AdvertisingPrograms,
   AffiliateNetworks,
+  Banner,
+  HomeAds,
   MarketingTools,
   StarNetworks,
   TopOffers,
@@ -13,16 +14,25 @@ import {
 const Home = () => {
   return (
     <div>
-      <div className='px-12'>
+      <div className="px-3 lg:px-12">
         <Banner />
-        <AdvertisingNetworks />
-        <AdvertisingPrograms />
-        <AffiliateNetworks />
-        <MarketingTools />
-        <StarNetworks />
-        <TopOffers />
-        <TopRatedNetworks />
-        <TrackingSoftware />
+        <div className="flex flex-col-reverse xl:flex-row gap-6 px-4 py-12">
+          <div className="hidden xl:block xl:basis-2/12">
+            <StarNetworks />
+            <HomeAds />
+            <TopOffers />
+            <StarNetworks />
+            <HomeAds />
+          </div>
+          <div className="xl:basis-10/12">
+            <AffiliateNetworks />
+            <AdvertisingNetworks />
+            <AdvertisingPrograms />
+            <TrackingSoftware />
+            <TopRatedNetworks />
+            <MarketingTools />
+          </div>
+        </div>
       </div>
     </div>
   );

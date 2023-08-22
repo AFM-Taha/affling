@@ -7,6 +7,7 @@ import StarNetworks from './StarNetworks';
 import TopOffers from './TopOffers';
 import TopRatedNetworks from './TopRatedNetworks';
 import TrackingSoftware from './TrackingSoftware';
+import HomeAds from './HomeAds';
 
 export {
   Banner,
@@ -18,4 +19,5 @@ export {
   TopOffers,
   TopRatedNetworks,
   TrackingSoftware,
+  HomeAds,
 };
