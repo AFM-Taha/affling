@@ -87,11 +87,7 @@ const schema = z.object({
       })
     )
     .optional(),
-  question_aria: z
-    .string()
-    .min(30, 'Must be at least 30 characters')
-    .optional(),
-
+  question_aria: z.string().optional(),
   // ⚠️ ❓❓❓ This field doesn't exist in the design
 
   // program_category: z.string().min(2, 'Program category is required'),
