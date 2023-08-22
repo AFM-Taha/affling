@@ -5,9 +5,12 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 
+// ⚠️⚠️⚠️ WARNING: THIS FILE WILL BE UPDATED BASED ON THE BACKEND. DO NOT REMOVE ANY COMMENTS ⚠️⚠️⚠️
+// BECAUSE THE CLIENT DIDN'T CLARIFY THE FORM STRUCTURE AND THE BACKEND DEV HAVEN'T SET UP THE DATABASE FULLY YET.
+
 // ______________________
-// ❓❓❓ I have soooo many questions regarding this form fields
-// and how it will be stored in the DB
+// ❓❓❓ I have soooo many questions regarding many form fields
+// and how will it be stored in the DB
 //________________________________
 
 // form schema for validation
@@ -102,9 +105,7 @@ const schema = z.object({
 
   /* 🚫🚫🚫 Uncomment targeting optimization later */
 
-  // targeting_optimization: z
-  //   .string()
-  //   .min(2, 'Targeting optimization is required'),
+  targeting_optimization: z.array(z.union([z.string(), z.boolean()])),
   daily_Impression: z
     .number({ invalid_type_error: 'Enter a number' })
     .min(2, 'Daily Impression is required'),
@@ -530,7 +531,7 @@ const SignUpFormAdvertisingNetwork = () => {
           {/*  🚫🚫🚫 Uncomment targeting optimization later */}
 
           {/* Targeting & Optimization */}
-          {/* <div>
+          <div>
             <div className="mb-2 mt-16">
               <label
                 htmlFor="targetingOptimization"
@@ -539,7 +540,7 @@ const SignUpFormAdvertisingNetwork = () => {
               </label>
             </div>
             <div className="grid grid-cols-1 gap-x-10 md:grid-cols-2 ">
-              {targetingOptimization?.map((field) => {
+              {targetingOptimization?.map((field, index) => {
                 return (
                   <>
                     <div className="flex  items-center  justify-between">
@@ -551,8 +552,8 @@ const SignUpFormAdvertisingNetwork = () => {
                       <input
                         key={field.id}
                         type="checkbox"
-                        value={field.name}
-                        {...register('targeting_optimization')}
+                        value={field.label}
+                        {...register(`targeting_optimization.${index}`)}
                         className=" border border-zinc-800"
                       />
                     </div>
@@ -560,7 +561,7 @@ const SignUpFormAdvertisingNetwork = () => {
                 );
               })}
             </div>
-          </div> */}
+          </div>
 
           {/* <div>
             <label
