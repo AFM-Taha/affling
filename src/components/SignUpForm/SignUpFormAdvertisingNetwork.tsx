@@ -116,14 +116,14 @@ const schema = z.object({
 
   /* 🚫🚫🚫 Uncomment publisher's contact later */
 
-  publishers_contact: z.array(
-    z
-      .object({
-        name: z.string().min(2, 'Name must be at least 2 characters'),
-        contact: z.string().min(2, 'Contact must be at least 2 characters'),
+  publishers_contact: z
+    .array(
+      z.object({
+        name: z.string(),
+        contact: z.string(),
       })
-      .optional()
-  ),
+    )
+    .optional(),
 
   // ❓❓❓ All these doesn't exist on the design
   // features: z.string().min(2, 'Features must be at least 2 characters'),
@@ -346,8 +346,6 @@ const SignUpFormAdvertisingNetwork = () => {
             errors={errors}
           />
 
-          {/* 🚫🚫🚫 Uncomment publishers contact later */}
-
           {/* Publishers Contact */}
           <div className="">
             <div className="my-5 flex items-center gap-x-20 ">
@@ -367,7 +365,7 @@ const SignUpFormAdvertisingNetwork = () => {
                 </button>
               </div>
             </div>
-
+            {/* --- Contact list --- */}
             {fields.map((field, index) => {
               return (
                 <div
@@ -398,6 +396,11 @@ const SignUpFormAdvertisingNetwork = () => {
                 </div>
               );
             })}
+            {errors.publishers_contact && (
+              <div className="text-red-500">
+                Name and contact must be at least 2 characters
+              </div>
+            )}
           </div>
 
           <div className="py-5">
