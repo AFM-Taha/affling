@@ -4,6 +4,7 @@ import Registration from '../common/Forms/Registration';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
+import { DevTool } from '@hookform/devtools';
 
 // ⚠️⚠️⚠️ WARNING: THIS FILE WILL BE UPDATED BASED ON THE BACKEND. DO NOT REMOVE ANY COMMENTS ⚠️⚠️⚠️
 // BECAUSE THE CLIENT DIDN'T CLARIFY THE FORM STRUCTURE AND THE BACKEND DEV HAVEN'T SET UP THE DATABASE FULLY YET.
@@ -105,7 +106,9 @@ const schema = z.object({
 
   /* 🚫🚫🚫 Uncomment targeting optimization later */
 
-  targeting_optimization: z.array(z.union([z.string(), z.boolean()])),
+  targeting_optimization: z
+    .array(z.union([z.string(), z.boolean()]))
+    .optional(),
   daily_Impression: z
     .number({ invalid_type_error: 'Enter a number' })
     .min(2, 'Daily Impression is required'),
@@ -149,6 +152,7 @@ const SignUpFormAdvertisingNetwork = () => {
   const {
     register,
     handleSubmit,
+    control,
     formState: { errors },
   } = useForm<AdvertisingFormData>({ resolver: zodResolver(schema) });
 
@@ -542,22 +546,22 @@ const SignUpFormAdvertisingNetwork = () => {
             <div className="grid grid-cols-1 gap-x-10 md:grid-cols-2 ">
               {targetingOptimization?.map((field, index) => {
                 return (
-                  <>
-                    <div className="flex  items-center  justify-between">
-                      <label
-                        htmlFor={field?.id}
-                        className="mt-4 block text-base font-bold leading-relaxed text-zinc-800">
-                        {field?.label}
-                      </label>
-                      <input
-                        key={field.id}
-                        type="checkbox"
-                        value={field.label}
-                        {...register(`targeting_optimization.${index}`)}
-                        className=" border border-zinc-800"
-                      />
-                    </div>
-                  </>
+                  <div
+                    key={field.id}
+                    className="flex  items-center  justify-between">
+                    <label
+                      htmlFor={field?.id}
+                      className="mt-4 block text-base font-bold leading-relaxed text-zinc-800">
+                      {field?.label}
+                    </label>
+                    <input
+                      id={field.id}
+                      type="checkbox"
+                      value={field.label}
+                      {...register(`targeting_optimization.${index}`)}
+                      className=" border border-zinc-800"
+                    />
+                  </div>
                 );
               })}
             </div>
@@ -585,6 +589,7 @@ const SignUpFormAdvertisingNetwork = () => {
           Submit
         </button>
       </form>
+      {/* <DevTool control={control} /> */}
     </>
   );
 };
