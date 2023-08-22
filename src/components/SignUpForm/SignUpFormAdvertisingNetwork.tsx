@@ -4,7 +4,7 @@ import Registration from '../common/Forms/Registration';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useFieldArray, useForm } from 'react-hook-form';
-import { DevTool } from '@hookform/devtools';
+// import { DevTool } from '@hookform/devtools';
 
 // ⚠️⚠️⚠️ WARNING: THIS FILE WILL BE UPDATED BASED ON THE BACKEND. DO NOT REMOVE ANY COMMENTS ⚠️⚠️⚠️
 // BECAUSE THE CLIENT DIDN'T CLARIFY THE FORM STRUCTURE AND THE BACKEND DEV HAVEN'T SET UP THE DATABASE FULLY YET.
@@ -79,13 +79,18 @@ const schema = z.object({
 
   // TODO: Uncomment this later
 
-  // affiliate_advertiser_contacts: z.array(
-  //   z.object({
-  //     name: z.string().min(2, 'Name must be at least 2 characters'),
-  //     contact: z.string().min(2, 'Contact must be at least 2 characters'),
-  //   })
-  // ),
-  // question_aria: z.string().optional(),
+  affiliate_advertiser_contacts: z
+    .array(
+      z.object({
+        name: z.string(),
+        contact: z.string(),
+      })
+    )
+    .optional(),
+  question_aria: z
+    .string()
+    .min(30, 'Must be at least 30 characters')
+    .optional(),
 
   // ⚠️ ❓❓❓ This field doesn't exist in the design
 
@@ -154,15 +159,28 @@ const SignUpFormAdvertisingNetwork = () => {
     handleSubmit,
     control,
     formState: { errors },
-  } = useForm<AdvertisingFormData>({
-    resolver: zodResolver(schema),
-    defaultValues: { publishers_contact: [{ name: '', contact: '' }] },
+  } = useForm<AdvertisingFormData>({ resolver: zodResolver(schema) });
+
+  // field array for publisher contacts
+
+  const {
+    fields: publishersContactFields,
+    append: publishersContactAppend,
+    remove: publishersContactRemove,
+  } = useFieldArray({
+    control,
+    name: 'publishers_contact',
   });
 
-  const { fields, append, remove } = useFieldArray({
-    name: 'publishers_contact',
+  // field array for advertiser contacts
+  const {
+    fields: affiliateAdvertiserContactFields,
+    append: affiliateAdvertiserContactAppend,
+    remove: affiliateAdvertiserContactRemove,
+  } = useFieldArray({
     control,
-  });
+    name: 'affiliate_advertiser_contacts',
+  } as never);
 
   const onSubmit = (data: AdvertisingFormData) => {
     console.log(data);
@@ -358,7 +376,9 @@ const SignUpFormAdvertisingNetwork = () => {
               </div>
               <div className="mb-[-10px] border border-dashed border-blue-500 ">
                 <button
-                  onClick={() => append({ name: '', contact: '' })}
+                  onClick={() =>
+                    publishersContactAppend({ name: '', contact: '' })
+                  }
                   type="button"
                   className="p-[10.30px] text-xl font-normal text-zinc-800 hover:bg-blue-300">
                   +Add
@@ -366,7 +386,7 @@ const SignUpFormAdvertisingNetwork = () => {
               </div>
             </div>
             {/* --- Contact list --- */}
-            {fields.map((field, index) => {
+            {publishersContactFields.map((field, index) => {
               return (
                 <div
                   className="mb-5 flex flex-wrap items-center gap-6"
@@ -387,7 +407,7 @@ const SignUpFormAdvertisingNetwork = () => {
                   />
                   {index > 0 && (
                     <button
-                      onClick={() => remove(index)}
+                      onClick={() => publishersContactRemove(index)}
                       type="button"
                       className="text-xl font-bold">
                       -
@@ -396,11 +416,6 @@ const SignUpFormAdvertisingNetwork = () => {
                 </div>
               );
             })}
-            {errors.publishers_contact && (
-              <div className="text-red-500">
-                Name and contact must be at least 2 characters
-              </div>
-            )}
           </div>
 
           <div className="py-5">
@@ -498,7 +513,7 @@ const SignUpFormAdvertisingNetwork = () => {
           {/* 🚫🚫🚫 Uncomment advertise contact later */}
 
           {/*Advertisers Contact  */}
-          {/* <div>
+          <div className="">
             <div className="my-5 flex items-center gap-x-20 ">
               <div>
                 <label
@@ -507,45 +522,51 @@ const SignUpFormAdvertisingNetwork = () => {
                   Advertisers Contact (optional)
                 </label>
               </div>
-              <div className="mb-[-10px] border border-dashed border-blue-500 p-[10.30px]">
-                <div className="text-xl font-normal text-zinc-800">+Add</div>
+              <div className="mb-[-10px] border border-dashed border-blue-500 ">
+                <button
+                  onClick={() =>
+                    affiliateAdvertiserContactAppend({ name: '', contact: '' })
+                  }
+                  type="button"
+                  className="p-[10.30px] text-xl font-normal text-zinc-800 hover:bg-blue-300">
+                  +Add
+                </button>
               </div>
             </div>
-            <div className="mb-5 flex flex-wrap items-center gap-6">
-              <input
-                id="advertisersContact1"
-                type="text"
-                placeholder="Name"
-                className="h-[37.07px] w-[236.86px] bg-stone-100 pl-2"
-                // {...register('affiliate_advertiser_contacts')}
-              />
-              <input
-                id="advertisersContact2"
-                type="text"
-                placeholder="ex: Email,Skype"
-                className="h-[37.07px] w-[453.12px]  bg-stone-100 pl-2"
-                // {...register('affiliate_advertiser_contacts')}
-              />
-            </div>
-            <div className="flex flex-wrap items-center gap-6">
-              <input
-                id="advertisersContact3"
-                type="text"
-                placeholder="Name"
-                className="h-[37.07px] w-[236.86px] bg-stone-100 pl-2"
-                // {...register('affiliate_advertiser_contacts')}
-              />
-              <input
-                id="advertisersContact4"
-                type="text"
-                placeholder="ex: Email,Skype"
-                className="h-[37.07px] w-[453.12px]  bg-stone-100 pl-2"
-                // {...register('affiliate_advertiser_contacts')}
-              />
-            </div>
-          </div> */}
-
-          {/*  🚫🚫🚫 Uncomment targeting optimization later */}
+            {/* --- Contact list --- */}
+            {affiliateAdvertiserContactFields.map((field, index) => {
+              return (
+                <div
+                  className="mb-5 flex flex-wrap items-center gap-6"
+                  key={field.id}>
+                  <input
+                    id="publishersContact1"
+                    type="text"
+                    placeholder="Name"
+                    className="h-[37.07px] w-[236.86px] bg-stone-100 pl-2"
+                    {...register(`affiliate_advertiser_contacts.${index}.name`)} // This should be name
+                  />
+                  <input
+                    id="PublishersContact2"
+                    type="text"
+                    placeholder="ex: Email,Skype"
+                    className="h-[37.07px] w-[453.12px]  bg-stone-100 pl-2"
+                    {...register(
+                      `affiliate_advertiser_contacts.${index}.contact`
+                    )} // This should be contact
+                  />
+                  {index > 0 && (
+                    <button
+                      onClick={() => affiliateAdvertiserContactRemove(index)}
+                      type="button"
+                      className="text-xl font-bold">
+                      -
+                    </button>
+                  )}
+                </div>
+              );
+            })}
+          </div>
 
           {/* Targeting & Optimization */}
           <div>
@@ -580,7 +601,7 @@ const SignUpFormAdvertisingNetwork = () => {
             </div>
           </div>
 
-          {/* <div>
+          <div>
             <label
               htmlFor="networkDescription"
               className="mt-4 block text-base font-bold leading-relaxed text-zinc-800">
@@ -593,7 +614,10 @@ const SignUpFormAdvertisingNetwork = () => {
               className="w-full bg-stone-100 pl-2 pt-1"
               rows={6}
               cols={1}></textarea>
-          </div> */}
+          </div>
+          {errors.question_aria && (
+            <div className="text-red-500">{errors.question_aria.message}</div>
+          )}
         </div>
 
         <button
