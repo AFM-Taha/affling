@@ -1,11 +1,11 @@
-export const Affiliate_Network_Data = [
+export const AffiliateNetworksData = [
   {
     image: '/Home/affiliate_network/1.svg',
     name: 'TopClientOffer',
     ratings: 4.8,
     totalReviews: 117,
     description:
-      'TopClientOffer Is The leading performance marketing Company. TCO is one of the worlds best CPA network.',
+      'TopClientOffer Is The leading performance marketing Company. TCO is one of the worlds best CPA network. TCO is one of the worlds best CPA network.',
     category: ['gaming', 'nature', 'entertainment', 'dating'],
     NumOfOffers: 87,
     process: 'Tracking',
