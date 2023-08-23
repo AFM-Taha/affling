@@ -10,13 +10,19 @@ import {
   TopRatedNetworks,
   TrackingSoftware,
 } from '@/components/homepage';
+import Head from 'next/head';
 
 const Home = () => {
   return (
     <div>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title> Affling </title>
+        <link rel="icon" href="/affling-logo.svg" />
+      </Head>
       <div className="px-3 lg:px-12">
         <Banner />
-        <div className="flex flex-col-reverse xl:flex-row gap-6 px-4 py-12">
+        <div className="flex flex-col-reverse gap-6 px-1 py-12 xl:flex-row">
           <div className="hidden xl:block xl:basis-2/12">
             <StarNetworks />
             <HomeAds />

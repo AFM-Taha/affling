@@ -36,26 +36,26 @@ const TopRatedNetworks = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col space-y-8 px-3 lg:px-0 lg:space-y-0 lg:space-x-8">
-                <div className=" mt-5 lg:ml-0">
+              <div className="flex flex-col lg:flex-row lg:items-center space-y-8 px-3 lg:px-0 lg:space-y-0 lg:space-x-8">
+                <div className=" mt-2 lg:ml-0">
                   <Link
                     href="/"
                     className="rounded-lg border border-[#4E93D3] px-4 py-3 font-bold ">
-                    <button>Active Offer</button>
+                    <button className="w-[50%] lg:w-[75%]">Active Offer</button>
                   </Link>
                 </div>
                 <div className=" mt-5 lg:ml-0">
                   <Link
                     href="/"
-                    className="rounded-lg bg-[#4E93D3] px-4 py-3 font-bold text-white">
-                    <button>Best Converting</button>
+                    className="rounded-lg bg-[#4E93D3] px-3 py-3 font-bold text-white">
+                    <button className="w-[50%] lg:w-[95%]">Best Converting</button>
                   </Link>
                 </div>
-                <div className=" mt-5 lg:ml-0">
+                <div className=" mt-5 lg:ml-0 ">
                   <Link
                     href="/"
-                    className="rounded-lg bg-[#4E93D3] px-4 py-3 font-bold text-white">
-                    <button>Update</button>
+                    className="rounded-lg lg:mr-5 bg-[#4E93D3] px-4 py-3 font-bold text-white">
+                    <button className="w-[50%] lg:w-[75%]">Update</button>
                   </Link>
                 </div>
               </div>
