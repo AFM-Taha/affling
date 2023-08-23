@@ -30,11 +30,12 @@ const Footer2 = () => {
             </Link>
           </div>
           <div className="flex flex-col space-y-3 font-bold py-8 lg:py-0">
-            <Link href="/advertise-program">Advertising Program</Link>
-            <Link href="/offers">Top Offers</Link>
-            <Link href="/advertise-network">Advertising Network</Link>
+            <Link href="/advertising-network">Advertising Network</Link>
+            <Link href="/affiliate-network">Affiliate Network</Link>
+            <Link href="/affiliate-program">Affiliate Program</Link>
             <Link href="/tracking-software">Tracking Software</Link>
-            <Link href="/marketing-tool">Marketing Tools</Link>
+            <Link href="/marketing-spy-tools">Marketing Tools</Link>
+            <Link href="/offers">Top Offers</Link>
           </div>
           <div className="flex flex-col space-y-3 font-bold">
             <Link href="/news">News Feed</Link>
