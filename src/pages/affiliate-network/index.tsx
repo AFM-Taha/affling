@@ -1,4 +1,4 @@
-import SignUpForm from '@/components/SignUpForm/SignUpFormAdvertisingNetwork';
+import SignUpForm from '@/components/SignUpForm/SignUpForm';
 import SignUpPageHero from '@/components/common/hero/SignUpPageHero';
 
 export default function AffiliateNetwork() {

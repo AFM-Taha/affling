@@ -1,5 +1,5 @@
 import { UseFormRegister, FieldErrors } from 'react-hook-form';
-import { AdvertisingFormData } from '@/components/SignUpForm/SignUpFormAdvertisingNetwork';
+import { AdvertisingFormData } from '@/components/SignUpForm/SignUpForm';
 export interface IInputField {
   label: string;
   id: keyof AdvertisingFormData; // Use keyof AdvertisingFormData here
