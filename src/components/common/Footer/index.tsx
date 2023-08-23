@@ -20,7 +20,7 @@ const Footer = () => {
           <FooterLink link={'/privacy'}>Privacy Policy</FooterLink>
         </div>
         <div>
-          <FooterLink link={'/affiliate-network/details'}>
+          <FooterLink link={'/affiliate-network/profile'}>
             Affiliate Network
           </FooterLink>
           <FooterLink link={'/advertising-network'}>
