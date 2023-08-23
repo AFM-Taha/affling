@@ -47,7 +47,7 @@ function AdvertisingNetworkProfile() {
     <div className=" mx-auto min-h-screen px-5 lg:px-[140px]">
       {/* company profile  */}
 
-      <div className="relative mt-10 h-[500px] lg:h-[450px]">
+      <div className="relative mb-64 mt-10 h-[500px] lg:mb-16 lg:h-[450px]">
         <CompanyCoverPhoto
           bannerImageUrl="/advertising-network-banner-picture.png"
           bannerImageAlt="advertising-network-banner-picture"
