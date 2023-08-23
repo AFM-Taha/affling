@@ -2,12 +2,23 @@ import React from 'react';
 import { BiSolidStar } from 'react-icons/bi';
 import { IoMdAddCircle } from 'react-icons/io';
 
-const ProfileInfo = () => {
+interface Props {
+  name: string;
+  domain: string;
+  type:
+    | 'Tracking Software'
+    | 'Marketing Spy Tools'
+    | 'Affiliate Program'
+    | 'Advertising Network'
+    | 'Affiliate Network';
+}
+
+const ProfileInfo = ({ domain, name, type }: Props) => {
   return (
     <div className="mt-5 font-bold text-[#313131]">
-      <h3 className=" text-[26px] text-black">PropellerAds</h3>
-      <p className="my-1">www.website.com</p>
-      <p>Advertising Network</p>
+      <h3 className=" text-[26px] text-black">{name}</h3>
+      <p className="my-1">{domain}</p>
+      <p>{type}</p>
       <div className="mb-8 flex items-center gap-2">
         {/* Review stars */}
         <div className="flex gap-1">

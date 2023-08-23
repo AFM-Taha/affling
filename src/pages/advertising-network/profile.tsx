@@ -59,7 +59,11 @@ function AdvertisingNetworkProfile() {
             bannerImageAlt="advertising-network-profile-picture"
           />
 
-          <ProfileInfo />
+          <ProfileInfo
+            domain="www.propellerads.com"
+            name="PropellerAds"
+            type="Advertising Network"
+          />
         </div>
       </div>
 
