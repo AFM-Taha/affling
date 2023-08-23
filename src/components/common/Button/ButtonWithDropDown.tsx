@@ -9,17 +9,17 @@ import {
 import Link from 'next/link';
 
 interface Props {
-  label: string;
   menuHeading: string;
   menuItems: string[];
   slugEndpoint?: string;
+  children: string;
 }
 
 export default function ButtonWithDropDown({
-  label,
   menuHeading,
   menuItems,
   slugEndpoint,
+  children,
 }: Props) {
   function convertToSlug(str: string) {
     return str
@@ -32,7 +32,7 @@ export default function ButtonWithDropDown({
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger>{label}</DropdownMenuTrigger>
+      <DropdownMenuTrigger>{children}</DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuLabel>{menuHeading}</DropdownMenuLabel>
         <DropdownMenuSeparator />
