@@ -288,7 +288,7 @@ const SignUpFormAdvertisingNetwork = ({ programType }: Props) => {
             <select
               // Force the value to be Advertisement Network
               {...register('program_type')}
-              className="h-[37.07px] w-[760px] bg-stone-100 text-center text-xl font-normal text-zinc-800">
+              className="h-[37.07px] w-full bg-stone-100 text-center text-xl font-normal text-zinc-800">
               <option value={programType} className="">
                 {programType}
               </option>
@@ -469,7 +469,7 @@ const SignUpFormAdvertisingNetwork = ({ programType }: Props) => {
               <h3 className="absolute left-12 top-[-18px] rounded-[10.30px] bg-blue-500 px-[10.30px] py-[4.12px]  text-xl font-normal text-white">
                 For advertiser
               </h3>
-              <div className=" min-w-[630.24px] border border-neutral-800 border-opacity-30"></div>
+              <div className=" min-w-full border border-neutral-800 border-opacity-30"></div>
             </div>
           </div>
 
