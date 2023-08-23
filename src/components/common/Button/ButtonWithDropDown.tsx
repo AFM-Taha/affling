@@ -12,12 +12,14 @@ interface Props {
   label: string;
   menuHeading: string;
   menuItems: string[];
+  slugEndpoint?: string;
 }
 
 export default function ButtonWithDropDown({
   label,
   menuHeading,
   menuItems,
+  slugEndpoint,
 }: Props) {
   function convertToSlug(str: string) {
     return str
@@ -37,7 +39,7 @@ export default function ButtonWithDropDown({
         {menuItems.map((item) => {
           const slug = convertToSlug(item);
           return (
-            <Link key={item} href={`/${slug}`}>
+            <Link key={item} href={`/${slug}/${slugEndpoint || ''}`}>
               <DropdownMenuItem>{item}</DropdownMenuItem>
             </Link>
           );
