@@ -53,7 +53,7 @@ function AdvertisingNetworkProfile() {
           bannerImageAlt="advertising-network-banner-picture"
         />
 
-        <div className=" absolute flex  flex-col items-center gap-x-12 lg:left-[57px] lg:top-[170px] lg:flex-row">
+        <div className=" absolute flex  flex-col items-center gap-x-12 lg:left-[57px] lg:top-[210px] lg:flex-row">
           <ProfilePhoto
             bannerImageUrl="/advertising-network-profile-picture.png"
             bannerImageAlt="advertising-network-profile-picture"
@@ -203,7 +203,7 @@ function AdvertisingNetworkProfile() {
             <h5 className="mb-8 text-lg font-bold">Targeting & Optimization</h5>
 
             <div>
-              <TargetingOptimization /> 
+              <TargetingOptimization />
             </div>
           </div>
 
