@@ -31,7 +31,7 @@ export default function NavBar() {
               menuItems={[
                 'Affiliate Network',
                 'Affiliate Program',
-                'Advertising Networks',
+                'Advertising Network',
                 'Tracking Software',
                 'Marketing Spy Tools',
               ]}
@@ -72,7 +72,7 @@ export default function NavBar() {
               menuItems={[
                 'Affiliate Network',
                 'Affiliate Program',
-                'Advertising Networks',
+                'Advertising Network',
                 'Tracking Software',
                 'Marketing Spy Tools',
               ]}
