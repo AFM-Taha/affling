@@ -11,7 +11,7 @@ const AdvertisingNetwork: React.FC = () => {
       </div>
       {/* signUp From  */}
       <div className="mr-auto mt-12 max-w-screen-md">
-        <SignUpForm />
+        <SignUpForm programType="Advertising Network" />
       </div>
     </div>
   );

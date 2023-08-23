@@ -10,7 +10,7 @@ export default function AffiliateNetwork() {
       </div>
       {/* signUp From  */}
       <div className="mr-auto mt-12 max-w-screen-md">
-        <SignUpForm />
+        <SignUpForm programType="Affiliate Network" />
       </div>
     </div>
   );
