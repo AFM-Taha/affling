@@ -1,0 +1,54 @@
+// GET All Offers
+GET https://lionfish-app-qfe6m.ondigitalocean.app/v1/top-it?filter=Marketing Spy Tools
+###
+// POST All Offers
+POST https://lionfish-app-qfe6m.ondigitalocean.app/v1/top-it
+Content-Type: application/json
+
+{
+  "title": "New Campaign Offer",
+  "company_email": "campaigns@example.com",
+  "skype": "campaign_skype",
+  "program_type": "Marketing Spy Tools",
+  "network_name": "Campaign Networks",
+  "network_url": "https://www.campaignnetworks.com",
+  "social_page": "https://www.twitter.com/campaigns",
+  "network_description": "Description of the advertising network",
+  "minimum_payment": 50,
+  "payment_frequency": "Weekly",
+  "payment_method": "Bank Transfer",
+  "referral_commission": 5,
+  "tracking_software": "Campaign Tracker",
+  "affiliate_advertiser_contacts": [
+    {
+      "name": "Marketing Manager",
+      "contact": "marketing@example.com"
+    },
+    {
+      "name": "Support Team",
+      "contact": "support@example.com"
+    }
+  ],
+  "question_aria": "Have any questions? Contact us.",
+  "program_category": "Campaigns",
+  "base_commission": "12%",
+  "tag": "Campaigns",
+  "add_format": "Video",
+  "cost_model": 30,
+  "minimum_deposit": 20,
+  "targeting_optimization": ["Geo-targeting", "Interest targeting"],
+  "daily_Impression": "500",
+  "top": "No",
+  "publishers_contact": [
+    {
+      "name": "Publisher Support",
+      "contact": "publishersupport@example.com"
+    }
+  ],
+  "features": "Advanced targeting options",
+  "unlimited_offers": "Yes",
+  "select_device": "Mobile devices",
+  "select_users": "Specific user groups",
+  "setup_fees": 10,
+  "startup_pricing": 1500
+}

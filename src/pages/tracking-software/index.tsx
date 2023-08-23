@@ -1,8 +1,7 @@
 import SignUpForm from '@/components/SignUpForm/SignUpForm';
 import SignUpPageHero from '@/components/common/hero/SignUpPageHero';
-import React from 'react';
 
-const AdvertisingNetwork: React.FC = () => {
+export default function TrackingSoftware() {
   return (
     <div className="mx-auto min-h-screen px-5 lg:px-[140px]">
       {/* advertising-network add section  */}
@@ -11,10 +10,8 @@ const AdvertisingNetwork: React.FC = () => {
       </div>
       {/* signUp From  */}
       <div className="mr-auto mt-12 max-w-screen-md">
-        <SignUpForm programType="Advertising Network" />
+        <SignUpForm programType="Tracking Software" />
       </div>
     </div>
   );
-};
-
-export default AdvertisingNetwork;
+}

@@ -20,10 +20,12 @@ const Footer = () => {
           <FooterLink link={'/privacy'}>Privacy Policy</FooterLink>
         </div>
         <div>
-          <FooterLink link={'/affiliate-network/details'}>
+          <FooterLink link={'/affiliate-network/profile'}>
             Affiliate Network
           </FooterLink>
-          <FooterLink link={'/'}>Advertising Network</FooterLink>
+          <FooterLink link={'/advertising-network'}>
+            Advertising Network
+          </FooterLink>
           <FooterLink link={'/'}>Advertising Program</FooterLink>
           <FooterLink link={'/'}>Top Offers</FooterLink>
           <FooterLink link={'/'}>Tracking Software</FooterLink>

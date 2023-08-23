@@ -1,10 +1,10 @@
-import { UseFormRegister, FieldValues } from 'react-hook-form';
-
+import { UseFormRegister, FieldErrors } from 'react-hook-form';
+import { AdvertisingFormData } from '@/components/SignUpForm/SignUpForm';
 export interface IInputField {
   label: string;
-  id: string;
+  id: keyof AdvertisingFormData; // Use keyof AdvertisingFormData here
   placeholder: string | null;
   type: string;
-  register: UseFormRegister<FieldValues>; 
-  errors: Record<string, any>;
+  register: UseFormRegister<AdvertisingFormData>; // Use the correct type
+  errors: FieldErrors<AdvertisingFormData>; // Use the correct type
 }

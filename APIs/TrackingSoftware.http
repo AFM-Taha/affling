@@ -1,0 +1,58 @@
+// GET All Offers
+GET https://lionfish-app-qfe6m.ondigitalocean.app/v1/top-it?filter=Tracking Software
+###
+// POST All Offers
+POST https://lionfish-app-qfe6m.ondigitalocean.app/v1/top-it
+Content-Type: application/json
+
+{
+  "title": "New Affiliate Program",
+  "company_email": "info@newprogram.com",
+  "skype": "new_program_skype",
+  "program_type": "Tracking Software",
+  "network_name": "Affiliate Connect",
+  "network_url": "https://www.affiliateconnect.com",
+  "social_page": "https://www.twitter.com/affiliateconnect",
+  "network_description": "Connect with affiliates for better results.",
+  "minimum_payment": 50,
+  "payment_frequency": "Weekly",
+  "payment_method": "Bank Transfer",
+  "referral_commission": 12,
+  "tracking_software": "AffiliateTrack",
+  "affiliate_advertiser_contacts": [
+    {
+      "name": "Michael Johnson",
+      "contact": "michael@affiliateconnect.com"
+    },
+    {
+      "name": "Emily Davis",
+      "contact": "emily@affiliateconnect.com"
+    }
+  ],
+  "question_aria": "Have any questions? Contact us.",
+  "program_category": "Marketing",
+  "base_commission": "10%",
+  "tag": "New Program",
+  "add_format": "Text Link",
+  "cost_model": 40,
+  "minimum_deposit": 20,
+  "targeting_optimization": ["Geo-targeting", "Keyword targeting"],
+  "daily_Impression": "500",
+  "top": "No",
+  "publishers_contact": [
+    {
+      "name": "Publisher A",
+      "contact": "pubA@affiliateconnect.com"
+    },
+    {
+      "name": "Publisher B",
+      "contact": "pubB@affiliateconnect.com"
+    }
+  ],
+  "features": "Real-time reporting, advanced analytics",
+  "unlimited_offers": "Yes",
+  "select_device": "Desktop",
+  "select_users": "Premium users",
+  "setup_fees": 0,
+  "startup_pricing": 1500
+}
