@@ -6,7 +6,6 @@ export default function MenuBar() {
     <div>
       <div className="flex items-center justify-evenly gap-6 overflow-x-scroll sm:overflow-auto">
         <ButtonWithDropDown
-          label="All Categories"
           menuHeading="Go to"
           menuItems={[
             'Affiliate Network',
@@ -15,8 +14,9 @@ export default function MenuBar() {
             'Tracking Software',
             'Marketing Spy Tools',
           ]}
-          slugEndpoint="profile"
-        />
+          slugEndpoint="profile">
+          All Categories
+        </ButtonWithDropDown>
         <Link className="min-w-fit font-medium hover:underline" href={'/'}>
           Home
         </Link>

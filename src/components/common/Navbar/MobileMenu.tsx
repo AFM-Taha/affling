@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Dispatch, SetStateAction, useEffect } from 'react';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
+import ButtonWithDropDown from '../Button/ButtonWithDropDown';
 
 interface MobileMenuProps {
   open: boolean;
@@ -54,9 +55,20 @@ const MobileMenu = ({ open, setToggle }: MobileMenuProps) => {
           {/* Navigation links */}
           <div className="font-lg my-3 flex flex-col space-y-3 border-2 px-3 py-3 font-medium">
             {/* Links to various sections */}
-            <Link className="hover:underline" href={'/categories'}>
-              All Categories
-            </Link>
+            <div className="text-left hover:underline">
+              <ButtonWithDropDown
+                menuHeading="Go to"
+                menuItems={[
+                  'Affiliate Network',
+                  'Affiliate Program',
+                  'Advertising Network',
+                  'Tracking Software',
+                  'Marketing Spy Tools',
+                ]}
+                slugEndpoint="profile">
+                All Categories
+              </ButtonWithDropDown>
+            </div>
             <Link className="hover:underline" href={'/'}>
               Home
             </Link>

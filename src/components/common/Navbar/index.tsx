@@ -26,7 +26,6 @@ export default function NavBar() {
           </button> */}
           <div className="mr-8 rounded-[20px] bg-gradient-to-r from-[#217CD9] via-[#218fd9e8] to-[#21C1D9] px-4 py-2 font-bold text-white  lg:text-2xl">
             <ButtonWithDropDown
-              label="Sign Up"
               menuHeading="Sign up for"
               menuItems={[
                 'Affiliate Network',
@@ -34,8 +33,9 @@ export default function NavBar() {
                 'Advertising Network',
                 'Tracking Software',
                 'Marketing Spy Tools',
-              ]}
-            />
+              ]}>
+              Sign Up
+            </ButtonWithDropDown>
           </div>
         </div>
         <div className="bg-gradient-to-r from-[#217CD9] via-[#218fd9e8] to-[#21C1D9] py-2 font-bold text-white">
@@ -67,7 +67,6 @@ export default function NavBar() {
           </button> */}
           <div className="mr-3 rounded-[20px] bg-gradient-to-r from-[#217CD9] via-[#218fd9e8] to-[#21C1D9] px-4 py-2 font-bold text-white  lg:text-2xl">
             <ButtonWithDropDown
-              label="Sign Up"
               menuHeading="Sign up for"
               menuItems={[
                 'Affiliate Network',
@@ -75,8 +74,9 @@ export default function NavBar() {
                 'Advertising Network',
                 'Tracking Software',
                 'Marketing Spy Tools',
-              ]}
-            />
+              ]}>
+              Sign Up
+            </ButtonWithDropDown>
           </div>
         </div>
         <div className="mt-5">
