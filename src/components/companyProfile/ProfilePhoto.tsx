@@ -10,14 +10,12 @@ export default function ProfilePhoto({
   bannerImageAlt,
 }: IBannerImage) {
   return (
-    <div className="h-[252px] w-[252px] rounded-full bg-white border-4 flex justify-center items-center">
+    <div className="relative flex h-[252px] w-[252px] items-center justify-center rounded-full border-4 bg-white">
       <Image
-        width={232}
-        height={232}
-        className=" rounded-[20px] object-cover"
+        className="rounded-full object-cover"
         src={bannerImageUrl}
         alt={bannerImageAlt}
-        content='fill'
+        layout="fill"
       />
     </div>
   );
