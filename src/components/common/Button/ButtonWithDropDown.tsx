@@ -32,7 +32,9 @@ export default function ButtonWithDropDown({
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger>{children}</DropdownMenuTrigger>
+      <DropdownMenuTrigger>
+        <span className="font-bold hover:underline">{children}</span>
+      </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuLabel>{menuHeading}</DropdownMenuLabel>
         <DropdownMenuSeparator />
