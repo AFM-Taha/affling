@@ -244,6 +244,9 @@ const SignUpFormAdvertisingNetwork = ({ programType }: Props) => {
 
   return (
     <>
+      <h2 className="text-center text-3xl font-bold">
+        Sign up for {programType}
+      </h2>
       <form className="my-12" onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-8">
           <Registration />
