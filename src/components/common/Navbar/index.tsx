@@ -5,6 +5,7 @@ import MenuBar from './MenuBar';
 import SearchBar from './SearchBar';
 import MobileMenu from './MobileMenu';
 import Link from 'next/link';
+import ButtonWithDropDown from '../Button/ButtonWithDropDown';
 
 export default function NavBar() {
   const [open, setToggle] = useState(false);
@@ -20,9 +21,22 @@ export default function NavBar() {
           <div className="hidden w-full max-w-4xl sm:block">
             <SearchBar />
           </div>
-          <button className="mr-8 rounded-[20px] bg-gradient-to-r from-[#217CD9] via-[#218fd9e8] to-[#21C1D9] px-4 py-2 font-bold text-white  lg:text-2xl">
+          {/* <button className="mr-8 rounded-[20px] bg-gradient-to-r from-[#217CD9] via-[#218fd9e8] to-[#21C1D9] px-4 py-2 font-bold text-white  lg:text-2xl">
             Sign Up
-          </button>
+          </button> */}
+          <div className="mr-8 rounded-[20px] bg-gradient-to-r from-[#217CD9] via-[#218fd9e8] to-[#21C1D9] px-4 py-2 font-bold text-white  lg:text-2xl">
+            <ButtonWithDropDown
+              menuHeading="Sign up for"
+              menuItems={[
+                'Affiliate Network',
+                'Affiliate Program',
+                'Advertising Network',
+                'Tracking Software',
+                'Marketing Spy Tools',
+              ]}>
+              Sign Up
+            </ButtonWithDropDown>
+          </div>
         </div>
         <div className="bg-gradient-to-r from-[#217CD9] via-[#218fd9e8] to-[#21C1D9] py-2 font-bold text-white">
           <MenuBar />
@@ -48,9 +62,22 @@ export default function NavBar() {
               alt="Affling Logo"
             />
           </div>
-          <button className="mr-3 rounded-[20px] bg-gradient-to-r from-[#217CD9] via-[#218fd9e8] to-[#21C1D9] px-4 py-2 font-bold text-white  lg:text-2xl">
+          {/* <button className="mr-3 rounded-[20px] bg-gradient-to-r from-[#217CD9] via-[#218fd9e8] to-[#21C1D9] px-4 py-2 font-bold text-white  lg:text-2xl">
             Sign Up
-          </button>
+          </button> */}
+          <div className="mr-3 rounded-[20px] bg-gradient-to-r from-[#217CD9] via-[#218fd9e8] to-[#21C1D9] px-4 py-2 font-bold text-white  lg:text-2xl">
+            <ButtonWithDropDown
+              menuHeading="Sign up for"
+              menuItems={[
+                'Affiliate Network',
+                'Affiliate Program',
+                'Advertising Network',
+                'Tracking Software',
+                'Marketing Spy Tools',
+              ]}>
+              Sign Up
+            </ButtonWithDropDown>
+          </div>
         </div>
         <div className="mt-5">
           <SearchBar />

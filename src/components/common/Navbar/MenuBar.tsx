@@ -1,14 +1,22 @@
 import Link from 'next/link';
+import ButtonWithDropDown from '../Button/ButtonWithDropDown';
 
 export default function MenuBar() {
   return (
     <div>
       <div className="flex items-center justify-evenly gap-6 overflow-x-scroll sm:overflow-auto">
-        <Link
-          className="min-w-fit font-medium hover:underline"
-          href={'/categories'}>
+        <ButtonWithDropDown
+          menuHeading="Go to"
+          menuItems={[
+            'Affiliate Network',
+            'Affiliate Program',
+            'Advertising Network',
+            'Tracking Software',
+            'Marketing Spy Tools',
+          ]}
+          slugEndpoint="profile">
           All Categories
-        </Link>
+        </ButtonWithDropDown>
         <Link className="min-w-fit font-medium hover:underline" href={'/'}>
           Home
         </Link>
