@@ -4,6 +4,7 @@ import BestInMonth from '@/components/offers/BestInMonth';
 import Menu1 from '@/components/offers/Menu1';
 import Menu2 from '@/components/offers/Menu2';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
 import { BsArrowRightCircle } from 'react-icons/bs';
 
@@ -35,7 +36,7 @@ const Offers = () => {
     <>
       <div className="px-5 lg:px-24"></div>
       <Menu1 />
-      <Menu2/>
+      <Menu2 />
 
       <div className="px-5 lg:px-24">
         <div className="flex flex-col space-x-6 pb-16 pt-5 xl:flex-row">
@@ -63,36 +64,38 @@ const Offers = () => {
                       className="border-b border-l border-r shadow-md ">
                       <td className="w-full py-2.5 text-left lg:w-[400px]">
                         {/* Offer details */}
-                        <div className="flex flex-row items-center justify-around px-10 lg:px-0">
-                          <Image
-                            src={offer.image}
-                            width={68}
-                            height={68}
-                            alt="offer_image"
-                            className=""
-                          />
-                          <div className="ml-3 lg:ml-0">
-                            <div className="flex items-center space-x-2 pb-2 font-bold ">
-                              <p className="text-sm lg:text-base">
-                                {offer.title}
-                              </p>
-                              <BsArrowRightCircle className="hidden text-[#4E93D3] lg:block" />
-                            </div>
-                            <div className="flex items-center justify-between space-x-5">
-                              <p className="">{offer.tag}</p>
-                              <div>
-                                {/* Display offer categories */}
-                                {offer.categories.map((el, index) => (
-                                  <button
-                                    key={index}
-                                    className="border-1 mr-2 rounded-[10px] border bg-[#C6C6C6] px-2.5 text-xs lg:text-base">
-                                    {el}
-                                  </button>
-                                ))}
+                        <Link href={`/offers/${offer?._id}`}>
+                          <div className="flex flex-row items-center justify-around px-10 lg:px-0">
+                            <Image
+                              src={offer.image}
+                              width={68}
+                              height={68}
+                              alt="offer_image"
+                              className=""
+                            />
+                            <div className="ml-3 lg:ml-0">
+                              <div className="flex items-center space-x-2 pb-2 font-bold ">
+                                <p className="text-sm lg:text-base">
+                                  {offer.title}
+                                </p>
+                                <BsArrowRightCircle className="hidden text-[#4E93D3] lg:block" />
+                              </div>
+                              <div className="flex items-center justify-between space-x-5">
+                                <p className="">{offer.tag}</p>
+                                <div>
+                                  {/* Display offer categories */}
+                                  {offer.categories.map((el, index) => (
+                                    <button
+                                      key={index}
+                                      className="border-1 mr-2 rounded-[10px] border bg-[#C6C6C6] px-2.5 text-xs lg:text-base">
+                                      {el}
+                                    </button>
+                                  ))}
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
+                        </Link>
                       </td>
                       {/* Offer price */}
                       <td className="text-center text-lg font-bold lg:text-base">
@@ -140,3 +143,4 @@ const Offers = () => {
 };
 
 export default Offers;
+
