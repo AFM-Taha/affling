@@ -10,11 +10,10 @@ export default function CompanyCoverPhoto({
   bannerImageAlt,
 }: IBannerImage) {
   return (
-    <div className="hidden lg:block">
+    <div className="relative h-[250px] lg:h-[250px] lg:w-[500] xl:w-[1320px]">
       <Image
-        width={1320}
-        height={250}
-        className=" rounded-[20px] object-cover"
+        layout="fill"
+        className="rounded-[20px] object-cover"
         src={bannerImageUrl}
         alt={bannerImageAlt}
       />

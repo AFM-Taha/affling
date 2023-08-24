@@ -33,6 +33,7 @@ export default function NavBar() {
                 'Advertising Network',
                 'Tracking Software',
                 'Marketing Spy Tools',
+                'Admin',
               ]}>
               Sign Up
             </ButtonWithDropDown>
@@ -74,6 +75,7 @@ export default function NavBar() {
                 'Advertising Network',
                 'Tracking Software',
                 'Marketing Spy Tools',
+                'Admin',
               ]}>
               Sign Up
             </ButtonWithDropDown>

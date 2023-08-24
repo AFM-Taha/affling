@@ -15,7 +15,7 @@ interface FetchedNetworkDetails {
   name: string;
 }
 
-function AdvertisingNetworkProfile() {
+function AffiliateProgramProfile() {
   const { data } = useGet<FetchedNetworkDetails>(
     'top-it?filter=Advertising%20Network'
   );
@@ -47,19 +47,23 @@ function AdvertisingNetworkProfile() {
     <div className=" mx-auto min-h-screen px-5 lg:px-[140px]">
       {/* company profile  */}
 
-      <div className="relative mt-10 h-[500px] lg:h-[450px]">
+      <div className="relative mb-64 mt-10 h-[500px] lg:mb-16 lg:h-[450px]">
         <CompanyCoverPhoto
-          bannerImageUrl="/advertising-network-banner-picture.png"
-          bannerImageAlt="advertising-network-banner-picture"
+          bannerImageUrl="/marketing-spy-cover.png"
+          bannerImageAlt="marketing-spy-cover.png"
         />
 
         <div className=" absolute flex  flex-col items-center gap-x-12 lg:left-[57px] lg:top-[210px] lg:flex-row">
           <ProfilePhoto
-            bannerImageUrl="/advertising-network-profile-picture.png"
-            bannerImageAlt="advertising-network-profile-picture"
+            bannerImageUrl="/marketing-spy-profile.png"
+            bannerImageAlt="Marketing-spy-tool-profile-picture"
           />
 
-          <ProfileInfo />
+          <ProfileInfo
+            domain="www.adplexity.com"
+            name="Adplexity"
+            type="Marketing Spy Tools"
+          />
         </div>
       </div>
 
@@ -227,4 +231,4 @@ function AdvertisingNetworkProfile() {
   );
 }
 
-export default AdvertisingNetworkProfile;
+export default AffiliateProgramProfile;
