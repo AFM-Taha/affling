@@ -1,3 +1,4 @@
+import { programTypes } from '@/assets/static-data/programTypes';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,7 +11,7 @@ import Link from 'next/link';
 
 interface Props {
   menuHeading: string;
-  menuItems: string[];
+  menuItems: typeof programTypes;
   slugEndpoint?: string;
   children: string;
 }

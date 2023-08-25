@@ -6,6 +6,7 @@ import SearchBar from './SearchBar';
 import MobileMenu from './MobileMenu';
 import Link from 'next/link';
 import ButtonWithDropDown from '../Button/ButtonWithDropDown';
+import { programTypes } from '@/assets/static-data/programTypes';
 
 export default function NavBar() {
   const [open, setToggle] = useState(false);
@@ -27,14 +28,7 @@ export default function NavBar() {
           <div className="mr-8 rounded-[20px] bg-gradient-to-r from-[#217CD9] via-[#218fd9e8] to-[#21C1D9] px-4 py-2 font-bold text-white  lg:text-2xl">
             <ButtonWithDropDown
               menuHeading="Sign up for"
-              menuItems={[
-                'Affiliate Network',
-                'Affiliate Program',
-                'Advertising Network',
-                'Tracking Software',
-                'Marketing Spy Tools',
-                'Admin',
-              ]}>
+              menuItems={programTypes}>
               Sign Up
             </ButtonWithDropDown>
           </div>
@@ -69,14 +63,7 @@ export default function NavBar() {
           <div className="mr-3 rounded-[20px] bg-gradient-to-r from-[#217CD9] via-[#218fd9e8] to-[#21C1D9] px-4 py-2 font-bold text-white  lg:text-2xl">
             <ButtonWithDropDown
               menuHeading="Sign up for"
-              menuItems={[
-                'Affiliate Network',
-                'Affiliate Program',
-                'Advertising Network',
-                'Tracking Software',
-                'Marketing Spy Tools',
-                'Admin',
-              ]}>
+              menuItems={programTypes}>
               Sign Up
             </ButtonWithDropDown>
           </div>

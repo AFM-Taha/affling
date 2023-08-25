@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { Dispatch, SetStateAction, useEffect } from 'react';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 import ButtonWithDropDown from '../Button/ButtonWithDropDown';
+import { programTypes } from '@/assets/static-data/programTypes';
 
 interface MobileMenuProps {
   open: boolean;
@@ -58,13 +59,7 @@ const MobileMenu = ({ open, setToggle }: MobileMenuProps) => {
             <div className="text-left hover:underline">
               <ButtonWithDropDown
                 menuHeading="Go to"
-                menuItems={[
-                  'Affiliate Network',
-                  'Affiliate Program',
-                  'Advertising Network',
-                  'Tracking Software',
-                  'Marketing Spy Tools',
-                ]}
+                menuItems={programTypes}
                 slugEndpoint="profile">
                 All Categories
               </ButtonWithDropDown>
