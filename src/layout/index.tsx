@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import { ReactNode } from 'react';
 import AdminLayout from './AdminLayout';
 import UserLayout from './UserLayout';
+import ActiveSectionContextProvider from '@/context/active-section-context';
 
 interface Props {
   children: ReactNode;
@@ -10,6 +11,11 @@ interface Props {
 export default function Layout({ children }: Props) {
   const path = useRouter().pathname;
 
-  if (path.includes('admin')) return <AdminLayout>{children}</AdminLayout>;
+  if (path.includes('admin'))
+    return (
+      <ActiveSectionContextProvider>
+        <AdminLayout>{children}</AdminLayout>
+      </ActiveSectionContextProvider>
+    );
   return <UserLayout>{children}</UserLayout>;
 }
