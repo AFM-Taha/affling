@@ -4,7 +4,7 @@ import Link from 'next/link';
 const Banner = () => {
   return (
     <div className="customShadow px-5 lg:px-8 mt-8 mb-3 lg:my-3">
-      <div className="flex flex-col-reverse items-center justify-center space-y-5 lg:flex-row lg:space-y-0">
+      <div className="flex flex-col-reverse items-center justify-center space-y-5 md:flex-row lg:space-y-0">
         <div className="basis-1/2 py-3">
           <h2 className="text-2xl font-bold text-red-500 lg:text-6xl">
             TopClientOffer
