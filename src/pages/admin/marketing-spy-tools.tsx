@@ -149,7 +149,7 @@ const MarketingSpyToolsAdmin: React.FC = () => {
                   <span>Status</span> <AiOutlineFilter className="text-xl" />
                 </div>
                 {statusDropdownOpen && (
-                  <div className="absolute left-0 top-[calc(100%+1px)] z-50 w-[200px] w-full rounded border bg-gray-600 shadow-lg">
+                  <div className="absolute left-0 top-[calc(100%+1px)] z-50 w-[200px] rounded border bg-gray-600 shadow-lg">
                     <div className="flex flex-col space-y-3 px-2 py-3 text-left">
                       <p
                         className={`flex items-center space-x-3 ${
