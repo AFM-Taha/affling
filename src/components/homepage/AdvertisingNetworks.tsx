@@ -16,8 +16,8 @@ const AdvertisingNetworks = () => {
           {advertisingNetworksData.map((el, index) => (
             <div
               key={index}
-              className=" flex flex-col justify-between border-b px-1 py-5 lg:flex-row lg:px-3">
-              <div className="flex flex-col space-x-6 lg:basis-11/12 lg:flex-row">
+              className=" flex flex-col justify-between border-b px-1 py-5 md:flex-row lg:px-3">
+              <div className="flex flex-col space-x-6 lg:basis-11/12 md:flex-row">
                 <div className="pl-5 lg:basis-2/12 lg:pl-0">
                   <Image
                     src={el.image}
@@ -72,7 +72,7 @@ const AdvertisingNetworks = () => {
               <div className="ml-5 mt-5 lg:ml-0">
                 <Link
                   href="/"
-                  className="rounded-lg bg-[#4E93D3] px-4 py-3 font-bold text-white">
+                  className="rounded-lg md:mr-12 lg:mr-2 bg-[#4E93D3] px-4 py-3 font-bold text-white">
                   <button>Join Now</button>
                 </Link>
               </div>
