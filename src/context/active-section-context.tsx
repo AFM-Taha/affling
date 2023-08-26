@@ -25,8 +25,7 @@ export const ActiveSectionContext =
 export default function ActiveSectionContextProvider({
   children,
 }: ActiveSectionContextProviderProps) {
-  const [activeSection, setActiveSection] =
-    useState<PageName>('Affiliate Network');
+  const [activeSection, setActiveSection] = useState<PageName>('' as PageName);
 
   return (
     <ActiveSectionContext.Provider

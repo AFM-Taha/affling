@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import ButtonWithDropDown from '../Button/ButtonWithDropDown';
+import { programTypes } from '@/assets/static-data/programTypes';
 
 export default function MenuBar() {
   return (
@@ -7,13 +8,7 @@ export default function MenuBar() {
       <div className="flex items-center justify-evenly gap-6 overflow-x-scroll sm:overflow-auto">
         <ButtonWithDropDown
           menuHeading="Go to"
-          menuItems={[
-            'Affiliate Network',
-            'Affiliate Program',
-            'Advertising Network',
-            'Tracking Software',
-            'Marketing Spy Tools',
-          ]}
+          menuItems={programTypes}
           slugEndpoint="profile">
           All Categories
         </ButtonWithDropDown>
