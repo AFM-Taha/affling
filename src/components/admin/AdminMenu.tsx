@@ -53,7 +53,7 @@ export default function AdminMenu({ isOpen, setIsOpen }: Props) {
                 </div>
               </Link>
               <button onClick={() => setIsOpen(false)}>
-                <GrClose size={20} />
+                <GrClose size={20} className="text-white" />
               </button>
             </div>
 

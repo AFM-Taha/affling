@@ -11,7 +11,7 @@ export default function AdminSidebar() {
 
   return (
     <>
-      <aside className="relative hidden h-screen w-[285px] border-x border-x-[#3f4e69] bg-[#2A3447] pt-14 text-white lg:block">
+      <aside className="relative hidden  w-[285px] border-x border-x-[#3f4e69] bg-[#2A3447] pt-14 text-white lg:block">
         <Link href={'/admin/dashboard'}>
           <div className="mb-9 flex items-center justify-start gap-3 border-l-[5px] border-[#1AA5CF] bg-[#1aa5cf26] py-4 pl-4 text-xl text-[#1AA5CF]">
             <Image
@@ -36,11 +36,14 @@ export default function AdminSidebar() {
 
       {/* Hamburger Menu */}
       <div className="lg:hidden">
-        <button
-          onClick={() => setIsOpen(true)}
-          className="border-1 m-3 block rounded-md border border-[#576c93] p-1">
-          <HiMenu color="#a0a0a0" size={24} />
-        </button>
+        <div className="flex justify-between px-3 items-center text-white">
+          <button
+            onClick={() => setIsOpen(true)}
+            className="border-1 m-3 block rounded-md border border-[#576c93] p-1">
+            <HiMenu color="#a0a0a0" size={24} />
+          </button>
+          <div className="font-bold">Admin</div>
+        </div>
         <AdminMenu isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
     </>

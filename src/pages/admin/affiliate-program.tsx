@@ -114,20 +114,24 @@ const AffiliateProgramAdmin: React.FC = () => {
   ).length;
 
   return (
-    <div className="text-white mb-12">
+    <div className="mb-12 text-white">
       {/* Content  */}
-      <div className="px-6 py-4">
-        <div className="flex space-x-6 font-medium">
+      <div className="px-3 py-4">
+        <div className="flex  items-center space-x-4 text-sm font-medium lg:text-base">
           <h4>Affiliates</h4>
-          <p className="flex items-center">
-            <GoDotFill className="text-[#12DE33]" /> {activeCount} active
+          <p className="flex items-center space-x-1">
+            <GoDotFill className="text-[#12DE33]" /> <span>{activeCount}</span>{' '}
+            <span>Active</span>
           </p>
-          <p className="flex items-center">
-            <GoDotFill className="text-[#1AA5CF]" /> {sponsorCount} Sponsor
+          <p className="flex items-center space-x-1">
+            <GoDotFill className="text-[#1AA5CF]" />
+            <span>{sponsorCount}</span>
+            <span>Sponsor</span>
           </p>
-          <p className="flex items-center">
-            <GoDotFill className="text-[#F4AF48]" /> {premiumSponsorCount}{' '}
-            Premium Sponsor
+          <p className="flex items-center space-x-1">
+            <GoDotFill className="text-[#F4AF48]" />{' '}
+            <span>{premiumSponsorCount}</span>
+            <span>Premium Sponsor</span>
           </p>
         </div>
       </div>
@@ -145,7 +149,7 @@ const AffiliateProgramAdmin: React.FC = () => {
                   <span>Status</span> <AiOutlineFilter className="text-xl" />
                 </div>
                 {statusDropdownOpen && (
-                  <div className="absolute left-0 top-[calc(100%+1px)] z-50 w-full rounded border bg-gray-600 shadow-lg lg:w-[200px]">
+                  <div className="absolute left-0 top-[calc(100%+1px)] z-50 w-[200px] w-full rounded border bg-gray-600 shadow-lg">
                     <div className="flex flex-col space-y-3 px-2 py-3 text-left">
                       <p
                         className={`flex items-center space-x-3 ${
@@ -255,11 +259,11 @@ const AffiliateProgramAdmin: React.FC = () => {
               <tr key={index}>
                 <td className="px-4 py-4 text-center">
                   {el.status === 'Active' ? (
-                    <GoDotFill className="text-[#12DE33] text-xl flex ml-3" />
+                    <GoDotFill className="ml-3 flex text-xl text-[#12DE33]" />
                   ) : el.status === 'Sponsor' ? (
-                    <GoDotFill className="text-[#1AA5CF] text-xl flex ml-3" />
+                    <GoDotFill className="ml-3 flex text-xl text-[#1AA5CF]" />
                   ) : (
-                    <GoDotFill className="text-[#F4AF48] text-xl flex ml-3" />
+                    <GoDotFill className="ml-3 flex text-xl text-[#F4AF48]" />
                   )}
                 </td>
                 <td className="px-4 py-4 text-center">{el.serialNo}</td>
