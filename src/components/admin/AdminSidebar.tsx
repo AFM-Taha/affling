@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { MdOutlineHelpOutline } from 'react-icons/md';
 import { useState } from 'react';
 import { HiMenu } from 'react-icons/hi';
+import AdminMenu from './AdminMenu';
 
 export default function AdminSidebar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,13 +36,12 @@ export default function AdminSidebar() {
 
       {/* Hamburger Menu */}
       <div className="lg:hidden">
-        {/* Menu button */}
         <button
           onClick={() => setIsOpen(true)}
           className="border-1 m-3 block rounded-md border border-[#576c93] p-1">
           <HiMenu color="#a0a0a0" size={24} />
-          <span className="sr-only">Menu</span>
         </button>
+        <AdminMenu isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
     </>
   );
