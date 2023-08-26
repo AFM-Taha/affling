@@ -1,3 +1,4 @@
+import { programTypes } from '@/assets/static-data/programTypes';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,26 +11,24 @@ import Link from 'next/link';
 
 interface Props {
   menuHeading: string;
-  menuItems: string[];
+  menuItems: typeof programTypes;
   slugEndpoint?: string;
   children: string;
 }
-
+function convertToSlug(str: string) {
+  return str
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .trim();
+}
 export default function ButtonWithDropDown({
   menuHeading,
   menuItems,
   slugEndpoint,
   children,
 }: Props) {
-  function convertToSlug(str: string) {
-    return str
-      .toLowerCase()
-      .replace(/[^a-z0-9\s-]/g, '')
-      .replace(/\s+/g, '-')
-      .replace(/-+/g, '-')
-      .trim();
-  }
-
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
@@ -50,3 +49,5 @@ export default function ButtonWithDropDown({
     </DropdownMenu>
   );
 }
+
+export { convertToSlug };
