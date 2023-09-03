@@ -1,7 +1,7 @@
-import { IInputField } from '@/interface/globalInterface';
+import { IInputFieldMarketingSpyTools } from '@/interface/marketingSpyToolsFormInterface';
 import React from 'react';
 
-const InputField: React.FC<IInputField> = ({
+const InputField: React.FC<IInputFieldMarketingSpyTools> = ({
   label,
   id,
   placeholder,

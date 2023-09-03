@@ -1,4 +1,4 @@
-import SignUpForm from '@/components/SignUpForm/SignUpForm';
+import SignUpFormAffiliateNetwork from '@/components/SignUpForm/SignUpFormAffiliateNetwork';
 import SignUpPageHero from '@/components/common/hero/SignUpPageHero';
 
 export default function AffiliateNetwork() {
@@ -10,7 +10,7 @@ export default function AffiliateNetwork() {
       </div>
       {/* signUp From  */}
       <div className="mr-auto mt-12 max-w-screen-md">
-        <SignUpForm programType="Affiliate Network" />
+        <SignUpFormAffiliateNetwork />
       </div>
     </div>
   );

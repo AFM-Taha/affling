@@ -1,4 +1,4 @@
-import SignUpForm from '@/components/SignUpForm/SignUpForm';
+import SignUpFormAdvertisingNetwork from '@/components/SignUpForm/SignUpFormAdvertisingNetwork';
 import SignUpPageHero from '@/components/common/hero/SignUpPageHero';
 import React from 'react';
 
@@ -11,7 +11,7 @@ const AdvertisingNetwork: React.FC = () => {
       </div>
       {/* signUp From  */}
       <div className="mr-auto mt-12 max-w-screen-md">
-        <SignUpForm programType="Advertising Network" />
+        <SignUpFormAdvertisingNetwork />
       </div>
     </div>
   );

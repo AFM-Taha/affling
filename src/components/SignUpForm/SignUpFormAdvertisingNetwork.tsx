@@ -1,10 +1,10 @@
 import { targetingOptimization } from '@/assets/static-data/inputFormText';
-import InputField from '../common/Forms/InputField';
+import InputField from '../common/Forms/InputFieldAdvertisingNetwork';
 import Registration from '../common/Forms/Registration';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useFieldArray, useForm } from 'react-hook-form';
-import usePost from '@/hooks/usePost';
+// import usePost from '@/hooks/usePost';
 // import { DevTool } from '@hookform/devtools';
 
 // ⚠️⚠️⚠️ WARNING: THIS FILE WILL BE UPDATED BASED ON THE BACKEND. DO NOT REMOVE ANY COMMENTS ⚠️⚠️⚠️
@@ -148,28 +148,19 @@ const schema = z.object({
 // Make a type for FormData
 export type AdvertisingFormData = z.infer<typeof schema>;
 
-interface Props {
-  programType:
-    | 'Tracking Software'
-    | 'Marketing Spy Tools'
-    | 'Affiliate Program'
-    | 'Advertising Network'
-    | 'Affiliate Network';
-}
-
-const SignUpFormAdvertisingNetwork = ({ programType }: Props) => {
+const SignUpFormAdvertisingNetwork = () => {
   const {
     register,
     handleSubmit,
     control,
     formState: { errors },
   } = useForm<AdvertisingFormData>({ resolver: zodResolver(schema) });
-  const {
-    mutate,
-    isLoading,
-    isError,
-    data: response,
-  } = usePost<AdvertisingFormData>('top-it');
+  // const {
+  //   mutate,
+  //   isLoading,
+  //   isError,
+  //   data: response,
+  // } = usePost<AdvertisingFormData>('top-it');
   // field array for publisher contacts
 
   const {
@@ -191,61 +182,65 @@ const SignUpFormAdvertisingNetwork = ({ programType }: Props) => {
     name: 'affiliate_advertiser_contacts',
   });
 
-  const onSubmit = ({
-    title,
-    company_email,
-    skype,
-    add_format,
-    cost_model,
-    daily_Impression,
-    minimum_deposit,
-    minimum_payment,
-    network_description,
-    network_name,
-    network_url,
-    payment_frequency,
-    payment_method,
-    referral_commission,
-    social_page,
-    tag,
-    affiliate_advertiser_contacts,
-    publishers_contact,
-    targeting_optimization,
-    question_aria,
-  }: AdvertisingFormData) => {
-    mutate({
-      title,
-      company_email,
-      skype,
-      program_type: 'Advertising Network',
-      add_format,
-      cost_model,
-      daily_Impression,
-      minimum_deposit,
-      minimum_payment,
-      network_description,
-      network_name,
-      network_url,
-      payment_frequency,
-      payment_method,
-      referral_commission,
-      social_page,
-      tag,
-      affiliate_advertiser_contacts,
-      publishers_contact,
-      targeting_optimization,
-      question_aria,
-    });
+  const onSubmit = (
+    // {
+    //   title,
+    //   company_email,
+    //   skype,
+    //   add_format,
+    //   cost_model,
+    //   daily_Impression,
+    //   minimum_deposit,
+    //   minimum_payment,
+    //   network_description,
+    //   network_name,
+    //   network_url,
+    //   payment_frequency,
+    //   payment_method,
+    //   referral_commission,
+    //   social_page,
+    //   tag,
+    //   affiliate_advertiser_contacts,
+    //   publishers_contact,
+    //   targeting_optimization,
+    //   question_aria,
+    // }
+    data: AdvertisingFormData
+  ) => {
+    // mutate({
+    //   title,
+    //   company_email,
+    //   skype,
+    //   program_type: 'Advertising Network',
+    //   add_format,
+    //   cost_model,
+    //   daily_Impression,
+    //   minimum_deposit,
+    //   minimum_payment,
+    //   network_description,
+    //   network_name,
+    //   network_url,
+    //   payment_frequency,
+    //   payment_method,
+    //   referral_commission,
+    //   social_page,
+    //   tag,
+    //   affiliate_advertiser_contacts,
+    //   publishers_contact,
+    //   targeting_optimization,
+    //   question_aria,
+    // });
     // console.log(mutate);
     // console.log(isLoading);
     // console.log(isError);/
-    console.log(response);
+    // console.log(response);
+    console.log(data);
   };
 
   return (
     <>
       <h2 className="text-center text-3xl font-bold">
-        Sign up for {programType}
+        Sign up for Advertising Network
       </h2>
       <form className="my-12" onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-8">
@@ -292,8 +287,8 @@ const SignUpFormAdvertisingNetwork = ({ programType }: Props) => {
               // Force the value to be Advertisement Network
               {...register('program_type')}
               className="h-[37.07px] w-full bg-stone-100 text-center text-xl font-normal text-zinc-800">
-              <option value={programType} className="">
-                {programType}
+              <option value="Advertising Network" className="">
+                Advertising Network
               </option>
             </select>
             {errors.program_type && (
@@ -302,7 +297,7 @@ const SignUpFormAdvertisingNetwork = ({ programType }: Props) => {
           </div>
 
           <InputField
-            label={`${programType} Name`}
+            label={'Advertising Network Name'}
             id="network_name"
             placeholder=""
             type="text"
@@ -670,18 +665,19 @@ const SignUpFormAdvertisingNetwork = ({ programType }: Props) => {
         </div>
 
         <button
-          disabled={isLoading}
+          // disabled={isLoading}
           type="submit"
-          className={`mt-5 inline-flex h-[45.60px] w-[89.60px] items-start justify-start bg-blue-500 p-[10.30px] text-xl font-normal text-white active:bg-blue-950 ${
-            isLoading && 'opacity-30'
-          }`}>
+          className="mt-5 inline-flex h-[45.60px] w-[89.60px] items-start justify-start bg-blue-500 p-[10.30px] text-xl font-normal text-white active:bg-blue-950"
+          //   isLoading && 'opacity-30'
+          // }`}>
+        >
           Submit
         </button>
-        {isError && (
+        {/* {isError && (
           <div className="text-red-500">
             Something went wrong, Please try again.
           </div>
-        )}
+        )} */}
       </form>
       {/* <DevTool control={control} /> */}
     </>
