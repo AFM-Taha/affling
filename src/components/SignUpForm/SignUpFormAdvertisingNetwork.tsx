@@ -182,55 +182,59 @@ const SignUpFormAdvertisingNetwork = () => {
     name: 'affiliate_advertiser_contacts',
   });
 
-  const onSubmit = ({
-    title,
-    company_email,
-    skype,
-    add_format,
-    cost_model,
-    daily_Impression,
-    minimum_deposit,
-    minimum_payment,
-    network_description,
-    network_name,
-    network_url,
-    payment_frequency,
-    payment_method,
-    referral_commission,
-    social_page,
-    tag,
-    affiliate_advertiser_contacts,
-    publishers_contact,
-    targeting_optimization,
-    question_aria,
-  }: AdvertisingFormData) => {
-    mutate({
-      title,
-      company_email,
-      skype,
-      program_type: 'Advertising Network',
-      add_format,
-      cost_model,
-      daily_Impression,
-      minimum_deposit,
-      minimum_payment,
-      network_description,
-      network_name,
-      network_url,
-      payment_frequency,
-      payment_method,
-      referral_commission,
-      social_page,
-      tag,
-      affiliate_advertiser_contacts,
-      publishers_contact,
-      targeting_optimization,
-      question_aria,
-    });
+  const onSubmit = (
+    // {
+    //   title,
+    //   company_email,
+    //   skype,
+    //   add_format,
+    //   cost_model,
+    //   daily_Impression,
+    //   minimum_deposit,
+    //   minimum_payment,
+    //   network_description,
+    //   network_name,
+    //   network_url,
+    //   payment_frequency,
+    //   payment_method,
+    //   referral_commission,
+    //   social_page,
+    //   tag,
+    //   affiliate_advertiser_contacts,
+    //   publishers_contact,
+    //   targeting_optimization,
+    //   question_aria,
+    // }
+    data: AdvertisingFormData
+  ) => {
+    // mutate({
+    //   title,
+    //   company_email,
+    //   skype,
+    //   program_type: 'Advertising Network',
+    //   add_format,
+    //   cost_model,
+    //   daily_Impression,
+    //   minimum_deposit,
+    //   minimum_payment,
+    //   network_description,
+    //   network_name,
+    //   network_url,
+    //   payment_frequency,
+    //   payment_method,
+    //   referral_commission,
+    //   social_page,
+    //   tag,
+    //   affiliate_advertiser_contacts,
+    //   publishers_contact,
+    //   targeting_optimization,
+    //   question_aria,
+    // });
     // console.log(mutate);
     // console.log(isLoading);
     // console.log(isError);/
-    console.log(response);
+    // console.log(response);
+    console.log(data);
   };
 
   return (
