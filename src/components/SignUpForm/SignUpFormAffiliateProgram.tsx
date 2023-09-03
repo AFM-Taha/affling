@@ -78,14 +78,14 @@ const schema = z.object({
 
   // TODO: Uncomment this later
 
-  affiliate_advertiser_contacts: z
-    .array(
-      z.object({
-        name: z.string(),
-        contact: z.string(),
-      })
-    )
-    .optional(),
+  // affiliate_advertiser_contacts: z
+  //   .array(
+  //     z.object({
+  //       name: z.string(),
+  //       contact: z.string(),
+  //     })
+  //   )
+  //   .optional(),
   question_aria: z.string().optional(),
   // ⚠️ ❓❓❓ This field doesn't exist in the design
 
@@ -108,20 +108,20 @@ const schema = z.object({
   // ⬆️👆 END
 
   tag: z.string().min(2, 'Tag is required'),
-  add_format: z.string().min(2, 'Ad format is required'),
-  cost_model: z.string().min(2, 'Cost model is required'),
-  minimum_deposit: z
-    .number({ invalid_type_error: 'Enter a number' })
-    .positive({ message: 'Must be greater than 0' }),
+  // add_format: z.string().min(2, 'Ad format is required'),
+  // cost_model: z.string().min(2, 'Cost model is required'),
+  // minimum_deposit: z
+  //   .number({ invalid_type_error: 'Enter a number' })
+  //   .positive({ message: 'Must be greater than 0' }),
 
   /* 🚫🚫🚫 Uncomment targeting optimization later */
 
-  targeting_optimization: z
-    .array(z.union([z.string(), z.boolean()]))
-    .optional(),
-  daily_Impression: z
-    .number({ invalid_type_error: 'Enter a number' })
-    .min(2, 'Daily Impression is required'),
+  // targeting_optimization: z
+  //   .array(z.union([z.string(), z.boolean()]))
+  //   .optional(),
+  // daily_Impression: z
+  //   .number({ invalid_type_error: 'Enter a number' })
+  //   .min(2, 'Daily Impression is required'),
   // top: z.string().min(2, 'Top is required'),
 
   /* 🚫🚫🚫 Uncomment publisher's contact later */
