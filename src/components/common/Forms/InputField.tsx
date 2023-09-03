@@ -1,7 +1,7 @@
-import { IInputField } from '@/interface/globalInterface';
+import { IInputFieldAdvertisingNetwork } from '@/interface/advertisingFormInterface';
 import React from 'react';
 
-const InputField: React.FC<IInputField> = ({
+const InputField: React.FC<IInputFieldAdvertisingNetwork> = ({
   label,
   id,
   placeholder,

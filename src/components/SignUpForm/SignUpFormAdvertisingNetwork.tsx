@@ -148,16 +148,7 @@ const schema = z.object({
 // Make a type for FormData
 export type AdvertisingFormData = z.infer<typeof schema>;
 
-interface Props {
-  programType:
-    | 'Tracking Software'
-    | 'Marketing Spy Tools'
-    | 'Affiliate Program'
-    | 'Advertising Network'
-    | 'Affiliate Network';
-}
-
-const SignUpFormAdvertisingNetwork = ({ programType }: Props) => {
+const SignUpFormAdvertisingNetwork = () => {
   const {
     register,
     handleSubmit,
@@ -245,7 +236,7 @@ const SignUpFormAdvertisingNetwork = ({ programType }: Props) => {
   return (
     <>
       <h2 className="text-center text-3xl font-bold">
-        Sign up for {programType}
+        Sign up for Advertising Network
       </h2>
       <form className="my-12" onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-8">
@@ -292,8 +283,8 @@ const SignUpFormAdvertisingNetwork = ({ programType }: Props) => {
               // Force the value to be Advertisement Network
               {...register('program_type')}
               className="h-[37.07px] w-full bg-stone-100 text-center text-xl font-normal text-zinc-800">
-              <option value={programType} className="">
-                {programType}
+              <option value="Advertising Network" className="">
+                Advertising Network
               </option>
             </select>
             {errors.program_type && (
@@ -302,7 +293,7 @@ const SignUpFormAdvertisingNetwork = ({ programType }: Props) => {
           </div>
 
           <InputField
-            label={`${programType} Name`}
+            label={'Advertising Network Name'}
             id="network_name"
             placeholder=""
             type="text"
