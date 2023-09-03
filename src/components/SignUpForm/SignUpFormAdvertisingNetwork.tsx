@@ -1,5 +1,5 @@
 import { targetingOptimization } from '@/assets/static-data/inputFormText';
-import InputField from '../common/Forms/InputField';
+import InputField from '../common/Forms/InputFieldAdvertisingNetwork';
 import Registration from '../common/Forms/Registration';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
