@@ -137,6 +137,19 @@ const schema = z.object({
     )
     .optional(),
 
+  network_of_offers: z.array(
+    z.object({
+      name: z.string().min(2, 'Must be at least 2 characters'),
+      device: z.string().min(2, 'Must be at least 2 characters'),
+      payout: z
+        .number({ invalid_type_error: 'Enter a number' })
+        .positive({ message: 'Must be greater than 0' }),
+      flows: z.string().min(2, 'Must be at least 2 characters'),
+      country: z.string().min(2, 'Must be at least 2 characters'),
+      verticals: z.string().min(2, 'Must be at least 2 characters'),
+    })
+  ),
+
   // ❓❓❓ All these doesn't exist on the design
   // features: z.string().min(2, 'Features must be at least 2 characters'),
 
@@ -184,15 +197,15 @@ const SignUpFormAffiliateNetwork = () => {
     name: 'publishers_contact',
   });
 
-  // field array for advertiser contacts
-  // const {
-  //   fields: affiliateAdvertiserContactFields,
-  //   append: affiliateAdvertiserContactAppend,
-  //   remove: affiliateAdvertiserContactRemove,
-  // } = useFieldArray({
-  //   control,
-  //   name: 'affiliate_advertiser_contacts',
-  // });
+  // field array for Network of offers
+  const {
+    fields: networkOfOffersFields,
+    append: networkOfOffersAppend,
+    remove: networkOfOffersRemove,
+  } = useFieldArray({
+    control,
+    name: 'network_of_offers',
+  });
 
   const onSubmit = (
     // {
@@ -364,6 +377,97 @@ const SignUpFormAffiliateNetwork = () => {
             register={register}
             errors={errors}
           />
+
+          {/* ⏳ 🛑 Network of Offers */}
+
+          <div className="">
+            <div className="my-5 flex items-center gap-x-20 ">
+              <div>
+                <label
+                  htmlFor="networkOfOffers"
+                  className="mt-4 block text-base font-bold leading-relaxed text-zinc-800">
+                  Network of Offers
+                </label>
+              </div>
+              <div className="mb-[-10px] border border-dashed border-blue-500 ">
+                <button
+                  onClick={() =>
+                    networkOfOffersAppend({
+                      name: '',
+                      device: '',
+                      payout: 0,
+                      flows: '',
+                      country: '',
+                      verticals: '',
+                    })
+                  }
+                  type="button"
+                  className="p-[10.30px] text-xl font-normal text-zinc-800 hover:bg-blue-300">
+                  +Add
+                </button>
+              </div>
+              {errors.network_of_offers && (
+                <div className="text-red-500">Please provide valid inputs</div>
+              )}
+            </div>
+            {/* --- Contact list --- */}
+            {networkOfOffersFields.map((field, index) => {
+              return (
+                <div
+                  className="mb-5 flex flex-wrap items-center gap-1"
+                  key={field.id}>
+                  <input
+                    id="networkOfOffers"
+                    type="text"
+                    placeholder="Name"
+                    className="h-[37.07px] w-[160px] bg-stone-100 pl-2"
+                    {...register(`network_of_offers.${index}.name`)}
+                  />
+                  <input
+                    type="text"
+                    placeholder="Device"
+                    className="h-[37.07px] w-[160px]  bg-stone-100 pl-2"
+                    {...register(`network_of_offers.${index}.device`)}
+                  />
+                  <input
+                    type="number"
+                    placeholder="Payout: e.g. $10"
+                    className="h-[37.07px] w-[160px]  bg-stone-100 pl-2"
+                    {...register(`network_of_offers.${index}.payout`, {
+                      valueAsNumber: true,
+                    })}
+                  />
+                  <input
+                    type="text"
+                    placeholder="Flows"
+                    className="h-[37.07px] w-[160px]  bg-stone-100 pl-2"
+                    {...register(`network_of_offers.${index}.flows`)}
+                  />
+                  <input
+                    type="text"
+                    placeholder="Countries"
+                    className="h-[37.07px] w-[180px]  bg-stone-100 pl-2"
+                    {...register(`network_of_offers.${index}.country`)}
+                  />
+                  <input
+                    type="text"
+                    placeholder="Verticals"
+                    className="h-[37.07px] w-[180px]  bg-stone-100 pl-2"
+                    {...register(`network_of_offers.${index}.verticals`)}
+                  />
+                  {index > 0 && (
+                    <button
+                      onClick={() => networkOfOffersRemove(index)}
+                      type="button"
+                      className="text-xl font-bold">
+                      -
+                    </button>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+
           <InputField
             label="Top verticals (Dating, Health/Nutra, Sweepstakes, Gambling, more)"
             id="tag"
