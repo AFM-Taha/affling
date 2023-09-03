@@ -252,7 +252,7 @@ const SignUpFormMarketingSpyTools = () => {
   return (
     <>
       <h2 className="text-center text-3xl font-bold">
-        Sign up for Affiliate Program
+        Sign up for Marketing Spy Tools
       </h2>
       <form className="my-12" onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-8">
