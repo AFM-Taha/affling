@@ -1,4 +1,4 @@
-import SignUpForm from '@/components/SignUpForm/SignUpFormAdvertisingNetwork';
+import SignUpFormTrackingSoftware from '@/components/SignUpForm/SignUpFormTrackingSoftware';
 import SignUpPageHero from '@/components/common/hero/SignUpPageHero';
 
 export default function TrackingSoftware() {
@@ -10,7 +10,7 @@ export default function TrackingSoftware() {
       </div>
       {/* signUp From  */}
       <div className="mr-auto mt-12 max-w-screen-md">
-        <SignUpForm />
+        <SignUpFormTrackingSoftware />
       </div>
     </div>
   );
