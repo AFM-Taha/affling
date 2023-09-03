@@ -1,10 +1,10 @@
-import { targetingOptimization } from '@/assets/static-data/inputFormText';
+// import { targetingOptimization } from '@/assets/static-data/inputFormText';
 import InputField from '../common/Forms/InputFieldAffiliateProgram';
 import Registration from '../common/Forms/Registration';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useFieldArray, useForm } from 'react-hook-form';
-import usePost from '@/hooks/usePost';
+// import usePost from '@/hooks/usePost';
 // import { DevTool } from '@hookform/devtools';
 
 // ⚠️⚠️⚠️ WARNING: THIS FILE WILL BE UPDATED BASED ON THE BACKEND. DO NOT REMOVE ANY COMMENTS ⚠️⚠️⚠️
@@ -29,8 +29,8 @@ const schema = z.object({
   skype: z.string().min(2, 'Skype is required'),
   program_type: z
     .string()
-    .regex(/Advertising Network/, 'Program type must be Advertising Network'),
-  network_name: z.string().min(2, 'Advertising network name is required'),
+    .regex(/Affiliate Program/, 'Program type must be Affiliate Program'),
+  network_name: z.string().min(2, 'Program name is required'),
   network_url: z
     .string()
     .regex(
@@ -91,11 +91,21 @@ const schema = z.object({
 
   // program_category: z.string().min(2, 'Program category is required'),
 
-  // ⚠️ ❓❓❓ This field doesn't exist in the design
+  // ⚠️ ❓❓❓ Doesn't exits on the backend
+
+  // ⬇️ 👇 START
 
   base_commission: z
     .number({ invalid_type_error: 'Enter a number' })
     .positive({ message: 'Must be greater than 0' }),
+
+  commission_type: z.string().min(2, 'Commission type is required'),
+
+  tracking_duration: z.string().min(2, 'Tracking duration is required'),
+
+  software: z.string().min(2, 'Software is required'),
+
+  // ⬆️👆 END
 
   tag: z.string().min(2, 'Tag is required'),
   add_format: z.string().min(2, 'Ad format is required'),
@@ -155,12 +165,12 @@ const SignUpFormAffiliateProgram = () => {
     control,
     formState: { errors },
   } = useForm<AffiliateProgramFormData>({ resolver: zodResolver(schema) });
-  const {
-    mutate,
-    isLoading,
-    isError,
-    data: response,
-  } = usePost<AffiliateProgramFormData>('top-it');
+  // const {
+  //   mutate,
+  //   isLoading,
+  //   isError,
+  //   data: response,
+  // } = usePost<AffiliateProgramFormData>('top-it');
   // field array for publisher contacts
 
   const {
@@ -173,66 +183,70 @@ const SignUpFormAffiliateProgram = () => {
   });
 
   // field array for advertiser contacts
-  const {
-    fields: affiliateAdvertiserContactFields,
-    append: affiliateAdvertiserContactAppend,
-    remove: affiliateAdvertiserContactRemove,
-  } = useFieldArray({
-    control,
-    name: 'affiliate_advertiser_contacts',
-  });
+  // const {
+  //   fields: affiliateAdvertiserContactFields,
+  //   append: affiliateAdvertiserContactAppend,
+  //   remove: affiliateAdvertiserContactRemove,
+  // } = useFieldArray({
+  //   control,
+  //   name: 'affiliate_advertiser_contacts',
+  // });
 
-  const onSubmit = ({
-    title,
-    company_email,
-    skype,
-    add_format,
-    cost_model,
-    daily_Impression,
-    minimum_deposit,
-    minimum_payment,
-    network_description,
-    network_name,
-    network_url,
-    payment_frequency,
-    payment_method,
-    referral_commission,
-    social_page,
-    tag,
-    affiliate_advertiser_contacts,
-    publishers_contact,
-    targeting_optimization,
-    question_aria,
-    base_commission,
-  }: AffiliateProgramFormData) => {
-    mutate({
-      title,
-      company_email,
-      skype,
-      program_type: 'Advertising Network',
-      add_format,
-      cost_model,
-      daily_Impression,
-      minimum_deposit,
-      minimum_payment,
-      network_description,
-      network_name,
-      network_url,
-      payment_frequency,
-      payment_method,
-      referral_commission,
-      social_page,
-      tag,
-      affiliate_advertiser_contacts,
-      publishers_contact,
-      targeting_optimization,
-      question_aria,
-      base_commission,
-    });
+  const onSubmit = (
+    // {
+    //   title,
+    //   company_email,
+    //   skype,
+    //   add_format,
+    //   cost_model,
+    //   daily_Impression,
+    //   minimum_deposit,
+    //   minimum_payment,
+    //   network_description,
+    //   network_name,
+    //   network_url,
+    //   payment_frequency,
+    //   payment_method,
+    //   referral_commission,
+    //   social_page,
+    //   tag,
+    //   affiliate_advertiser_contacts,
+    //   publishers_contact,
+    //   targeting_optimization,
+    //   question_aria,
+    //   base_commission,
+    // }
+    data: AffiliateProgramFormData
+  ) => {
+    // mutate({
+    //   title,
+    //   company_email,
+    //   skype,
+    //   program_type: 'Advertising Network',
+    //   add_format,
+    //   cost_model,
+    //   daily_Impression,
+    //   minimum_deposit,
+    //   minimum_payment,
+    //   network_description,
+    //   network_name,
+    //   network_url,
+    //   payment_frequency,
+    //   payment_method,
+    //   referral_commission,
+    //   social_page,
+    //   tag,
+    //   affiliate_advertiser_contacts,
+    //   publishers_contact,
+    //   targeting_optimization,
+    //   question_aria,
+    //   base_commission,
+    // });
     // console.log(mutate);
     // console.log(isLoading);
     // console.log(isError);/
-    console.log(response);
+    // console.log(response);
+    console.log(data);
   };
 
   return (
@@ -353,10 +367,28 @@ const SignUpFormAffiliateProgram = () => {
           {/* ________________________________________________________ */}
 
           <InputField
-            label="Commission Type (CPM, CPC, CPA, RevShare, more)"
+            label="Base Commission (10% per sale, 25% recurring commission, more)"
             id="base_commission"
             placeholder=""
             type="number"
+            register={register}
+            errors={errors}
+          />
+
+          <InputField
+            label="Commission Type (CPA, CPL, CPI, CPS, RevShare, more)"
+            id="commission_type"
+            placeholder=""
+            type="text"
+            register={register}
+            errors={errors}
+          />
+
+          <InputField
+            label="Tracking Duration/Cookie Length (30 days, 90 days, Lifetime, more)"
+            id="tracking_duration"
+            placeholder=""
+            type="text"
             register={register}
             errors={errors}
           />
@@ -398,10 +430,19 @@ const SignUpFormAffiliateProgram = () => {
           {/* ___________________________________________________________________________ */}
           {/* ------- CONFUSION: Why Referral Commission is included 3 times? -------  */}
           <InputField
-            label="Referral Commission (2%, 5%, None, more)"
+            label="Sub-Affiliate / Referral Commission (2%, 5%, None, more)"
             id="referral_commission"
             placeholder=""
             type="number"
+            register={register}
+            errors={errors}
+          />
+          <InputField
+            label="Affiliate Tracking Platform/Software (HasOffers, Post Affiliate Pro,
+              ShareASale, In-house, etc)"
+            id="software"
+            placeholder=""
+            type="text"
             register={register}
             errors={errors}
           />
@@ -413,7 +454,7 @@ const SignUpFormAffiliateProgram = () => {
                 <label
                   htmlFor="publishersContact1"
                   className="mt-4 block text-base font-bold leading-relaxed text-zinc-800">
-                  Publishers Contact (optional)
+                  Affiliate Support Managers Contact (optional)
                 </label>
               </div>
               <div className="mb-[-10px] border border-dashed border-blue-500 ">
@@ -460,16 +501,16 @@ const SignUpFormAffiliateProgram = () => {
             })}
           </div>
 
-          <div className="py-5">
+          {/* <div className="py-5">
             <div className="relative">
               <h3 className="absolute left-12 top-[-18px] rounded-[10.30px] bg-blue-500 px-[10.30px] py-[4.12px]  text-xl font-normal text-white">
                 For advertiser
               </h3>
               <div className=" min-w-full border border-neutral-800 border-opacity-30"></div>
             </div>
-          </div>
+          </div> */}
 
-          <InputField
+          {/* <InputField
             label="Ad Format (Native, Push, Popunder, Popup, Video, more)"
             id="add_format"
             placeholder=""
@@ -494,7 +535,7 @@ const SignUpFormAffiliateProgram = () => {
             type="number"
             register={register}
             errors={errors}
-          />
+          /> */}
 
           {/* <InputField
             label="Payment Method (Check, PayPal, Wire, more)"
@@ -514,14 +555,14 @@ const SignUpFormAffiliateProgram = () => {
             errors={errors}
           /> */}
 
-          <InputField
+          {/* <InputField
             label="Daily Impression (100 million, 1 billion, more)"
             id="daily_Impression"
             placeholder=""
             type="number"
             register={register}
             errors={errors}
-          />
+          /> */}
 
           {/* ⚠️ ❓❓❓ Backend only has 'top' */}
 
@@ -555,7 +596,7 @@ const SignUpFormAffiliateProgram = () => {
           {/* 🚫🚫🚫 Uncomment advertise contact later */}
 
           {/*Advertisers Contact  */}
-          <div className="">
+          {/* <div className="">
             <div className="my-5 flex items-center gap-x-20 ">
               <div>
                 <label
@@ -575,7 +616,6 @@ const SignUpFormAffiliateProgram = () => {
                 </button>
               </div>
             </div>
-            {/* --- Contact list --- */}
             {affiliateAdvertiserContactFields.map((field, index) => {
               return (
                 <div
@@ -608,10 +648,10 @@ const SignUpFormAffiliateProgram = () => {
                 </div>
               );
             })}
-          </div>
+          </div> */}
 
           {/* Targeting & Optimization */}
-          <div>
+          {/* <div>
             <div className="mb-2 mt-16">
               <label
                 htmlFor="targetingOptimization"
@@ -641,7 +681,7 @@ const SignUpFormAffiliateProgram = () => {
                 );
               })}
             </div>
-          </div>
+          </div> */}
 
           <div>
             <label
@@ -663,18 +703,20 @@ const SignUpFormAffiliateProgram = () => {
         </div>
 
         <button
-          disabled={isLoading}
+          // disabled={isLoading}
           type="submit"
-          className={`mt-5 inline-flex h-[45.60px] w-[89.60px] items-start justify-start bg-blue-500 p-[10.30px] text-xl font-normal text-white active:bg-blue-950 ${
-            isLoading && 'opacity-30'
-          }`}>
+          className={
+            'mt-5 inline-flex h-[45.60px] w-[89.60px] items-start justify-start bg-blue-500 p-[10.30px] text-xl font-normal text-white active:bg-blue-950'
+          }>
+          {/* ${isLoading && 'opacity-30'}
+           `}> */}
           Submit
         </button>
-        {isError && (
+        {/* {isError && (
           <div className="text-red-500">
             Something went wrong, Please try again.
           </div>
-        )}
+        )} */}
       </form>
       {/* <DevTool control={control} /> */}
     </>
