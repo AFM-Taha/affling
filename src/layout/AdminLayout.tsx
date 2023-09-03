@@ -11,7 +11,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
           background-color: #2A3447; 
         }`}</style>
       </Head>
-      <div className="flex font-gordita">
+      <div className="flex flex-col lg:flex-row font-gordita">
         <AdminSidebar />
         {children}
       </div>
