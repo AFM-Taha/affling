@@ -4,7 +4,7 @@ import Registration from '../common/Forms/Registration';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useFieldArray, useForm } from 'react-hook-form';
-// import usePost from '@/hooks/usePost';
+import usePost from '@/hooks/usePost';
 // import { DevTool } from '@hookform/devtools';
 
 // ⚠️⚠️⚠️ WARNING: THIS FILE WILL BE UPDATED BASED ON THE BACKEND. DO NOT REMOVE ANY COMMENTS ⚠️⚠️⚠️
@@ -165,12 +165,12 @@ const SignUpFormAffiliateProgram = () => {
     control,
     formState: { errors },
   } = useForm<AffiliateProgramFormData>({ resolver: zodResolver(schema) });
-  // const {
-  //   mutate,
-  //   isLoading,
-  //   isError,
-  //   data: response,
-  // } = usePost<AffiliateProgramFormData>('top-it');
+  const {
+    mutate,
+    isLoading,
+    isError,
+    data: response,
+  } = usePost<AffiliateProgramFormData>('top-it');
   // field array for publisher contacts
 
   const {
@@ -192,61 +192,52 @@ const SignUpFormAffiliateProgram = () => {
   //   name: 'affiliate_advertiser_contacts',
   // });
 
-  const onSubmit = (
-    // {
-    //   title,
-    //   company_email,
-    //   skype,
-    //   add_format,
-    //   cost_model,
-    //   daily_Impression,
-    //   minimum_deposit,
-    //   minimum_payment,
-    //   network_description,
-    //   network_name,
-    //   network_url,
-    //   payment_frequency,
-    //   payment_method,
-    //   referral_commission,
-    //   social_page,
-    //   tag,
-    //   affiliate_advertiser_contacts,
-    //   publishers_contact,
-    //   targeting_optimization,
-    //   question_aria,
-    //   base_commission,
-    // }
-    data: AffiliateProgramFormData
-  ) => {
-    // mutate({
-    //   title,
-    //   company_email,
-    //   skype,
-    //   program_type: 'Advertising Network',
-    //   add_format,
-    //   cost_model,
-    //   daily_Impression,
-    //   minimum_deposit,
-    //   minimum_payment,
-    //   network_description,
-    //   network_name,
-    //   network_url,
-    //   payment_frequency,
-    //   payment_method,
-    //   referral_commission,
-    //   social_page,
-    //   tag,
-    //   affiliate_advertiser_contacts,
-    //   publishers_contact,
-    //   targeting_optimization,
-    //   question_aria,
-    //   base_commission,
-    // });
+  const onSubmit = ({
+    title,
+    company_email,
+    skype,
+    minimum_payment,
+    network_description,
+    network_name,
+    network_url,
+    payment_frequency,
+    payment_method,
+    referral_commission,
+    social_page,
+    tag,
+    publishers_contact,
+    question_aria,
+    base_commission,
+    commission_type,
+    software,
+    tracking_duration,
+  }: AffiliateProgramFormData) => {
+    mutate({
+      title,
+      company_email,
+      skype,
+      minimum_payment,
+      network_description,
+      network_name,
+      network_url,
+      payment_frequency,
+      payment_method,
+      referral_commission,
+      social_page,
+      tag,
+      publishers_contact,
+      question_aria,
+      base_commission,
+      commission_type,
+      software,
+      tracking_duration,
+      program_type: 'Affiliate Program',
+    });
     // console.log(mutate);
     // console.log(isLoading);
     // console.log(isError);/
-    // console.log(response);
-    console.log(data);
+    console.log(response);
+    // console.log(data);
   };
 
   return (
@@ -705,18 +696,16 @@ const SignUpFormAffiliateProgram = () => {
         <button
           // disabled={isLoading}
           type="submit"
-          className={
-            'mt-5 inline-flex h-[45.60px] w-[89.60px] items-start justify-start bg-blue-500 p-[10.30px] text-xl font-normal text-white active:bg-blue-950'
-          }>
-          {/* ${isLoading && 'opacity-30'}
-           `}> */}
+          className={`mt-5 inline-flex h-[45.60px] w-[89.60px] items-start justify-start bg-blue-500 p-[10.30px] text-xl font-normal text-white active:bg-blue-950
+          ${isLoading && 'opacity-30'}
+           `}>
           Submit
         </button>
-        {/* {isError && (
+        {isError && (
           <div className="text-red-500">
             Something went wrong, Please try again.
           </div>
-        )} */}
+        )}
       </form>
       {/* <DevTool control={control} /> */}
     </>
