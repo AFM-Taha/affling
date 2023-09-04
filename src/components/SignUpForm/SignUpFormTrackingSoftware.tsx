@@ -793,18 +793,16 @@ const SignUpFormTrackingSoftware = () => {
         <button
           // disabled={isLoading}
           type="submit"
-          className={
-            'mt-5 inline-flex h-[45.60px] w-[89.60px] items-start justify-start bg-blue-500 p-[10.30px] text-xl font-normal text-white active:bg-blue-950'
-          }>
-          {/* ${isLoading && 'opacity-30'}
-           `}> */}
+          className={`mt-5 inline-flex h-[45.60px] w-[89.60px] items-start justify-start bg-blue-500 p-[10.30px] text-xl font-normal text-white active:bg-blue-950
+          ${isLoading && 'opacity-30'}
+           `}>
           Submit
         </button>
-        {/* {isError && (
+        {isError && (
           <div className="text-red-500">
             Something went wrong, Please try again.
           </div>
-        )} */}
+        )}
       </form>
       {/* <DevTool control={control} /> */}
     </>
