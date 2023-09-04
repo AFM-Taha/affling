@@ -4,7 +4,7 @@ import Registration from '../common/Forms/Registration';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useFieldArray, useForm } from 'react-hook-form';
-// import usePost from '@/hooks/usePost';
+import usePost from '@/hooks/usePost';
 // import { DevTool } from '@hookform/devtools';
 
 // ⚠️⚠️⚠️ WARNING: THIS FILE WILL BE UPDATED BASED ON THE BACKEND. DO NOT REMOVE ANY COMMENTS ⚠️⚠️⚠️
@@ -180,12 +180,12 @@ const SignUpFormTrackingSoftware = () => {
     control,
     formState: { errors },
   } = useForm<TrackingSoftwareFormData>({ resolver: zodResolver(schema) });
-  // const {
-  //   mutate,
-  //   isLoading,
-  //   isError,
-  //   data: response,
-  // } = usePost<TrackingSoftwareFormData>('top-it');
+  const {
+    mutate,
+    isLoading,
+    isError,
+    data: response,
+  } = usePost<TrackingSoftwareFormData>('top-it');
   // field array for publisher contacts
 
   const {
@@ -207,61 +207,54 @@ const SignUpFormTrackingSoftware = () => {
   //   name: 'affiliate_advertiser_contacts',
   // });
 
-  const onSubmit = (
-    // {
-    //   title,
-    //   company_email,
-    //   skype,
-    //   add_format,
-    //   cost_model,
-    //   daily_Impression,
-    //   minimum_deposit,
-    //   minimum_payment,
-    //   network_description,
-    //   network_name,
-    //   network_url,
-    //   payment_frequency,
-    //   payment_method,
-    //   referral_commission,
-    //   social_page,
-    //   tag,
-    //   affiliate_advertiser_contacts,
-    //   publishers_contact,
-    //   targeting_optimization,
-    //   question_aria,
-    //   base_commission,
-    // }
-    data: TrackingSoftwareFormData
-  ) => {
-    // mutate({
-    //   title,
-    //   company_email,
-    //   skype,
-    //   program_type: 'Advertising Network',
-    //   add_format,
-    //   cost_model,
-    //   daily_Impression,
-    //   minimum_deposit,
-    //   minimum_payment,
-    //   network_description,
-    //   network_name,
-    //   network_url,
-    //   payment_frequency,
-    //   payment_method,
-    //   referral_commission,
-    //   social_page,
-    //   tag,
-    //   affiliate_advertiser_contacts,
-    //   publishers_contact,
-    //   targeting_optimization,
-    //   question_aria,
-    //   base_commission,
-    // });
+  const onSubmit = ({
+    title,
+    company_email,
+    skype,
+    minimum_payment,
+    network_description,
+    network_url,
+    payment_frequency,
+    payment_method,
+    referral_commission,
+    social_page,
+    tag,
+    publishers_contact,
+    question_aria,
+    device,
+    features,
+    setup_fees,
+    startup_pricing,
+    unlimited_offers,
+    users,
+  }: TrackingSoftwareFormData) => {
+    mutate({
+      title,
+      company_email,
+      skype,
+      minimum_payment,
+      network_description,
+      network_url,
+      payment_frequency,
+      payment_method,
+      referral_commission,
+      social_page,
+      tag,
+      publishers_contact,
+      question_aria,
+      device,
+      features,
+      setup_fees,
+      startup_pricing,
+      unlimited_offers,
+      users,
+      program_type: 'Tracking Software',
+    });
     // console.log(mutate);
     // console.log(isLoading);
     // console.log(isError);/
-    // console.log(response);
-    console.log(data);
+    console.log(response);
+    // console.log(data);
   };
 
   return (
