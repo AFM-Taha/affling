@@ -1,7 +1,7 @@
 export const programTypes = [
-  'Affiliate Program',
   'Affiliate Network',
-  'Marketing Spy Tools',
-  'Tracking Software',
+  'Affiliate Program',
   'Advertising Network',
+  'Tracking Software',
+  'Marketing Spy Tools',
 ] as const;
