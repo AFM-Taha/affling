@@ -8,7 +8,7 @@ export default function Recaptcha({
 }) {
   return (
     <ReCAPTCHA
-      sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+      sitekey="6LeLCP8nAAAAAKrHBlja8tl-5zCO5FAt474N0ho0"
       onChange={() => setCaptchaVerified(true)}
     />
   );
