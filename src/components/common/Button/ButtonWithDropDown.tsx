@@ -41,7 +41,9 @@ export default function ButtonWithDropDown({
           const slug = convertToSlug(item);
           return (
             <Link key={item} href={`/${slug}/${slugEndpoint || ''}`}>
-              <DropdownMenuItem>{item}</DropdownMenuItem>
+              <DropdownMenuItem className="cursor-pointer">
+                {item}
+              </DropdownMenuItem>
             </Link>
           );
         })}
