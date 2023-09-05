@@ -5,6 +5,8 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useFieldArray, useForm } from 'react-hook-form';
 import usePost from '@/hooks/usePost';
+import Recaptcha from '../common/Forms/Recaptcha';
+import { useState } from 'react';
 // import { DevTool } from '@hookform/devtools';
 
 // ⚠️⚠️⚠️ WARNING: THIS FILE WILL BE UPDATED BASED ON THE BACKEND. DO NOT REMOVE ANY COMMENTS ⚠️⚠️⚠️
@@ -174,6 +176,8 @@ const schema = z.object({
 export type TrackingSoftwareFormData = z.infer<typeof schema>;
 
 const SignUpFormTrackingSoftware = () => {
+  const [captchaVerified, setIsCaptchaVerified] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -789,13 +793,15 @@ const SignUpFormTrackingSoftware = () => {
             <div className="text-red-500">{errors.question_aria.message}</div>
           )}
         </div>
+        <div className="my-2">
+          <Recaptcha setCaptchaVerified={setIsCaptchaVerified} />
+        </div>
 
         <button
-          // disabled={isLoading}
+          disabled={isLoading || !captchaVerified}
           type="submit"
-          className={`mt-5 inline-flex h-[45.60px] w-[89.60px] items-start justify-start bg-blue-500 p-[10.30px] text-xl font-normal text-white active:bg-blue-950
-          ${isLoading && 'opacity-30'}
-           `}>
+          className="mt-5 inline-flex h-[45.60px] w-[89.60px] items-start justify-start bg-blue-500 p-[10.30px] text-xl font-normal text-white active:bg-blue-950 disabled:opacity-30
+           ">
           Submit
         </button>
         {isError && (
