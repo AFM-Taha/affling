@@ -1,6 +1,6 @@
 import usePost from '@/hooks/usePost';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { parseCookies, setCookie } from 'nookies';
+import { setCookie } from 'nookies';
 import { FaChevronRight } from 'react-icons/fa';
 import { useEffect } from 'react';
 // import { useRouter } from 'next/router';
@@ -20,6 +20,7 @@ export default function Login() {
     isLoading,
     data: response,
   } = usePost<Admin>('admin/login');
+
   //   const router = useRouter();
 
   //   const from: any = router.query.from;
@@ -42,11 +43,6 @@ export default function Login() {
   useEffect(() => {
     if (isSuccess) {
       const token = response.data.token;
-
-      const cookies = parseCookies();
-      console.log({ cookies });
-
-      // Set
       setCookie(null, 'fromClient', token, {
         maxAge: 30 * 24 * 60 * 60,
         path: '/',
