@@ -1,15 +1,34 @@
+export type PublisherContact = {
+  name: string;
+  contact: string;
+  _id: string;
+};
+
 export type AffiliateDataType = {
-  _id: number;
-  serialNo: number;
-  status: string;
+  _id: string; 
+  title: string; 
+  company_email: string; 
+  skype: string; 
+  program_type: string; 
+  network_name: string; 
+  network_url: string; 
+  social_page: string; 
+  network_description: string; 
+  minimum_payment: number; 
+  payment_frequency: string; 
+  payment_method: string; 
+  referral_commission: number; 
+  question_aria: string; 
+  base_commission: string; 
+  tag: string; 
+  targeting_optimization: any[]; 
+  publishers_contact: PublisherContact[]; 
+  affiliate_advertiser_contacts: any[]; 
   createdAt: string;
-  companyName: string;
-  NoOfOffers: number;
-  email: string;
-  manager: string;
-  IMSkype: string;
-  payment: string;
-  duration: number;
+  updatedAt: string;
+  __v: number;
+  reviews: any[]; 
+  status: string;
 };
 
 export const FakeData = [

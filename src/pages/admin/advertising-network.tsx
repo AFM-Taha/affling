@@ -1,7 +1,4 @@
-import {
-  AffiliateDataType,
-  FakeData,
-} from '@/assets/static-data/dashboard/fakedata';
+import { AffiliateDataType } from '@/assets/static-data/dashboard/fakedata';
 import React, { useState } from 'react';
 import { AiOutlineFilter, AiOutlineMail } from 'react-icons/ai';
 import { BiSolidOffer, BiTime } from 'react-icons/bi';
@@ -12,7 +9,9 @@ import { HiOutlineHomeModern } from 'react-icons/hi2';
 import { IoMdContact } from 'react-icons/io';
 import { MdPayments } from 'react-icons/md';
 
-const AdvertisingNetworkAdmin: React.FC = () => {
+const AdvertisingNetworkAdmin: React.FC = ({ networkData }: any) => {
+  console.log('firstdsds', networkData);
+
   const [statusDropdownOpen, setStatusDropdownOpen] = useState(false);
   const [selectedStatus, setSelectedStatus] = useState<string | null>(null);
   const [sortBySerialNoAsc, setSortBySerialNoAsc] = useState(true);
@@ -45,15 +44,18 @@ const AdvertisingNetworkAdmin: React.FC = () => {
 
   // Filter data based on selected status
   const filteredData: AffiliateDataType[] = selectedStatus
-    ? FakeData.filter((el) => el.status === selectedStatus)
-    : FakeData;
+    ? networkData.filter((el: any) => el.status === selectedStatus)
+    : networkData;
 
-  // Sort filtered data
+  // Sort filtered data by index
   const sortedData = filteredData.slice().sort((a, b) => {
+    const indexA = networkData.indexOf(a);
+    const indexB = networkData.indexOf(b);
+
     if (sortBySerialNoAsc) {
-      return a._id - b._id;
+      return indexA - indexB;
     } else {
-      return b._id - a._id;
+      return indexB - indexA;
     }
   });
 
@@ -107,10 +109,14 @@ const AdvertisingNetworkAdmin: React.FC = () => {
   const maximumDuration = 30;
 
   // Calculate counts for each status
-  const activeCount = FakeData.filter((el) => el.status === 'Active').length;
-  const sponsorCount = FakeData.filter((el) => el.status === 'Sponsor').length;
-  const premiumSponsorCount = FakeData.filter(
-    (el) => el.status === 'Premium Sponsor'
+  const activeCount = networkData.filter(
+    (el: any) => el.status === 'Active'
+  ).length;
+  const sponsorCount = networkData.filter(
+    (el: any) => el.status === 'Sponsor'
+  ).length;
+  const premiumSponsorCount = networkData.filter(
+    (el: any) => el.status === 'Premium Sponsor'
   ).length;
 
   return (
@@ -143,13 +149,13 @@ const AdvertisingNetworkAdmin: React.FC = () => {
           <thead className="relative bg-gray-800">
             <tr className="">
               <th
-                className="relative  cursor-pointer  px-4 py-2 text-center lg:table-cell xl:py-1.5 large:py-5"
+                className="relative  cursor-pointer  px-4 py-2 text-center text-sm lg:table-cell lg:text-base xl:py-1.5 large:py-5"
                 onClick={handleStatusDropdownClick}>
                 <div className="flex items-center space-x-1">
                   <span>Status</span> <AiOutlineFilter className="text-xl" />
                 </div>
                 {statusDropdownOpen && (
-                  <div className="absolute left-0 top-[calc(100%+1px)] z-50 w-[200px] rounded border bg-gray-600 shadow-lg">
+                  <div className="absolute left-0 top-[calc(100%+1px)] z-50  w-[200px] rounded border bg-gray-600 shadow-lg">
                     <div className="flex flex-col space-y-3 px-2 py-3 text-left">
                       <p
                         className={`flex items-center space-x-3 ${
@@ -194,7 +200,7 @@ const AdvertisingNetworkAdmin: React.FC = () => {
                 )}
               </th>
               <th
-                className="relative cursor-pointer px-4 py-2 text-center lg:table-cell xl:py-1.5 large:py-5"
+                className="relative cursor-pointer px-4 py-2 text-center text-sm lg:table-cell lg:text-base xl:py-1.5 large:py-5"
                 onClick={handleSerialNoClick}>
                 Serial No
                 {sortBySerialNoAsc ? (
@@ -203,49 +209,49 @@ const AdvertisingNetworkAdmin: React.FC = () => {
                   <span className="ml-1">&#9660;</span>
                 )}
               </th>
-              <th className=" px-4 py-2 text-center lg:table-cell xl:py-1.5 large:py-5">
+              <th className=" px-4 py-2 text-center text-sm lg:table-cell lg:text-base xl:py-1.5 large:py-5">
                 <div className="flex items-center space-x-1">
                   <span>Created</span>
                   <HiPencilAlt className="text-lg" />
                 </div>
               </th>
-              <th className="px-4 py-2 text-center lg:table-cell xl:py-1.5 large:py-5">
+              <th className="px-4 py-2 text-center text-sm lg:table-cell lg:text-base xl:py-1.5 large:py-5">
                 <div className="flex items-center space-x-1">
                   <span>Company Name</span>
                   <HiOutlineHomeModern className="text-lg" />
                 </div>
               </th>
-              <th className="px-4 py-2 text-center lg:table-cell xl:py-1.5 large:py-5">
+              <th className="px-4 py-2 text-center text-sm lg:table-cell lg:text-base xl:py-1.5 large:py-5">
                 <div className="flex items-center space-x-1">
                   <span>No of Offers </span>
                   <BiSolidOffer className="text-lg" />
                 </div>
               </th>
-              <th className="px-4 py-2 text-center lg:table-cell xl:py-1.5 large:py-5">
+              <th className="px-4 py-2 text-center text-sm lg:table-cell lg:text-base xl:py-1.5 large:py-5">
                 <div className="flex items-center space-x-1">
                   <span>Email Address</span>
                   <AiOutlineMail className="text-lg" />
                 </div>
               </th>
-              <th className="px-4 py-2 text-center lg:table-cell xl:py-1.5 large:py-5">
+              <th className="px-4 py-2 text-center text-sm lg:table-cell lg:text-base xl:py-1.5 large:py-5">
                 <div className="flex items-center space-x-1">
                   <span>Manager</span>
                   <IoMdContact className="text-lg" />
                 </div>
               </th>
-              <th className="px-4 py-2 text-center lg:table-cell xl:py-1.5 large:py-5">
+              <th className="px-4 py-2 text-center text-sm lg:table-cell lg:text-base xl:py-1.5 large:py-5">
                 <div className="flex items-center space-x-1">
                   <span>IM Skype</span>
                   <BsFillTelephonePlusFill className="text-lg" />
                 </div>
               </th>
-              <th className="px-4 py-2 text-center lg:table-cell xl:py-1.5 large:py-5">
+              <th className="px-4 py-2 text-center text-sm lg:table-cell lg:text-base xl:py-1.5 large:py-5">
                 <div className="flex items-center space-x-1">
                   <span>Payment</span>
                   <MdPayments className="text-lg" />
                 </div>
               </th>
-              <th className="px-4 py-2 text-center lg:table-cell xl:py-1.5 large:py-5">
+              <th className="px-4 py-2 text-center text-sm lg:table-cell lg:text-base xl:py-1.5 large:py-5">
                 <div className="flex items-center space-x-1">
                   <span>Duration</span>
                   <BiTime className="text-lg" />
@@ -266,14 +272,28 @@ const AdvertisingNetworkAdmin: React.FC = () => {
                     <GoDotFill className="ml-3 flex text-xl text-[#F4AF48]" />
                   )}
                 </td>
-                <td className="px-4 py-4 text-center">{el.serialNo}</td>
-                <td className="px-4 py-4 text-center">{el.createdAt}</td>
-                <td className="px-4 py-4 text-center">{el.companyName}</td>
-                <td className="px-4 py-4 text-center">{el.NoOfOffers}</td>
-                <td className="px-4 py-4 text-center">{el.email}</td>
-                <td className="px-4 py-4 text-center">{el.manager}</td>
-                <td className="px-4 py-4 text-center">{el.IMSkype}</td>
-                <td className="px-4 py-4 text-center">{el.payment}</td>
+                <td className="px-4 py-4 text-center">
+                  {sortBySerialNoAsc ? (
+                    <span>{index + 1}</span>
+                  ) : (
+                    <span>{paginatedData.length - index}</span>
+                  )}
+                </td>
+                <td className="px-4 py-4 text-center">
+                  {el.createdAt.slice(0, 10)}
+                </td>
+                <td className="px-4 py-4 text-center">{el.title}</td>
+                <td className="px-4 py-4 text-center">
+                  {el.referral_commission}
+                </td>
+                <td className="px-4 py-4 text-center">{el.company_email}</td>
+                <td className="px-4 py-4 text-center">
+                  {el.publishers_contact.slice(0, 1).map((el, index) => (
+                    <div key={index}>{el.name}</div>
+                  ))}
+                </td>
+                <td className="px-4 py-4 text-center">{el.skype}</td>
+                <td className="px-4 py-4 text-center">{el.payment_method}</td>
                 {/* Dynamically set width based on duration */}
                 <td className="flex w-[250px]  flex-col px-4 py-4  text-start">
                   <div>
@@ -283,12 +303,12 @@ const AdvertisingNetworkAdmin: React.FC = () => {
                     <div
                       className="relative h-3 w-full overflow-hidden rounded-l-full bg-[#f1f1f1]"
                       style={{
-                        width: `${(el.duration / maximumDuration) * 100}%`,
+                        width: `${(30 / maximumDuration) * 100}%`,
                       }}>
                       <div className="absolute left-0 top-0 h-full "></div>
                     </div>
                     <p className=" ml-[-3px] cursor-pointer rounded-full border bg-[#f1f1f1] px-2 py-1 text-black">
-                      {el.duration}
+                      {/* {el.duration} */}30
                     </p>
                   </div>
                 </td>
@@ -338,3 +358,39 @@ const AdvertisingNetworkAdmin: React.FC = () => {
 };
 
 export default AdvertisingNetworkAdmin;
+
+// Fetch Data
+export const getStaticProps = async () => {
+  const authorizationToken =
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTAzMTBiNTNhZDRkZDBlNmEwNmY0ODciLCJpYXQiOjE2OTQ2OTk3Mzl9.X52uXckKKVdMhwjAXwR8oi_mOgAnFG5d254W4Ckvm9k';
+
+  // Here api will change advertise-network api will come 
+  const res = await fetch(
+    'https://lionfish-app-qfe6m.ondigitalocean.app/v1/admin/affiliate-network',
+    {
+      method: 'GET',
+      headers: {
+        Authorization: authorizationToken,
+        'Content-Type': 'application/json',
+      },
+    }
+  );
+
+  if (res.status === 401) {
+    console.error('Unauthorized access. Please check your token.');
+    return {
+      props: {
+        networkData: [],
+      },
+    };
+  }
+
+  const data = await res.json();
+  console.log(data);
+
+  return {
+    props: {
+      networkData: data.offers || [],
+    },
+  };
+};
