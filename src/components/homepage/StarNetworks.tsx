@@ -1,4 +1,4 @@
-// import { StartNetworksData } from "@/assets/static-data/homepage/starNetworks";
+
 import Image from 'next/image';
 import { useState } from 'react';
 
