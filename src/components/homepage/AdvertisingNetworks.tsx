@@ -1,13 +1,18 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { AiFillStar } from 'react-icons/ai';
-import SeeMore from '../common/Button/SeeMore';
+import { useState } from 'react';
 // import { advertisingNetworksData } from '@/assets/static-data/homepage/advertisingNetworksData';
 
 
 
 const AdvertisingNetworks = ({ networkData }: any) => {
   // console.log('networkData', networkData);
+  const [visibleItems, setVisibleItems] = useState(4);
+
+  const handleSeeMoreClick = () => {
+    setVisibleItems(visibleItems + 4);
+  };
   return (
     <div>
       <div className="customShadow">
@@ -16,7 +21,7 @@ const AdvertisingNetworks = ({ networkData }: any) => {
         </div>
 
         <div>
-          {networkData?.slice(0, 4).map((el: any, index: any) => (
+          {networkData?.slice(0, visibleItems).map((el: any, index: any) => (
             <div
               key={index}
               className=" flex flex-col justify-between border-b px-1 py-5 md:flex-row lg:px-3">
@@ -89,9 +94,13 @@ const AdvertisingNetworks = ({ networkData }: any) => {
         </div>
       </div>
       <div className="flex items-center justify-center">
-        <Link href="advertising-network" className="my-12">
-          <SeeMore />
-        </Link>
+        {visibleItems < networkData.length && (
+          <button
+            className="my-3 rounded-lg border-2 border-[Orange] px-3 py-2"
+            onClick={handleSeeMoreClick}>
+            See More
+          </button>
+        )}
       </div>
     </div>
   );

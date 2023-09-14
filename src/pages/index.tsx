@@ -17,8 +17,9 @@ const Home = ({
   networkData,
   softwareData,
   marketingSpyData,
+  starts,
 }: any) => {
-  // console.log(programData);
+  console.log(starts, 'starts');
   return (
     <div>
       <Head>
@@ -30,7 +31,7 @@ const Home = ({
         <Banner />
         <div className="flex flex-col-reverse gap-6 px-1 py-12 xl:flex-row">
           <div className="hidden xl:block xl:basis-2/12">
-            <StarNetworks />
+            <StarNetworks starts={starts} />
             <HomeAds />
             <TopOffers />
             <StarNetworks />
@@ -81,6 +82,12 @@ export const getStaticProps = async () => {
   );
   const data6 = await res6.json();
 
+  // Start
+  const res7 = await fetch(
+    'https://lionfish-app-qfe6m.ondigitalocean.app/v1/top-it/filter/star'
+  );
+  const data7 = await res7.json();
+
   
 
   return {
@@ -89,6 +96,7 @@ export const getStaticProps = async () => {
       networkData: data2.offers,
       softwareData: data4.offers,
       marketingSpyData: data6.offers,
+      starts: data7.offers ,
     },
   };
 };
