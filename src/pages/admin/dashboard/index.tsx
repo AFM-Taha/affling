@@ -5,8 +5,19 @@ import RoboticHand from '@/assets/icons/RoboticHand';
 import DashboardCard from '@/components/admin/DashboardCard';
 import DashboardSmallCard from '@/components/admin/DashboardSmallCard';
 import Mic from '@/assets/icons/Mic';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import useToken from '@/hooks/useToken';
 
 export default function Dashboard() {
+  const { push } = useRouter();
+  const token = useToken();
+
+  useEffect(() => {
+    if (!token) push('/admin/login');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <div className="p-5 text-[#0F151C]">
       <div>
