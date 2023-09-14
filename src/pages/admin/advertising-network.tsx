@@ -1,5 +1,7 @@
 import { AffiliateDataType } from '@/assets/static-data/dashboard/fakedata';
-import React, { useState } from 'react';
+import useToken from '@/hooks/useToken';
+import { useRouter } from 'next/router';
+import React, { useEffect, useState } from 'react';
 import { AiOutlineFilter, AiOutlineMail } from 'react-icons/ai';
 import { BiSolidOffer, BiTime } from 'react-icons/bi';
 import { BsFillTelephonePlusFill } from 'react-icons/bs';
@@ -17,6 +19,13 @@ const AdvertisingNetworkAdmin: React.FC = ({ networkData }: any) => {
   const [sortBySerialNoAsc, setSortBySerialNoAsc] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(10);
+  const { push } = useRouter();
+  const token = useToken();
+
+  useEffect(() => {
+    if (!token) push('/admin/login');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Toggle filter dropdown
   const handleStatusDropdownClick = () => {
@@ -364,7 +373,7 @@ export const getStaticProps = async () => {
   const authorizationToken =
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTAzMTBiNTNhZDRkZDBlNmEwNmY0ODciLCJpYXQiOjE2OTQ2OTk3Mzl9.X52uXckKKVdMhwjAXwR8oi_mOgAnFG5d254W4Ckvm9k';
 
-  // Here api will change advertise-network api will come 
+  // Here api will change advertise-network api will come
   const res = await fetch(
     'https://lionfish-app-qfe6m.ondigitalocean.app/v1/admin/affiliate-network',
     {
