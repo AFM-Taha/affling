@@ -1,15 +1,22 @@
+import usePost from '@/hooks/usePost';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { FaChevronRight } from 'react-icons/fa';
 // import { useRouter } from 'next/router';
 // import { toast } from 'react-hot-toast';
 
 interface Admin {
-  email: string;
+  userName: string;
   password: string;
 }
 
 export default function Login() {
   const { register, handleSubmit } = useForm<Admin>();
+  const {
+    mutate,
+    isError,
+    isLoading,
+    data: response,
+  } = usePost<Admin>('admin/login');
   //   const router = useRouter();
 
   //   const from: any = router.query.from;
@@ -24,7 +31,10 @@ export default function Login() {
   //   }
 
   const onSubmit: SubmitHandler<Admin> = async (data) => {
-    console.log(data);
+    mutate(data);
+    console.log(isLoading);
+    console.log(isError);
+    console.log(response);
   };
   return (
     <div className="px-16 text-center text-white">
@@ -57,11 +67,11 @@ export default function Login() {
           Admin Email
         </label>
         <input
-          {...register('email', { required: true })}
+          {...register('userName', { required: true })}
           id="admin-email"
           className="h-12 w-2/3 rounded-xl border-0 px-4 py-1 text-black md:w-1/3"
-          type="email"
-          placeholder="Admin's Email"
+          type="text"
+          placeholder="Admin's username"
         />
         <label htmlFor="admin-password" className="sr-only">
           Admin Password
@@ -75,7 +85,8 @@ export default function Login() {
         />
         <div className="w-full pt-3">
           <button
-            className="group w-1/3 gap-3 rounded-xl bg-black/30 px-8 py-2 font-bold text-white"
+            disabled={isLoading}
+            className="group w-1/3 gap-3 rounded-xl bg-black/30 px-8 py-2 font-bold text-white disabled:cursor-not-allowed disabled:bg-gray-700"
             type="submit">
             Enter{' '}
             <FaChevronRight className="-mt-[3px] inline-block duration-300 ease-in-out group-hover:ml-3" />
