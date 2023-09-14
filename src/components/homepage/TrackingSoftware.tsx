@@ -1,11 +1,16 @@
 // import { trackingSoftwareData } from "@/assets/static-data/homepage/trackingSoftwareData";
-import Image from "next/image";
-import Link from "next/link";
-import { AiFillStar } from "react-icons/ai";
-import SeeMore from "../common/Button/SeeMore";
+import Image from 'next/image';
+import Link from 'next/link';
+import { AiFillStar } from 'react-icons/ai';
+import { useState } from 'react';
 
 const TrackingSoftware = ({ softwareData }: any) => {
   // console.log('softwareData', softwareData);
+  const [visibleItems, setVisibleItems] = useState(4);
+
+  const handleSeeMoreClick = () => {
+    setVisibleItems(visibleItems + 4);
+  };
   return (
     <div>
       <div className="customShadow">
@@ -14,7 +19,7 @@ const TrackingSoftware = ({ softwareData }: any) => {
         </div>
 
         <div>
-          {softwareData.map((el: any, index: any) => (
+          {softwareData?.slice(0, visibleItems).map((el: any, index: any) => (
             <div
               key={index}
               className=" flex flex-col justify-between border-b px-1 py-5 md:flex-row lg:px-3">
@@ -54,8 +59,7 @@ const TrackingSoftware = ({ softwareData }: any) => {
                     revenue for all affiliate players.
                   </p>
                   <div className="flex flex-col space-y-4 lg:flex-row lg:space-x-8  lg:space-y-0">
-                    <div
-                      className="mr-5 flex rounded-lg bg-[#DFDFDF] px-2 ">
+                    <div className="mr-5 flex rounded-lg bg-[#DFDFDF] px-2 ">
                       <button className="capitalize">{el.tag}</button>
                     </div>
                     {/* <div className="hidden lg:flex">
@@ -92,12 +96,16 @@ const TrackingSoftware = ({ softwareData }: any) => {
         </div>
       </div>
       <div className="flex items-center justify-center">
-        <Link href="tracking-software" className="my-12">
-          <SeeMore />
-        </Link>
+        {visibleItems < softwareData.length && (
+          <button
+            className="my-3 rounded-lg border-2 border-[Orange] px-3 py-2"
+            onClick={handleSeeMoreClick}>
+            See More
+          </button>
+        )}
       </div>
     </div>
   );
 };
 
-export default TrackingSoftware
+export default TrackingSoftware;
