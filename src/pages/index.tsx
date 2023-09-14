@@ -12,7 +12,13 @@ import {
 } from '@/components/homepage';
 import Head from 'next/head';
 
-const Home = () => {
+const Home = ({
+  programData,
+  networkData,
+  softwareData,
+  marketingSpyData,
+}: any) => {
+  // console.log(programData);
   return (
     <div>
       <Head>
@@ -31,12 +37,12 @@ const Home = () => {
             <HomeAds />
           </div>
           <div className="xl:basis-10/12">
-            <AffiliateNetworks />
-            <AdvertisingNetworks />
+            <AffiliateNetworks programData={programData} />
+            <AdvertisingNetworks networkData={networkData} />
             <AdvertisingPrograms />
-            <TrackingSoftware />
+            <TrackingSoftware softwareData={softwareData} />
             <TopRatedNetworks />
-            <MarketingTools />
+            <MarketingTools marketingSpyData={marketingSpyData} />
           </div>
         </div>
       </div>
@@ -45,3 +51,44 @@ const Home = () => {
 };
 
 export default Home;
+
+
+
+// Fetch Data 
+export const getStaticProps = async () => {
+
+  // Affiliate Program 1 
+  const res = await fetch(
+    'https://lionfish-app-qfe6m.ondigitalocean.app/v1/top-it?page=1&limit=10&filter=Affiliate%20Program'
+  );
+  const data = await res.json();
+
+  // Advertising Network 2 
+  const res2 = await fetch(
+    'https://lionfish-app-qfe6m.ondigitalocean.app/v1/top-it?page=1&limit=10&filter=Advertising%20Network'
+  );
+  const data2 = await res2.json();
+
+  // Tracking Software 4
+  const res4 = await fetch(
+    'https://lionfish-app-qfe6m.ondigitalocean.app/v1/top-it?page=1&limit=10&filter=Tracking%20Software'
+  );
+  const data4 = await res4.json();
+
+  // Marketing Spy Tools 6
+  const res6 = await fetch(
+    'https://lionfish-app-qfe6m.ondigitalocean.app/v1/top-it?page=1&limit=10&filter=Marketing%20Spy%20Tools'
+  );
+  const data6 = await res6.json();
+
+  
+
+  return {
+    props: {
+      programData: data.offers,
+      networkData: data2.offers,
+      softwareData: data4.offers,
+      marketingSpyData: data6.offers,
+    },
+  };
+};
