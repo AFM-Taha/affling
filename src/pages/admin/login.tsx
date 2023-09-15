@@ -1,6 +1,9 @@
 import usePost from '@/hooks/usePost';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { setCookie } from 'nookies';
 import { FaChevronRight } from 'react-icons/fa';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 // import { useRouter } from 'next/router';
 // import { toast } from 'react-hot-toast';
 
@@ -14,28 +17,30 @@ export default function Login() {
   const {
     mutate,
     isError,
+    isSuccess,
     isLoading,
     data: response,
   } = usePost<Admin>('admin/login');
-  //   const router = useRouter();
 
-  //   const from: any = router.query.from;
-
-  //   if (token) {
-  //     if (from) {
-  //       router.push(from);
-  //     } else {
-  //       router.push('/admin');
-  //     }
-  //     toast.success('Signin Admin Successfully');
-  //   }
+  const router = useRouter();
 
   const onSubmit: SubmitHandler<Admin> = async (data) => {
     mutate(data);
     console.log(isLoading);
     console.log(isError);
-    console.log(response);
   };
+
+  useEffect(() => {
+    if (isSuccess) {
+      const token = response.data.token;
+      setCookie(null, 'fromClient', token, {
+        maxAge: 30 * 24 * 60 * 60,
+        path: '/',
+      });
+      router.push('/admin/dashboard');
+    }
+  }, [response, isSuccess, router]);
+
   return (
     <div className="px-16 text-center text-white">
       <h2 className="pt-32 text-5xl font-black sm:text-8xl">Welcome back.</h2>
