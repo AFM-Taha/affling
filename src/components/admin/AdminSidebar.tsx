@@ -11,9 +11,7 @@ import { destroyCookie } from 'nookies';
 export default function AdminSidebar() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleLogOut = () => {
-    destroyCookie(null, 'fromClient');
-  };
+  
 
   return (
     <>
@@ -36,7 +34,9 @@ export default function AdminSidebar() {
         </div>
         <div className="flex flex-col items-center gap-3">
           <button
-            onClick={handleLogOut}
+            onClick={() => { 
+                destroyCookie(null, 'userToken');
+            }}
             className="flex w-11/12 items-center justify-center gap-2 rounded-lg bg-red-500 py-1 font-medium text-white hover:bg-red-600">
             <TbLogout2 />
             Log out
