@@ -6,6 +6,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { programTypes } from '@/assets/static-data/programTypes';
 import { GrClose } from 'react-icons/gr';
+import { MdOutlineHelpOutline } from 'react-icons/md';
+import { TbLogout2 } from 'react-icons/tb';
+import { destroyCookie } from 'nookies';
 
 interface Props {
   isOpen: boolean;
@@ -75,6 +78,22 @@ export default function AdminMenu({ isOpen, setIsOpen }: Props) {
                   );
                 })}
               </ul>
+            </div>
+            <div className="flex flex-col items-center gap-3">
+              <button
+                onClick={() => {
+                  destroyCookie(null, 'fromClient');
+                }}
+                className="flex w-11/12 items-center justify-center gap-2 rounded-lg bg-red-500 py-1 font-medium text-white hover:bg-red-600">
+                <TbLogout2 />
+                Log out
+              </button>
+              <Link
+                href="/help"
+                className="flex items-center justify-center gap-4 text-[#808291]">
+                <MdOutlineHelpOutline size={24} color="#808291" />
+                <div className="text-lg">Help & Center</div>
+              </Link>
             </div>
           </div>
         </div>
