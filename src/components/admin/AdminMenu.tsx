@@ -1,15 +1,14 @@
-import { useRouter } from 'next/router';
-import { convertToSlug } from '../common/Button/ButtonWithDropDown';
+import { programTypes } from '@/assets/static-data/programTypes';
 import { useActiveSectionContext } from '@/context/active-section-context';
-import { MouseEvent, useEffect } from 'react';
+import Cookies from 'js-cookie';
 import Image from 'next/image';
 import Link from 'next/link';
-import { programTypes } from '@/assets/static-data/programTypes';
+import { useRouter } from 'next/router';
+import { MouseEvent, useEffect } from 'react';
 import { GrClose } from 'react-icons/gr';
 import { MdOutlineHelpOutline } from 'react-icons/md';
 import { TbLogout2 } from 'react-icons/tb';
-import Cookies from 'js-cookie';
-import getToken from '@/hooks/useToken';
+import { convertToSlug } from '../common/Button/ButtonWithDropDown';
 
 interface Props {
   isOpen: boolean;
