@@ -8,7 +8,8 @@ import { programTypes } from '@/assets/static-data/programTypes';
 import { GrClose } from 'react-icons/gr';
 import { MdOutlineHelpOutline } from 'react-icons/md';
 import { TbLogout2 } from 'react-icons/tb';
-import { destroyCookie } from 'nookies';
+import Cookies from 'js-cookie';
+import getToken from '@/hooks/useToken';
 
 interface Props {
   isOpen: boolean;
@@ -20,17 +21,18 @@ export default function AdminMenu({ isOpen, setIsOpen }: Props) {
 
   const router = useRouter();
 
+  
   useEffect(() => {
     setIsOpen(false);
-  }, [router, setIsOpen]);
-
+      }, [router, setIsOpen]);
+  
   const handleOuterClick = (e: MouseEvent<HTMLDivElement>) => {
     const target = e.target as HTMLDivElement;
     if (target.classList.contains('overlay')) {
       setIsOpen(!isOpen);
     }
   };
-
+  
   return (
     <div
       onClick={handleOuterClick}
@@ -80,14 +82,15 @@ export default function AdminMenu({ isOpen, setIsOpen }: Props) {
               </ul>
             </div>
             <div className="flex flex-col items-center gap-3">
-              <button
+              <Link
+                href={'/admin/login'}
                 onClick={() => {
-                  destroyCookie(null, 'fromClient');
+                  Cookies.remove('userToken');
                 }}
                 className="flex w-11/12 items-center justify-center gap-2 rounded-lg bg-red-500 py-1 font-medium text-white hover:bg-red-600">
                 <TbLogout2 />
                 Log out
-              </button>
+              </Link>
               <Link
                 href="/help"
                 className="flex items-center justify-center gap-4 text-[#808291]">
