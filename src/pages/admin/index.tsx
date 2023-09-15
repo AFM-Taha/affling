@@ -8,7 +8,6 @@ export default function Admin() {
 
   useEffect(() => {
     if (token) push('/admin/dashboard');
-    push('/admin/login');
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 }

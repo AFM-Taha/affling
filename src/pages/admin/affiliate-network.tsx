@@ -1,7 +1,5 @@
 import { AffiliateDataType } from '@/assets/static-data/dashboard/fakedata';
-import useToken from '@/hooks/useToken';
-import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { AiOutlineFilter, AiOutlineMail } from 'react-icons/ai';
 import { BiSolidOffer, BiTime } from 'react-icons/bi';
 import { BsFillTelephonePlusFill } from 'react-icons/bs';
@@ -19,13 +17,6 @@ const AffiliateNetworkAdmin: React.FC = ({ networkData }: any) => {
   const [sortBySerialNoAsc, setSortBySerialNoAsc] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(10);
-  const { push } = useRouter();
-  const token = useToken();
-
-  useEffect(() => {
-    if (!token) push('/admin/login');
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   // Toggle filter dropdown
   const handleStatusDropdownClick = () => {
