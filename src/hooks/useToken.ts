@@ -1,6 +1,6 @@
-import { parseCookies } from 'nookies';
+import Cookies from 'js-cookie';
 
-export default function useToken() {
-  const { fromClient } = parseCookies();
-  return fromClient;
+export default function getToken() {
+  const userToken = Cookies.get('userToken');
+  return userToken;
 }

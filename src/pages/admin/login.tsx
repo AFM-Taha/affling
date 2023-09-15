@@ -1,6 +1,6 @@
 import usePost from '@/hooks/usePost';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { setCookie } from 'nookies';
+import Cookies from 'js-cookie';
 import { FaChevronRight } from 'react-icons/fa';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
@@ -33,10 +33,7 @@ export default function Login() {
   useEffect(() => {
     if (isSuccess) {
       const token = response.data.token;
-      setCookie(null, 'fromClient', token, {
-        maxAge: 30 * 24 * 60 * 60,
-        path: '/',
-      });
+      Cookies.set('userToken', token, { expires: 7, path: '/' });
       router.push('/admin/dashboard');
     }
   }, [response, isSuccess, router]);
