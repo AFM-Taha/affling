@@ -364,9 +364,9 @@ export const getStaticProps = async () => {
   const authorizationToken =
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTAzMTBiNTNhZDRkZDBlNmEwNmY0ODciLCJpYXQiOjE2OTQ2OTk3Mzl9.X52uXckKKVdMhwjAXwR8oi_mOgAnFG5d254W4Ckvm9k';
 
-  // Here api will change advertise-network api will come 
+  
   const res = await fetch(
-    'https://lionfish-app-qfe6m.ondigitalocean.app/v1/admin/affiliate-network',
+    'https://lionfish-app-qfe6m.ondigitalocean.app/v1/admin/advertising-network',
     {
       method: 'GET',
       headers: {
