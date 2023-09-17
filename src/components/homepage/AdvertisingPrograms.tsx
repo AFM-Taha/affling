@@ -1,36 +1,41 @@
-
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
 import { AiFillStar } from 'react-icons/ai';
-import SeeMore from '../common/Button/SeeMore';
-import { advertisingProgramData } from '@/assets/static-data/homepage/advertisingProgramData';
 
-const AdvertisingPrograms = () => {
+const AffiliatePrograms = ({ programData }: any) => {
+  const [visibleItems, setVisibleItems] = useState(4);
+
+  const handleSeeMoreClick = () => {
+    setVisibleItems(visibleItems + 4);
+  };
   return (
     <div>
       <div className="customShadow">
         <div className="bg-[#E9F3F2] px-6 py-3">
-          <h2 className="text-[26px] font-bold ">Advertising Program</h2>
+          <h2 className="text-[26px] font-bold ">Affiliate Program</h2>
         </div>
 
         <div>
-          {advertisingProgramData.map((el, index) => (
-            <div
+          {programData?.slice(0, visibleItems).map((el: any, index: any) => (
+            <Link
               key={index}
+              href={`/affiliate-program/${el._id}`}
               className=" flex flex-col justify-between border-b px-1 py-5 md:flex-row lg:px-3">
-              <div className="flex flex-col space-x-6 md:basis-11/12 md:flex-row">
+              <div className="flex flex-col space-x-6 md:flex-row lg:basis-11/12">
                 <div className="pl-5 lg:basis-2/12 lg:pl-0">
                   <Image
-                    src={el.image}
+                    // src={el.image}
+                    src="/Home/AdvertisingNetwork/1.svg"
                     width={172}
                     height={172}
-                    alt="advertise_program"
+                    alt="advertise_network"
                     className=""
                   />
                 </div>
                 <div className="lg:basis-11/12">
-                  <h2 className="mt-3 font-bold lg:mt-0">{el.name}</h2>
-                  <p>Advertising Program</p>
+                  <h2 className="font-bold capitalize">{el.title}</h2>
+                  <p>{el.program_type}</p>
                   <div className="flex items-center space-x-8">
                     <div className="flex ">
                       <AiFillStar className="text-[#FFAB2D]" />
@@ -40,11 +45,17 @@ const AdvertisingPrograms = () => {
                       <AiFillStar className="text-[#FFAB2D]" />
                     </div>
                     <div className="flex items-center font-bold">
-                      <p>{el.ratings}</p>
-                      <p>({el.totalReviews}) Reviews</p>
+                      {/* <p>{el.ratings}</p> */}
+                      <p>4.8</p>
+                      {/* <p>({el.totalReviews}) Reviews</p> */}
+                      <p>117 Reviews</p>
                     </div>
                   </div>
-                  <p className="py-3">{el.description}</p>
+                  {/* <p className="py-3">{el.description}</p> */}
+                  <p className="py-3">
+                    TopClientOffer Is The leading performance marketing Company.
+                    TCO is one of the worlds best CPA network.
+                  </p>
                   <div className="flex flex-row font-bold lg:space-x-7">
                     <p>Comission Type</p>
                     <p>/ Tracking</p>
@@ -54,22 +65,26 @@ const AdvertisingPrograms = () => {
               </div>
               <div className="ml-5 mt-5 lg:ml-0">
                 <Link
-                  href="/"
-                  className="rounded-lg md:mr-5 lg:mr-2 bg-[#4E93D3] px-4 py-3 font-bold text-white">
+                  href={el.network_url}
+                  className="rounded-lg bg-[#4E93D3] px-4 py-3 font-bold text-white md:mr-12 lg:mr-2">
                   <button>Join Now</button>
                 </Link>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
       <div className="flex items-center justify-center">
-        <Link href="advertising-program" className="my-12">
-          <SeeMore />
-        </Link>
+        {visibleItems < programData?.length && (
+          <button
+            className="my-3 rounded-lg border-2 border-[Orange] px-3 py-2"
+            onClick={handleSeeMoreClick}>
+            See More
+          </button>
+        )}
       </div>
     </div>
   );
 };
 
-export default AdvertisingPrograms;
+export default AffiliatePrograms;

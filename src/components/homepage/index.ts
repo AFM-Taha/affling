@@ -1,6 +1,6 @@
 import Banner from './Banner';
 import AdvertisingNetworks from './AdvertisingNetworks';
-import AdvertisingPrograms from './AdvertisingPrograms';
+import AffiliatePrograms from './AdvertisingPrograms';
 import AffiliateNetworks from './AffiliateNetworks';
 import MarketingTools from './MarketingTools';
 import StarNetworks from './StarNetworks';
@@ -12,7 +12,7 @@ import HomeAds from './HomeAds';
 export {
   Banner,
   AdvertisingNetworks,
-  AdvertisingPrograms,
+  AffiliatePrograms,
   AffiliateNetworks,
   MarketingTools,
   StarNetworks,
