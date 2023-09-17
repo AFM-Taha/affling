@@ -18,57 +18,56 @@ const AffiliatePrograms = ({ programData }: any) => {
 
         <div>
           {programData?.slice(0, visibleItems).map((el: any, index: any) => (
-            <Link
-              key={index}
-              href={`/affiliate-program/${el._id}`}
-              className=" flex flex-col justify-between border-b px-1 py-5 hover:bg-black/10 md:flex-row lg:px-3">
-              <div className="flex flex-col space-x-6 md:flex-row lg:basis-11/12">
-                <div className="pl-5 lg:basis-2/12 lg:pl-0">
-                  <Image
-                    // src={el.image}
-                    src="/Home/AdvertisingNetwork/1.svg"
-                    width={172}
-                    height={172}
-                    alt="advertise_network"
-                    className=""
-                  />
-                </div>
-                <div className="lg:basis-11/12">
-                  <h2 className="font-bold capitalize">{el.title}</h2>
-                  <p>{el.program_type}</p>
-                  <div className="flex items-center space-x-8">
-                    <div className="flex ">
-                      <AiFillStar className="text-[#FFAB2D]" />
-                      <AiFillStar className="text-[#FFAB2D]" />
-                      <AiFillStar className="text-[#FFAB2D]" />
-                      <AiFillStar className="text-[#FFAB2D]" />
-                      <AiFillStar className="text-[#FFAB2D]" />
+            <Link key={index} href={`/affiliate-program/${el._id}`}>
+              <div className=" flex flex-col justify-between border-b px-1 py-5 hover:bg-black/10 md:flex-row lg:px-3">
+                <div className="flex flex-col space-x-6 md:flex-row lg:basis-11/12">
+                  <div className="pl-5 lg:basis-2/12 lg:pl-0">
+                    <Image
+                      // src={el.image}
+                      src="/Home/AdvertisingNetwork/1.svg"
+                      width={172}
+                      height={172}
+                      alt="advertise_network"
+                      className=""
+                    />
+                  </div>
+                  <div className="lg:basis-11/12">
+                    <h2 className="font-bold capitalize">{el.title}</h2>
+                    <p>{el.program_type}</p>
+                    <div className="flex items-center space-x-8">
+                      <div className="flex ">
+                        <AiFillStar className="text-[#FFAB2D]" />
+                        <AiFillStar className="text-[#FFAB2D]" />
+                        <AiFillStar className="text-[#FFAB2D]" />
+                        <AiFillStar className="text-[#FFAB2D]" />
+                        <AiFillStar className="text-[#FFAB2D]" />
+                      </div>
+                      <div className="flex items-center font-bold">
+                        {/* <p>{el.ratings}</p> */}
+                        <p>4.8</p>
+                        {/* <p>({el.totalReviews}) Reviews</p> */}
+                        <p>117 Reviews</p>
+                      </div>
                     </div>
-                    <div className="flex items-center font-bold">
-                      {/* <p>{el.ratings}</p> */}
-                      <p>4.8</p>
-                      {/* <p>({el.totalReviews}) Reviews</p> */}
-                      <p>117 Reviews</p>
+                    {/* <p className="py-3">{el.description}</p> */}
+                    <p className="py-3">
+                      TopClientOffer Is The leading performance marketing
+                      Company. TCO is one of the worlds best CPA network.
+                    </p>
+                    <div className="flex flex-row font-bold lg:space-x-7">
+                      <p>Comision Type</p>
+                      <p>/ Tracking</p>
+                      <p>/ Monthly</p>
                     </div>
                   </div>
-                  {/* <p className="py-3">{el.description}</p> */}
-                  <p className="py-3">
-                    TopClientOffer Is The leading performance marketing Company.
-                    TCO is one of the worlds best CPA network.
-                  </p>
-                  <div className="flex flex-row font-bold lg:space-x-7">
-                    <p>Comission Type</p>
-                    <p>/ Tracking</p>
-                    <p>/ Monthly</p>
-                  </div>
                 </div>
-              </div>
-              <div className="ml-5 mt-5 lg:ml-0">
-                <Link
-                  href={el.network_url}
-                  className="rounded-lg bg-[#4E93D3] px-4 py-3 font-bold text-white md:mr-12 lg:mr-2">
-                  <button>Join Now</button>
-                </Link>
+                <div className="ml-5 mt-5 lg:ml-0">
+                  <Link
+                    href={el.network_url}
+                    className="rounded-lg bg-[#4E93D3] px-4 py-3 font-bold text-white md:mr-12 lg:mr-2">
+                    <button>Join Now</button>
+                  </Link>
+                </div>
               </div>
             </Link>
           ))}
