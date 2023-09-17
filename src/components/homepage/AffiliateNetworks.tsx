@@ -21,10 +21,8 @@ const AffiliateNetworks = ({ affiliateData }: any) => {
 
         <div>
           {affiliateData?.slice(0, visibleItems).map((el: any, index: any) => (
-            <Link href={`/affiliate-network/${el._id}`} key={index}>
-              <div
-                key={index}
-                className=" flex flex-col justify-between border-b px-1 py-5 md:flex-row lg:px-3">
+            <Link key={el._id} href={`/affiliate-network/${el._id}`}>
+              <div className=" flex flex-col justify-between border-b px-1 py-5 hover:bg-black/10 md:flex-row lg:px-3">
                 <div className="flex flex-col space-x-6 md:basis-11/12 md:flex-row">
                   <div className="pl-5 lg:basis-1/12 lg:pl-0">
                     <Image
@@ -62,24 +60,24 @@ const AffiliateNetworks = ({ affiliateData }: any) => {
                     </p>
                     <div className="flex flex-col space-y-4 lg:flex-row lg:space-x-8  lg:space-y-0">
                       {/* <div className="hidden lg:flex">
-                      {el.tag.slice(0, 3).map((item: any, index: any) => (
-                        <div
-                          key={index}
-                          className="mr-5 flex rounded-lg bg-[#DFDFDF] px-2 ">
-                          <button className="capitalize">{item}</button>
-                        </div>
-                      ))}
-                    </div> */}
+                        {el.tag.slice(0, 3).map((item: any, index: any) => (
+                          <div
+                            key={index}
+                            className="mr-5 flex rounded-lg bg-[#DFDFDF] px-2 ">
+                            <button className="capitalize">{item}</button>
+                          </div>
+                        ))}
+                      </div> */}
                       {/* For mobile  */}
                       {/* <div className="flex lg:hidden">
-                      {el.tag.slice(0, 3).map((item: any, index: any) => (
-                        <div
-                          key={index}
-                          className="mr-1 flex rounded-lg bg-[#DFDFDF] px-2 ">
-                          <button className="capitalize">{item}</button>
-                        </div>
-                      ))}
-                    </div> */}
+                        {el.tag.slice(0, 3).map((item: any, index: any) => (
+                          <div
+                            key={index}
+                            className="mr-1 flex rounded-lg bg-[#DFDFDF] px-2 ">
+                            <button className="capitalize">{item}</button>
+                          </div>
+                        ))}
+                      </div> */}
                       <div
                         key={index}
                         className="mr-5 flex rounded-lg bg-[#DFDFDF] px-2 ">
@@ -90,7 +88,7 @@ const AffiliateNetworks = ({ affiliateData }: any) => {
                         <p>Tracking</p>
                         <p>7/15/30</p>
                         {/* <p>{el.process}</p>
-                      <p>{el.net}</p> */}
+                        <p>{el.net}</p> */}
                       </div>
                     </div>
                   </div>
