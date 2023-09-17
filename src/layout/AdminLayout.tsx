@@ -10,8 +10,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (!token) push('/admin/login');
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [token, push]);
 
   return (
     <>

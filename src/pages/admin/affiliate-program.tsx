@@ -1,4 +1,5 @@
 import { AffiliateDataType } from '@/assets/static-data/dashboard/fakedata';
+import useCustomerData from '@/hooks/useCustomersData';
 import React, { useState } from 'react';
 import { AiOutlineFilter, AiOutlineMail } from 'react-icons/ai';
 import { BiSolidOffer, BiTime } from 'react-icons/bi';
@@ -9,14 +10,18 @@ import { HiOutlineHomeModern } from 'react-icons/hi2';
 import { IoMdContact } from 'react-icons/io';
 import { MdPayments } from 'react-icons/md';
 
-const AffiliateProgramAdmin: React.FC = ({ networkData }: any) => {
-  console.log('firstdsds', networkData);
+const AffiliateProgramAdmin: React.FC = () => {
 
   const [statusDropdownOpen, setStatusDropdownOpen] = useState(false);
   const [selectedStatus, setSelectedStatus] = useState<string | null>(null);
   const [sortBySerialNoAsc, setSortBySerialNoAsc] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(10);
+
+  // Fetch All Data
+  const { data } = useCustomerData(
+    'https://lionfish-app-qfe6m.ondigitalocean.app/v1/admin/affiliate-program'
+  );
 
   // Toggle filter dropdown
   const handleStatusDropdownClick = () => {
@@ -44,13 +49,13 @@ const AffiliateProgramAdmin: React.FC = ({ networkData }: any) => {
 
   // Filter data based on selected status
   const filteredData: AffiliateDataType[] = selectedStatus
-    ? networkData.filter((el: any) => el.status === selectedStatus)
-    : networkData;
+    ? data.filter((el: any) => el.status === selectedStatus)
+    : data;
 
   // Sort filtered data by index
   const sortedData = filteredData.slice().sort((a, b) => {
-    const indexA = networkData.indexOf(a);
-    const indexB = networkData.indexOf(b);
+    const indexA = data.indexOf(a);
+    const indexB = data.indexOf(b);
 
     if (sortBySerialNoAsc) {
       return indexA - indexB;
@@ -109,13 +114,13 @@ const AffiliateProgramAdmin: React.FC = ({ networkData }: any) => {
   const maximumDuration = 30;
 
   // Calculate counts for each status
-  const activeCount = networkData.filter(
+  const activeCount = data.filter(
     (el: any) => el.status === 'Active'
   ).length;
-  const sponsorCount = networkData.filter(
+  const sponsorCount = data.filter(
     (el: any) => el.status === 'Sponsor'
   ).length;
-  const premiumSponsorCount = networkData.filter(
+  const premiumSponsorCount = data.filter(
     (el: any) => el.status === 'Premium Sponsor'
   ).length;
 
@@ -359,37 +364,3 @@ const AffiliateProgramAdmin: React.FC = ({ networkData }: any) => {
 
 export default AffiliateProgramAdmin;
 
-// Fetch Data
-export const getStaticProps = async () => {
-  const authorizationToken =
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTAzMTBiNTNhZDRkZDBlNmEwNmY0ODciLCJpYXQiOjE2OTQ2OTk3Mzl9.X52uXckKKVdMhwjAXwR8oi_mOgAnFG5d254W4Ckvm9k';
-
-  const res = await fetch(
-    'https://lionfish-app-qfe6m.ondigitalocean.app/v1/admin/affiliate-program',
-    {
-      method: 'GET',
-      headers: {
-        Authorization: authorizationToken,
-        'Content-Type': 'application/json',
-      },
-    }
-  );
-
-  if (res.status === 401) {
-    console.error('Unauthorized access. Please check your token.');
-    return {
-      props: {
-        networkData: [],
-      },
-    };
-  }
-
-  const data = await res.json();
-  console.log(data);
-
-  return {
-    props: {
-      networkData: data.offers || [],
-    },
-  };
-};

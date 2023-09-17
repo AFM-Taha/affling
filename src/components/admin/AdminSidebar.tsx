@@ -6,14 +6,10 @@ import { useState } from 'react';
 import { HiMenu } from 'react-icons/hi';
 import AdminMenu from './AdminMenu';
 import { TbLogout2 } from 'react-icons/tb';
-import { destroyCookie } from 'nookies';
+import Cookies from 'js-cookie';
 
 export default function AdminSidebar() {
   const [isOpen, setIsOpen] = useState(false);
-
-  const handleLogOut = () => {
-    destroyCookie(null, 'fromClient');
-  };
 
   return (
     <>
@@ -35,12 +31,15 @@ export default function AdminSidebar() {
           <SidebarCollapsible />
         </div>
         <div className="flex flex-col items-center gap-3">
-          <button
-            onClick={handleLogOut}
+          <Link
+            href={'/admin/login'}
+            onClick={() => {
+              Cookies.remove('userToken');
+            }}
             className="flex w-11/12 items-center justify-center gap-2 rounded-lg bg-red-500 py-1 font-medium text-white hover:bg-red-600">
             <TbLogout2 />
             Log out
-          </button>
+          </Link>
           <Link
             href="/help"
             className="flex items-center justify-center gap-4 text-[#808291]">
