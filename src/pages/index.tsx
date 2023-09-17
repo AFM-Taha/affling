@@ -1,7 +1,7 @@
 import {
   AdvertisingNetworks,
-  AdvertisingPrograms,
   AffiliateNetworks,
+  AffiliatePrograms,
   Banner,
   HomeAds,
   MarketingTools,
@@ -13,6 +13,7 @@ import {
 import Head from 'next/head';
 
 const Home = ({
+  affiliateData,
   programData,
   networkData,
   softwareData,
@@ -38,9 +39,9 @@ const Home = ({
             <HomeAds />
           </div>
           <div className="xl:basis-10/12">
-            <AffiliateNetworks programData={programData} />
+            <AffiliateNetworks affiliateData={affiliateData} />
             <AdvertisingNetworks networkData={networkData} />
-            <AdvertisingPrograms />
+            <AffiliatePrograms programData={programData} />
             <TrackingSoftware softwareData={softwareData} />
             <TopRatedNetworks />
             <MarketingTools marketingSpyData={marketingSpyData} />
@@ -57,18 +58,23 @@ export default Home;
 
 // Fetch Data 
 export const getStaticProps = async () => {
-
-  // Affiliate Program 1 
+  // Affiliate Networks
   const res = await fetch(
-    'https://lionfish-app-qfe6m.ondigitalocean.app/v1/top-it?page=1&limit=10&filter=Affiliate%20Program'
+    'https://lionfish-app-qfe6m.ondigitalocean.app/v1/top-it?page=1&limit=10&filter=Affiliate%20Network'
   );
   const data = await res.json();
 
-  // Advertising Network 2 
+  // Advertising Network 2
   const res2 = await fetch(
     'https://lionfish-app-qfe6m.ondigitalocean.app/v1/top-it?page=1&limit=10&filter=Advertising%20Network'
   );
   const data2 = await res2.json();
+
+  // Affiliate Program 3
+  const res3 = await fetch(
+    'https://lionfish-app-qfe6m.ondigitalocean.app/v1/top-it?page=1&limit=10&filter=Affiliate%20Program'
+  );
+  const data3 = await res3.json();
 
   // Tracking Software 4
   const res4 = await fetch(
@@ -88,15 +94,14 @@ export const getStaticProps = async () => {
   );
   const data7 = await res7.json();
 
-  
-
   return {
     props: {
-      programData: data.offers,
+      affiliateData: data.offers,
       networkData: data2.offers,
+      programData: data3.offers,
       softwareData: data4.offers,
       marketingSpyData: data6.offers,
-      starts: data7.offers ,
+      starts: data7.offers,
     },
   };
 };

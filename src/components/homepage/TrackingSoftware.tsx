@@ -20,9 +20,10 @@ const TrackingSoftware = ({ softwareData }: any) => {
 
         <div>
           {softwareData?.slice(0, visibleItems).map((el: any, index: any) => (
-            <div
+            <Link
               key={index}
-              className=" flex flex-col justify-between border-b px-1 py-5 md:flex-row lg:px-3">
+              href={`/tracking-software/${el._id}`}
+              className=" flex flex-col justify-between border-b px-1 py-5 hover:bg-black/10 md:flex-row lg:px-3">
               <div className="flex flex-col space-x-6 md:basis-11/12 md:flex-row">
                 <div className="pl-5 lg:basis-2/12 lg:pl-0">
                   <Image
@@ -91,7 +92,7 @@ const TrackingSoftware = ({ softwareData }: any) => {
                   <button>Join Now</button>
                 </Link>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

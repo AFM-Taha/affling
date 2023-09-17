@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { AiFillStar } from 'react-icons/ai';
 
-const AffiliateNetworks = ({ programData }: any) => {
+const AffiliateNetworks = ({ affiliateData }: any) => {
   // console.log('programData', programData);
   const [visibleItems, setVisibleItems] = useState(4);
 
@@ -20,7 +20,7 @@ const AffiliateNetworks = ({ programData }: any) => {
         </div>
 
         <div>
-          {programData?.slice(0, visibleItems).map((el: any, index: any) => (
+          {affiliateData?.slice(0, visibleItems).map((el: any, index: any) => (
             <Link key={el._id} href={`/affiliate-network/${el._id}`}>
               <div className=" flex flex-col justify-between border-b px-1 py-5 hover:bg-black/10 md:flex-row lg:px-3">
                 <div className="flex flex-col space-x-6 md:basis-11/12 md:flex-row">
@@ -106,7 +106,7 @@ const AffiliateNetworks = ({ programData }: any) => {
         </div>
       </div>
       <div className="flex items-center justify-center">
-        {visibleItems < programData.length && (
+        {visibleItems < affiliateData?.length && (
           <button
             className="my-3 rounded-lg border-2 border-[Orange] px-3 py-2"
             onClick={handleSeeMoreClick}>
