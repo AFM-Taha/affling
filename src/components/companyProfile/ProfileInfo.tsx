@@ -16,9 +16,7 @@ interface Props {
 }
 
 const ProfileInfo = ({ domain, name, type }: Props) => {
-  // ⚠️ add link href for review
   const { asPath } = useRouter();
-  console.log(asPath.replace('profile', 'review'));
   return (
     <div className="mt-5 font-bold text-[#313131]">
       <h3 className=" text-[26px] text-black">{name}</h3>
