@@ -44,31 +44,25 @@ const AffiliatePrograms = ({ programData }: any) => {
                       <AiFillStar className="text-[#FFAB2D]" />
                       <AiFillStar className="text-[#FFAB2D]" />
                     </div>
-                    <div className="flex items-center font-bold">
-                      {/* <p>{el.ratings}</p> */}
-                      <p>4.8</p>
-                      {/* <p>({el.totalReviews}) Reviews</p> */}
-                      <p>117 Reviews</p>
+                    {/* <p className="py-3">{el.description}</p> */}
+                    <p className="py-3">
+                      TopClientOffer Is The leading performance marketing
+                      Company. TCO is one of the worlds best CPA network.
+                    </p>
+                    <div className="flex flex-row font-bold lg:space-x-7">
+                      <p>Comision Type</p>
+                      <p>/ Tracking</p>
+                      <p>/ Monthly</p>
                     </div>
                   </div>
-                  {/* <p className="py-3">{el.description}</p> */}
-                  <p className="py-3">
-                    TopClientOffer Is The leading performance marketing Company.
-                    TCO is one of the worlds best CPA network.
-                  </p>
-                  <div className="flex flex-row font-bold lg:space-x-7">
-                    <p>Comission Type</p>
-                    <p>/ Tracking</p>
-                    <p>/ Monthly</p>
-                  </div>
                 </div>
-              </div>
-              <div className="ml-5 mt-5 lg:ml-0">
-                <Link
-                  href={el.network_url}
-                  className="rounded-lg bg-[#4E93D3] px-4 py-3 font-bold text-white md:mr-12 lg:mr-2">
-                  <button>Join Now</button>
-                </Link>
+                <div className="ml-5 mt-5 lg:ml-0">
+                  <Link
+                    href={el.network_url}
+                    className="rounded-lg bg-[#4E93D3] px-4 py-3 font-bold text-white md:mr-12 lg:mr-2">
+                    <button>Join Now</button>
+                  </Link>
+                </div>
               </div>
             </Link>
           ))}
