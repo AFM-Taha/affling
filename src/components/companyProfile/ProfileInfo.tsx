@@ -35,7 +35,7 @@ const ProfileInfo = ({ domain, name, type }: Props) => {
       </div>
       <div className="mt-2 flex gap-6 text-white">
         <Link
-          href={`/${asPath.replace('profile', 'review')}`}
+          href={`${asPath.replace('profile', 'review')}`}
           className="flex items-center gap-1 rounded-md bg-[#4E93D3] px-4 py-1 font-normal hover:bg-[#2466a3]">
           <BiSolidStar color="#FFAB2D" />
           Add Review
