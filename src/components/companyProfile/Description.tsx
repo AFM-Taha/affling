@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 
-const Description = ({}) => {
-    const description =
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tortor tincidunt ultrices volutpat lacus. Egestas sit leo pharetra id risus ac mauris neque. Neque a amet, arcu pulvinar eu. Aliquet nibh leo vel diam feugiat. Ullamcorper suspendisse sit accumsan sollicitudin porta mattis. Orci pretium vulputate donec purus nibh odio non et sit.Id sed urna, amet ut egestas id. Id mauris elit integer cras cras a. Tempus, molestie penatibus fermentum egestas purus ornare urna diam. Sit condimentum in leo nulla massa adipiscing faucibus facilisis enim. Neque habitasse sit amet, commodoSagittis curabitur arcu, ac dui in fermentum, at. Dignissim et lobortis egestas tincidunt adipiscing ultrices. Penatibus id mi est vel rutrum sed auctor. Eu erat facilisis eu nisi scelerisque sed";
-  const maxLength = 500; 
+interface Props {
+  text: string;
+}
+
+const Description = ({ text }: Props) => {
+  const maxLength = 500;
 
   const [showFullDescription, setShowFullDescription] = useState(
-    description.length <= maxLength
+    text.length <= maxLength
   );
 
   const toggleDescription = () => {
@@ -14,13 +16,15 @@ const Description = ({}) => {
   };
 
   return (
-    <div className='text-justify text-black text-base font-normal leading-relaxed'>
+    <div className="text-justify text-base font-normal leading-relaxed text-black">
       {showFullDescription ? (
-        <p>{description}</p>
+        <p>{text}</p>
       ) : (
         <>
-          <p className='inline '>{description.slice(0, maxLength)}...</p>
-          <button className='font-bold' onClick={toggleDescription}>See More</button>
+          <p className="inline ">{text.slice(0, maxLength)}...</p>
+          <button className="font-bold" onClick={toggleDescription}>
+            See More
+          </button>
         </>
       )}
     </div>
