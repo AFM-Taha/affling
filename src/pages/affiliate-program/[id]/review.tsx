@@ -1,6 +1,5 @@
 import ImageUploader from '@/components/common/Forms/ImageUploader';
 import RatingStars from '@/components/common/Rating/RatingStars';
-import { AffiliateNetworkReviewFormData } from '@/pages/affiliate-network/[id]/review';
 import Image from 'next/image';
 import { useForm } from 'react-hook-form';
 

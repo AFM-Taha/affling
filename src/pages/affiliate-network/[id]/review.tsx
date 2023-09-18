@@ -23,11 +23,8 @@ export default function Review() {
   };
 
   // Define a function to update the ratings in the form data
-  const handleRatingChange = (
-    name: keyof AffiliateNetworkReviewFormData,
-    rating: number
-  ) => {
-    setValue(name, rating); // Update the rating in the form data
+  const handleRatingChange = (name: string, rating: number) => {
+    setValue(name as keyof AffiliateNetworkReviewFormData, rating); // Update the rating in the form data
   };
 
   return (

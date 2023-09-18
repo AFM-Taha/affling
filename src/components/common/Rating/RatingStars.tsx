@@ -1,13 +1,9 @@
-import { AffiliateNetworkReviewFormData } from '@/pages/affiliate-network/[id]/review';
 import { useState } from 'react';
 import { BiSolidStar } from 'react-icons/bi';
 
 interface Props {
-  onRatingChange: (
-    name: keyof AffiliateNetworkReviewFormData,
-    rating: number
-  ) => void;
-  name: keyof AffiliateNetworkReviewFormData;
+  onRatingChange: (name: string, rating: number) => void;
+  name: string;
 }
 
 const RatingStars = ({ onRatingChange, name }: Props) => {
