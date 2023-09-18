@@ -22,7 +22,7 @@ const TrackingSoftware = ({ softwareData }: any) => {
           {softwareData?.slice(0, visibleItems).map((el: any, index: any) => (
             <Link
               key={index}
-              href={`/tracking-software/${el._id}`}
+              href={`/tracking-software/${el._id}/profile`}
               className=" flex flex-col justify-between border-b px-1 py-5 hover:bg-black/10 md:flex-row lg:px-3">
               <div className="flex flex-col space-x-6 md:basis-11/12 md:flex-row">
                 <div className="pl-5 lg:basis-2/12 lg:pl-0">
