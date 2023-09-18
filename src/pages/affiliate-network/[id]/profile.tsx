@@ -327,7 +327,7 @@ import BigRatingStar from '@/components/common/Rating/BigRatingStar';
 import RatingDistribution from '@/components/common/Rating/RatingDistribution';
 import TableItems from '@/components/companyProfile/TableItems';
 import { HiMail } from 'react-icons/hi';
-import TargetingOptimization from '@/components/companyProfile/TargetingOptimization';
+// import TargetingOptimization from '@/components/companyProfile/TargetingOptimization';
 import ReviewCard from '@/components/companyProfile/ReviewCard';
 import { useRouter } from 'next/router';
 
@@ -419,24 +419,24 @@ function AffiliateNetworkProfile() {
             <div className="">
               <h5 className="mb-8 text-lg font-bold">For Affiliate</h5>
               <div className="max-w-[872px]">
-                <TableItems item="Payment Option" value="$100/$500" />
+                <TableItems
+                  item="Payment Option"
+                  value={data.data.minimum_payment}
+                />
                 <TableItems
                   item="Payment Cycle"
-                  value=" Daily, Weekly, Bi-Weekly, Net-15, Net-30 "
+                  value={data.data.payment_frequency}
                 />
                 <TableItems
                   item="Payment Method"
-                  value=" Paypal, Payoneer, Bitcoin, WebMoney Bank Wire "
+                  value={data.data.payment_method}
                 />
+                <TableItems item="Comission System" value={data.data.tag} />
                 <TableItems
-                  item="Comission System"
-                  value="CPA, CPL, CPI, CPS, ResShare, SmartLink, more"
+                  item="Referral Commission "
+                  value={data.data.referral_commission}
                 />
-                <TableItems item="Referral Commission " value="5%,2%,10%" />
-                <TableItems
-                  item="Tracking Software"
-                  value="Affigate ,HasOffer, OfferLook, Tune,Everflow, OfferIT"
-                />
+                <TableItems item="Tracking Software" value={data.data.tag} />
                 <div className="mb-5 flex items-center gap-x-3 bg-neutral-200 text-sm font-normal leading-relaxed text-black">
                   <p className="w-72">Affiliate Support Managers</p>
                   <div>
