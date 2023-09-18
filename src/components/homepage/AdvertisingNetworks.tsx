@@ -4,8 +4,6 @@ import { AiFillStar } from 'react-icons/ai';
 import { useState } from 'react';
 // import { advertisingNetworksData } from '@/assets/static-data/homepage/advertisingNetworksData';
 
-
-
 const AdvertisingNetworks = ({ networkData }: any) => {
   // console.log('networkData', networkData);
   const [visibleItems, setVisibleItems] = useState(4);
@@ -22,7 +20,7 @@ const AdvertisingNetworks = ({ networkData }: any) => {
 
         <div>
           {networkData?.slice(0, visibleItems).map((el: any, index: any) => (
-            <Link key={index} href={`/advertising-network/${el._id}`}>
+            <Link key={index} href={`/advertising-network/${el._id}/profile`}>
               <div
                 key={index}
                 className=" flex flex-col justify-between border-b px-1 py-5 hover:bg-black/10 md:flex-row lg:px-3">
@@ -109,6 +107,3 @@ const AdvertisingNetworks = ({ networkData }: any) => {
 };
 
 export default AdvertisingNetworks;
-
-
-

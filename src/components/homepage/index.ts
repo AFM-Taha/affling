@@ -1,6 +1,6 @@
 import Banner from './Banner';
 import AdvertisingNetworks from './AdvertisingNetworks';
-import AffiliatePrograms from './AdvertisingPrograms';
+import AffiliatePrograms from './AffiliatePrograms';
 import AffiliateNetworks from './AffiliateNetworks';
 import MarketingTools from './MarketingTools';
 import StarNetworks from './StarNetworks';
