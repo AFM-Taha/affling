@@ -1,9 +1,11 @@
 import ImageUploader from '@/components/common/Forms/ImageUploader';
 import RatingStars from '@/components/common/Rating/RatingStars';
+import useGet from '@/hooks/useGet';
 import usePut from '@/hooks/usePut';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
+import { FetchedAffiliateNetwork } from './profile';
 
 export interface AffiliateNetworkReviewFormData {
   name: string;
@@ -19,6 +21,10 @@ export interface AffiliateNetworkReviewFormData {
 
 export default function Review() {
   const { query } = useRouter();
+
+  const { data: fetchedData } = useGet<FetchedAffiliateNetwork>(
+    `top-it/${query.id}`
+  );
 
   const {
     mutate,
@@ -44,22 +50,12 @@ export default function Review() {
     formData.append('offer', String(data.offer));
     formData.append('affiliate_support', String(data.affiliate_support));
     formData.append('recommend', String(data.recommend));
-    formData.append('image', data.image[0]); // Use data.image[0] because it's an array
+    formData.append('image', data.image[0]);
 
     console.log(formData, 'formData');
 
     mutate(formData);
-    // const response = await axios.put(
-    //   `${baseURL}/top-it/review/${query.id}`,
-    //   formData,
-    //   {
-    //     headers: {
-    //       'Content-Type': 'multipart/form-data', // Important for file uploads
-    //     },
-    //   }
-    // );
 
-    // Handle the API response
     console.log(response);
   };
 
@@ -80,7 +76,7 @@ export default function Review() {
             height={42}
             width={42}
           />
-          <h3 className="text-[26px] font-bold">TopClientOffer</h3>
+          <h3 className="text-[26px] font-bold">{fetchedData?.data.title}</h3>
         </div>
         <div>
           <h3 className="mb-5 text-[26px] font-bold">Overall Rating</h3>
