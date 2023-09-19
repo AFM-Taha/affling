@@ -1,4 +1,4 @@
-import ImageUploader from '@/components/common/Forms/ImageUploader';
+// import ImageUploader from '@/components/common/Forms/ImageUploader';
 import RatingStars from '@/components/common/Rating/RatingStars';
 import useGet from '@/hooks/useGet';
 import usePut from '@/hooks/usePut';
