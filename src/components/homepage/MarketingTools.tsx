@@ -22,18 +22,38 @@ const MarketingTools = ({ marketingSpyData }: any) => {
           {marketingSpyData
             ?.slice(0, visibleItems)
             .map((el: any, index: any) => (
-              <Link key={index} href={`/marketing-spy/${el._id}`}>
-                <div className=" flex flex-col justify-between border-b px-1 py-5 hover:bg-black/10 md:flex-row lg:px-3">
-                  <div className="flex flex-col space-x-6 md:basis-11/12 md:flex-row">
-                    <div className="pl-5 lg:basis-2/12 lg:pl-0">
-                      <Image
-                        // src={el.image}
-                        src="/Home/marketingTools/1.svg"
-                        width={172}
-                        height={172}
-                        alt="marketing-spy tool"
-                        className=""
-                      />
+              <Link
+                key={index}
+                href={`/marketing-spy-tools/${el._id}/profile`}
+                className=" flex flex-col justify-between border-b px-1 py-5 hover:bg-black/10 md:flex-row lg:px-3">
+                <div className="flex flex-col space-x-6 md:basis-11/12 md:flex-row">
+                  <div className="pl-5 lg:basis-2/12 lg:pl-0">
+                    <Image
+                      // src={el.image}
+                      src="/Home/marketingTools/1.svg"
+                      width={172}
+                      height={172}
+                      alt="marketing-spy tool"
+                      className=""
+                    />
+                  </div>
+                  <div className="lg:basis-11/12">
+                    <h2 className="font-bold capitalize">{el.title}</h2>
+                    <p>{el.program_type}</p>
+                    <div className="flex items-center space-x-8">
+                      <div className="flex ">
+                        <AiFillStar className="text-[#FFAB2D]" />
+                        <AiFillStar className="text-[#FFAB2D]" />
+                        <AiFillStar className="text-[#FFAB2D]" />
+                        <AiFillStar className="text-[#FFAB2D]" />
+                        <AiFillStar className="text-[#FFAB2D]" />
+                      </div>
+                      <div className="flex items-center space-x-2 font-bold">
+                        {/* <p>{el.ratings}</p> */}
+                        <p>4.8</p>
+                        {/* <p>({el.totalReviews}) Reviews</p> */}
+                        <p>117 Reviews</p>
+                      </div>
                     </div>
                     <div className="lg:basis-11/12">
                       <h2 className="font-bold capitalize">{el.title}</h2>
