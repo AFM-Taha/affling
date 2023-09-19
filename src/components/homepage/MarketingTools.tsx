@@ -3,10 +3,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { AiFillStar } from 'react-icons/ai';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 const MarketingTools = ({ marketingSpyData }: any) => {
   // console.log('marketingSpyData', marketingSpyData);
   const [visibleItems, setVisibleItems] = useState(4);
+  
+  const router = useRouter();
 
   const handleSeeMoreClick = () => {
     setVisibleItems(visibleItems + 4);
@@ -22,10 +25,12 @@ const MarketingTools = ({ marketingSpyData }: any) => {
           {marketingSpyData
             ?.slice(0, visibleItems)
             .map((el: any, index: any) => (
-              <Link
+              <div
                 key={index}
-                href={`/marketing-spy-tools/${el._id}/profile`}
-                className=" flex flex-col justify-between border-b px-1 py-5 hover:bg-black/10 md:flex-row lg:px-3">
+                onClick={() =>
+                  router.push(`/marketing-spy-tools/${el._id}/profile`)
+                }
+                className=" flex cursor-pointer flex-col justify-between border-b px-1 py-5 hover:bg-black/10 md:flex-row lg:px-3">
                 <div className="flex flex-col space-x-6 md:basis-11/12 md:flex-row">
                   <div className="pl-5 lg:basis-2/12 lg:pl-0">
                     <Image
@@ -113,7 +118,7 @@ const MarketingTools = ({ marketingSpyData }: any) => {
                     </Link>
                   </div>
                 </div>
-              </Link>
+              </div>
             ))}
         </div>
       </div>

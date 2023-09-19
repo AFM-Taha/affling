@@ -1,10 +1,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { AiFillStar } from 'react-icons/ai';
 
 const AffiliatePrograms = ({ programData }: any) => {
   const [visibleItems, setVisibleItems] = useState(4);
+
+  const router = useRouter();
 
   const handleSeeMoreClick = () => {
     setVisibleItems(visibleItems + 4);
@@ -18,10 +21,12 @@ const AffiliatePrograms = ({ programData }: any) => {
 
         <div>
           {programData?.slice(0, visibleItems).map((el: any, index: any) => (
-            <Link
+            <div
               key={index}
-              href={`/affiliate-program/${el._id}/profile`}
-              className=" flex flex-col justify-between border-b px-1 py-5 hover:bg-black/10 md:flex-row lg:px-3">
+              onClick={() =>
+                router.push(`/affiliate-program/${el._id}/profile`)
+              }
+              className=" flex cursor-pointer flex-col justify-between border-b px-1 py-5 hover:bg-black/10 md:flex-row lg:px-3">
               <div className="flex flex-col space-x-6 md:flex-row lg:basis-11/12">
                 <div className="pl-5 lg:basis-2/12 lg:pl-0">
                   <Image
@@ -64,7 +69,7 @@ const AffiliatePrograms = ({ programData }: any) => {
                   </Link>
                 </div>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       </div>

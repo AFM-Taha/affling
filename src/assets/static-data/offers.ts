@@ -1,22 +1,5 @@
-/**
- * Offers and Menu Data Configuration [Fake data]
- *
- * Contents:
- * - SubmenuItem: Defines the structure for a submenu item.
- * - Submenu: Defines the structure for a submenu containing multiple submenu items.
- * - Menu: Defines the structure for a menu containing a name and submenus.
- * - menus: An array of Menu objects, representing different sections of the application.
- * - OffersType: Defines the structure for an offer.
- * - BestInMonthType: Defines the structure for the best offers of the month.
- * - OffersData: An array of OffersType objects, representing different offers.
- * - customAds: An array of custom advertisement objects.
- * - BestInMonthData: An array of BestInMonthType objects representing the best offers of the month.
- *
- * Usage:
- * - Use the defined data structures and arrays to populate different sections of our application.
- */
 
-// Define the data structures for submenu items
+//  submenu items
 export type SubmenuItem = {
   name: string;
   totalProduct: number;
@@ -29,6 +12,7 @@ export type Submenu = SubmenuItem[];
 type Menu = {
   id: number;
   name: string;
+  slug: string;
   submenus: Submenu;
 };
 
@@ -37,22 +21,22 @@ export const menus: Menu[] = [
   {
     id: 121,
     name: 'Networks',
+    slug: 'networks',
     submenus: [
-      { name: '1 Click Wonder', totalProduct: 100 },
-      { name: '1win Partners', totalProduct: 20 },
-      { name: '1xBet Partners', totalProduct: 34 },
-      { name: '1xSlot Partners', totalProduct: 340 },
-      { name: '249 Media', totalProduct: 30 },
-      { name: '360 Affiliates', totalProduct: 500 },
-      { name: '3snet', totalProduct: 5600 },
-      { name: 'A4D', totalProduct: 800 },
+      { name: 'affiliate-network', totalProduct: 100 },
+      { name: 'advertising-network', totalProduct: 20 },
+      { name: 'affiliate-program', totalProduct: 34 },
+      { name: 'tracking-software', totalProduct: 340 },
+      { name: 'marketing-spy-tools', totalProduct: 30 },
     ],
   },
   {
     id: 122,
     name: 'Verticals',
+    slug: 'verticals',
     submenus: [
       { name: 'Mobile', totalProduct: 400 },
+      { name: 'Tv', totalProduct: 300 },
       { name: 'CPL', totalProduct: 500 },
       { name: 'SOI', totalProduct: 600 },
       { name: 'Sweepstake', totalProduct: 3600 },
@@ -65,6 +49,7 @@ export const menus: Menu[] = [
   {
     id: 123,
     name: 'Country',
+    slug: 'country',
     submenus: [
       { name: 'Worldwide', totalProduct: 77800 },
       { name: 'Afghanistan', totalProduct: 800 },
@@ -86,7 +71,7 @@ export type OffersType = {
   title: string;
   tag: string;
   categories: string[];
-  price: number;
+  startup_pricing: number;
   countries: string[];
   vertical: string;
 };
@@ -105,7 +90,7 @@ export const OffersData = [
     title: 'Sweeptakes - Mob/ Web/ Tab',
     tag: 'TopClientOffer',
     categories: ['SOI,DOI', 'SALES'],
-    price: 10,
+    startup_pricing: 10,
     countries: ['US', 'CA', 'UK', 'AU', 'IT', 'DE'],
     vertical: 'Sweeptakes',
   },
@@ -115,7 +100,7 @@ export const OffersData = [
     title: 'Sweeptakes - Mob/ Web/ Tab',
     tag: 'TopClientOffer',
     categories: ['SOI,DOI', 'SALES'],
-    price: 10,
+    startup_pricing: 10,
     countries: ['US', 'CA', 'UK', 'AU', 'IT', 'DE'],
     vertical: 'Sweeptakes',
   },
@@ -125,7 +110,7 @@ export const OffersData = [
     title: 'Sweeptakes - Mob/ Web/ Tab',
     tag: 'TopClientOffer',
     categories: ['SOI,DOI', 'SALES'],
-    price: 10,
+    startup_pricing: 10,
     countries: ['US', 'CA', 'UK', 'AU', 'IT', 'DE'],
     vertical: 'Sweeptakes',
   },
@@ -135,7 +120,7 @@ export const OffersData = [
     title: 'Sweeptakes - Mob/ Web/ Tab',
     tag: 'TopClientOffer',
     categories: ['SOI,DOI', 'SALES'],
-    price: 10,
+    startup_pricing: 10,
     countries: ['US', 'CA', 'UK', 'AU', 'IT', 'DE'],
     vertical: 'Sweeptakes',
   },
@@ -145,7 +130,7 @@ export const OffersData = [
     title: 'Sweeptakes - Mob/ Web/ Tab',
     tag: 'TopClientOffer',
     categories: ['SOI,DOI', 'SALES'],
-    price: 10,
+    startup_pricing: 10,
     countries: ['US', 'CA', 'UK', 'AU', 'IT', 'DE'],
     vertical: 'Sweeptakes',
   },
@@ -155,7 +140,7 @@ export const OffersData = [
     title: 'Sweeptakes - Mob/ Web/ Tab',
     tag: 'TopClientOffer',
     categories: ['SOI,DOI', 'SALES'],
-    price: 10,
+    startup_pricing: 10,
     countries: ['US', 'CA', 'UK', 'AU', 'IT', 'DE'],
     vertical: 'Sweeptakes',
   },
@@ -165,7 +150,7 @@ export const OffersData = [
     title: 'Sweeptakes - Mob/ Web/ Tab',
     tag: 'TopClientOffer',
     categories: ['SOI,DOI', 'SALES'],
-    price: 10,
+    startup_pricing: 10,
     countries: ['US', 'CA', 'UK', 'AU', 'IT', 'DE'],
     vertical: 'Sweeptakes',
   },
@@ -175,7 +160,7 @@ export const OffersData = [
     title: 'Sweeptakes - Mob/ Web/ Tab',
     tag: 'TopClientOffer',
     categories: ['SOI,DOI', 'SALES'],
-    price: 10,
+    startup_pricing: 10,
     countries: ['US', 'CA', 'UK', 'AU', 'IT', 'DE'],
     vertical: 'Sweeptakes',
   },
@@ -185,7 +170,7 @@ export const OffersData = [
     title: 'Sweeptakes - Mob/ Web/ Tab',
     tag: 'TopClientOffer',
     categories: ['SOI,DOI', 'SALES'],
-    price: 10,
+    startup_pricing: 10,
     countries: ['US', 'CA', 'UK', 'AU', 'IT', 'DE'],
     vertical: 'Sweeptakes',
   },
@@ -195,7 +180,7 @@ export const OffersData = [
     title: 'Sweeptakes - Mob/ Web/ Tab',
     tag: 'TopClientOffer',
     categories: ['SOI,DOI', 'SALES'],
-    price: 10,
+    startup_pricing: 10,
     countries: ['US', 'CA', 'UK', 'AU', 'IT', 'DE'],
     vertical: 'Sweeptakes',
   },
@@ -205,7 +190,7 @@ export const OffersData = [
     title: 'Sweeptakes - Mob/ Web/ Tab',
     tag: 'TopClientOffer',
     categories: ['SOI,DOI', 'SALES'],
-    price: 10,
+    startup_pricing: 10,
     countries: ['US', 'CA', 'UK', 'AU', 'IT', 'DE'],
     vertical: 'Sweeptakes',
   },
@@ -215,7 +200,7 @@ export const OffersData = [
     title: 'Sweeptakes - Mob/ Web/ Tab',
     tag: 'TopClientOffer',
     categories: ['SOI,DOI', 'SALES'],
-    price: 10,
+    startup_pricing: 10,
     countries: ['US', 'CA', 'UK', 'AU', 'IT', 'DE'],
     vertical: 'Sweeptakes',
   },
@@ -225,7 +210,7 @@ export const OffersData = [
     title: 'Sweeptakes - Mob/ Web/ Tab',
     tag: 'TopClientOffer',
     categories: ['SOI,DOI', 'SALES'],
-    price: 10,
+    startup_pricing: 10,
     countries: ['US', 'CA', 'UK', 'AU', 'IT', 'DE'],
     vertical: 'Sweeptakes',
   },
@@ -235,7 +220,7 @@ export const OffersData = [
     title: 'Sweeptakes - Mob/ Web/ Tab',
     tag: 'TopClientOffer',
     categories: ['SOI,DOI', 'SALES'],
-    price: 10,
+    startup_pricing: 10,
     countries: ['US', 'CA', 'UK', 'AU', 'IT', 'DE'],
     vertical: 'Sweeptakes',
   },
@@ -245,7 +230,7 @@ export const OffersData = [
     title: 'Sweeptakes - Mob/ Web/ Tab',
     tag: 'TopClientOffer',
     categories: ['SOI,DOI', 'SALES'],
-    price: 10,
+    startup_pricing: 10,
     countries: ['US', 'CA', 'UK', 'AU', 'IT', 'DE'],
     vertical: 'Sweeptakes',
   },
@@ -255,7 +240,7 @@ export const OffersData = [
     title: 'Sweeptakes - Mob/ Web/ Tab',
     tag: 'TopClientOffer',
     categories: ['SOI,DOI', 'SALES'],
-    price: 10,
+    startup_pricing: 10,
     countries: ['US', 'CA', 'UK', 'AU', 'IT', 'DE'],
     vertical: 'Sweeptakes',
   },
@@ -265,7 +250,7 @@ export const OffersData = [
     title: 'Sweeptakes - Mob/ Web/ Tab',
     tag: 'TopClientOffer',
     categories: ['SOI,DOI', 'SALES'],
-    price: 10,
+    startup_pricing: 10,
     countries: ['US', 'CA', 'UK', 'AU', 'IT', 'DE'],
     vertical: 'Sweeptakes',
   },
@@ -275,7 +260,7 @@ export const OffersData = [
     title: 'Sweeptakes - Mob/ Web/ Tab',
     tag: 'TopClientOffer',
     categories: ['SOI,DOI', 'SALES'],
-    price: 10,
+    startup_pricing: 10,
     countries: ['US', 'CA', 'UK', 'AU', 'IT', 'DE'],
     vertical: 'Sweeptakes',
   },
@@ -285,7 +270,7 @@ export const OffersData = [
     title: 'Sweeptakes - Mob/ Web/ Tab',
     tag: 'TopClientOffer',
     categories: ['SOI,DOI', 'SALES'],
-    price: 10,
+    startup_pricing: 10,
     countries: ['US', 'CA', 'UK', 'AU', 'IT', 'DE'],
     vertical: 'Sweeptakes',
   },
@@ -295,7 +280,7 @@ export const OffersData = [
     title: 'Sweeptakes - Mob/ Web/ Tab',
     tag: 'TopClientOffer',
     categories: ['SOI,DOI', 'SALES'],
-    price: 10,
+    startup_pricing: 10,
     countries: ['US', 'CA', 'UK', 'AU', 'IT', 'DE'],
     vertical: 'Sweeptakes',
   },
@@ -305,7 +290,7 @@ export const OffersData = [
     title: 'Sweeptakes - Mob/ Web/ Tab',
     tag: 'TopClientOffer',
     categories: ['SOI,DOI', 'SALES'],
-    price: 10,
+    startup_pricing: 10,
     countries: ['US', 'CA', 'UK', 'AU', 'IT', 'DE'],
     vertical: 'Sweeptakes',
   },
@@ -315,7 +300,7 @@ export const OffersData = [
     title: 'Sweeptakes - Mob/ Web/ Tab',
     tag: 'TopClientOffer',
     categories: ['SOI,DOI', 'SALES'],
-    price: 10,
+    startup_pricing: 10,
     countries: ['US', 'CA', 'UK', 'AU', 'IT', 'DE'],
     vertical: 'Sweeptakes',
   },

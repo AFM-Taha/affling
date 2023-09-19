@@ -2,11 +2,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { AiFillStar } from 'react-icons/ai';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 // import { advertisingNetworksData } from '@/assets/static-data/homepage/advertisingNetworksData';
 
 const AdvertisingNetworks = ({ networkData }: any) => {
   // console.log('networkData', networkData);
   const [visibleItems, setVisibleItems] = useState(4);
+  const router = useRouter();
 
   const handleSeeMoreClick = () => {
     setVisibleItems(visibleItems + 4);
@@ -20,9 +22,13 @@ const AdvertisingNetworks = ({ networkData }: any) => {
 
         <div>
           {networkData?.slice(0, visibleItems).map((el: any, index: any) => (
-            <Link key={index} href={`/advertising-network/${el._id}/profile`}>
+            <div
+              key={index}
+              onClick={() =>
+                router.push(`/advertising-network/${el._id}/profile`)
+              }
+              className="cursor-pointer">
               <div
-                key={index}
                 className=" flex flex-col justify-between border-b px-1 py-5 hover:bg-black/10 md:flex-row lg:px-3">
                 <div className="flex flex-col space-x-6 md:flex-row lg:basis-11/12">
                   <div className="pl-5 lg:basis-2/12 lg:pl-0">
@@ -89,7 +95,7 @@ const AdvertisingNetworks = ({ networkData }: any) => {
                   </Link>
                 </div>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       </div>

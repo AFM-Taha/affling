@@ -62,7 +62,7 @@ const OfferDetails = ({}) => {
                       </td>
                       {/* Offer price */}
                       <td className="text-center text-lg font-bold lg:text-base">
-                        ${offer.price}
+                        ${offer.startup_pricing}
                       </td>
                       {/* Offer countries */}
                       <td className="pl-5 text-center lg:pl-0">

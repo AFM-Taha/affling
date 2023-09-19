@@ -1,12 +1,15 @@
 // import { AffiliateNetworksData } from '@/assets/static-data/homepage/affiliateNetworksData';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { AiFillStar } from 'react-icons/ai';
 
 const AffiliateNetworks = ({ affiliateData }: any) => {
   // console.log('programData', programData);
   const [visibleItems, setVisibleItems] = useState(4);
+  
+  const router = useRouter();
 
   const handleSeeMoreClick = () => {
     setVisibleItems(visibleItems + 4);
@@ -21,7 +24,11 @@ const AffiliateNetworks = ({ affiliateData }: any) => {
 
         <div>
           {affiliateData?.slice(0, visibleItems).map((el: any, index: any) => (
-            <Link key={el._id} href={`/affiliate-network/${el._id}/profile`}>
+            <div
+              key={el._id}
+              onClick={() =>
+                router.push(`/affiliate-network/${el._id}/profile`)
+              } className='cursor-pointer'>
               <div className=" flex flex-col justify-between border-b px-1 py-5 hover:bg-black/10 md:flex-row lg:px-3">
                 <div className="flex flex-col space-x-6 md:basis-11/12 md:flex-row">
                   <div className="pl-5 lg:basis-1/12 lg:pl-0">
@@ -101,7 +108,7 @@ const AffiliateNetworks = ({ affiliateData }: any) => {
                   </Link>
                 </div>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       </div>
