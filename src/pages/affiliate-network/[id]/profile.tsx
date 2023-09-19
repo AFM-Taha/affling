@@ -332,7 +332,7 @@ import ReviewCard from '@/components/companyProfile/ReviewCard';
 import { useRouter } from 'next/router';
 import Spinner from '@/components/ui/spinner';
 
-interface FetchedAffiliateNetwork {
+export interface FetchedAffiliateNetwork {
   success: boolean;
   data: Data;
 }
