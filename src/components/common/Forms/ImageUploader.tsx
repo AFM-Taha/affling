@@ -1,9 +1,19 @@
 import Image from 'next/image';
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
+// import { useState } from 'react';
+import { UseFormRegister } from 'react-hook-form';
 import { IoCloudUpload } from 'react-icons/io5';
 
-export default function ImageUploader() {
+interface Props {
+  register: UseFormRegister<any>;
+}
+
+export default function ImageUploader({ register }: Props) {
   const [image, setImage] = useState('');
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) setImage(URL.createObjectURL(e.target.files[0]));
+  };
 
   return (
     <>
@@ -16,10 +26,12 @@ export default function ImageUploader() {
         htmlFor="image-input"
         className="inline-block cursor-pointer rounded-xl border border-black px-3 py-1 text-xl">
         <input
-          onChange={(e) => {
-            if (e.target.files)
-              setImage(URL.createObjectURL(e.target.files[0]));
-          }}
+          {...register('image', {
+            required: 'Image is required',
+            onChange(event) {
+              handleChange(event);
+            },
+          })}
           className="hidden bg-black text-white"
           type="file"
           id="image-input"
