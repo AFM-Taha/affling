@@ -1,5 +1,12 @@
+interface Menu2Props {
+  onFetchAllData: () => void; 
+}
 
-const Menu2 = () => {
+const Menu2: React.FC<Menu2Props> = ({ onFetchAllData }) => {
+  const handleFetchAllData = () => {
+    onFetchAllData();
+  };
+
   return (
     <div className="overflow-x-auto">
       <div className="flex items-center space-x-5 px-5 lg:px-24">
@@ -20,7 +27,10 @@ const Menu2 = () => {
           TopOffers
         </h4>
         <div className="flex space-x-2.5 ">
-          <button className="rounded-[10px] bg-[#4E93D3] px-5 py-[5px] font-bold text-white">
+          {/* Fetch all data  */}
+          <button
+            className="rounded-[10px] bg-[#4E93D3] px-5 py-[5px] font-bold text-white"
+            onClick={handleFetchAllData}>
             All
           </button>
           <button className="rounded-[10px] bg-[#C6C6C6] px-5 py-[5px]">
@@ -63,6 +73,6 @@ const Menu2 = () => {
       </div>
     </div>
   );
-}
+};
 
-export default Menu2
+export default Menu2;

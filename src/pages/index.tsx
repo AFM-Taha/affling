@@ -20,7 +20,7 @@ const Home = ({
   marketingSpyData,
   starts,
 }: any) => {
-  console.log(starts, 'starts');
+  // console.log(starts, 'starts');
   return (
     <div>
       <Head>
