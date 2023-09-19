@@ -29,6 +29,7 @@ export interface Data {
     | 'Affiliate Program'
     | 'Advertising Network'
     | 'Affiliate Network';
+  network_name: string;
   network_url: string;
   social_page: string;
   network_description: string;
@@ -39,16 +40,18 @@ export interface Data {
   question_aria: string;
   tag: string;
   targeting_optimization: any[];
-  publishers_contact: any[];
-  features: string;
-  unlimited_offers: string;
-  setup_fees: string;
-  startup_pricing: number;
+  publishers_contact: PublishersContact[];
   affiliate_advertiser_contacts: any[];
   createdAt: string;
   updatedAt: string;
   __v: number;
   reviews: any[];
+}
+
+export interface PublishersContact {
+  name: string;
+  contact: string;
+  _id: string;
 }
 
 function AffiliateProgramProfile() {
@@ -96,7 +99,7 @@ function AffiliateProgramProfile() {
           <div className="">
             <h5 className="mb-8 text-lg font-bold">Spy Tools Information</h5>
             <div className="max-w-[872px]">
-              <TableItems item="Pricing" value={data.data.startup_pricing} />
+              <TableItems item="Pricing" value={data.data.minimum_payment} />
               <TableItems
                 item="Subscription Plan"
                 value={data.data.payment_frequency}
@@ -105,7 +108,7 @@ function AffiliateProgramProfile() {
                 item="Payment Method"
                 value={data.data.payment_method}
               />
-              <TableItems item="Categories" value={data.data.features} />
+              <TableItems item="Categories" value={data.data.tag} />
               <TableItems
                 item="Referral Commission "
                 value={data.data.referral_commission}
