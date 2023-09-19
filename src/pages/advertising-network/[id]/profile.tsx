@@ -11,6 +11,7 @@ import { HiMail } from 'react-icons/hi';
 import TargetingOptimization from '@/components/companyProfile/TargetingOptimization';
 import ReviewCard from '@/components/companyProfile/ReviewCard';
 import { useRouter } from 'next/router';
+import Spinner from '@/components/ui/spinner';
 
 export interface FetchedAdvertisingNetwork {
   success: boolean;
@@ -82,8 +83,7 @@ function AdvertisingNetworkProfile() {
 
   console.log(data);
 
-  if (isLoading)
-    return <p className="text-center text-3xl font-bold">Loading...</p>;
+  if (isLoading) return <Spinner />;
 
   if (isError)
     return <p className="text-center text-3xl text-red-500">{error.message}</p>;
