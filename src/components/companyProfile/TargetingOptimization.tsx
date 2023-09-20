@@ -2,15 +2,12 @@ import React from 'react';
 import { targetingOptimization } from '@/assets/static-data/inputFormText';
 import { BsFillCheckCircleFill, BsXCircleFill } from 'react-icons/bs';
 
-const TargetingOptimization = () => {
-  const targeting_optimization = [
-    'Self-serve Platform',
-    'Language Targeting',
-    'Device Targeting',
-    'Category Targeting',
-    'Demographic targeting',
-    'Interest targeting',
-  ];
+interface Props {
+  targets: any[];
+}
+
+const TargetingOptimization = ({ targets }: Props) => {
+  const targeting_optimization = targets;
 
   // Update the isSelected property based on targeting_optimization
   const updatedTargetingOptimization = targetingOptimization.map((item) => ({
